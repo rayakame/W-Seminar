@@ -7,3 +7,6 @@ dependencies = [
     "matplotlib>=3.10.7",
     "scipy>=1.16.3",
 ]
+
+[tool.uv.scripts]
+planck = "echo test"

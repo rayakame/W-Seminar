@@ -1,0 +1,32 @@
+# LaTeX temporäre Dateien
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+
+# Backup-Dateien
+*~
+*.backup
+*.bak
+
+# System-Dateien
+.DS_Store
+Thumbs.db
+
+# Editor-Dateien
+.vscode/
+*.swp
+*.swo
+
+# Nur das finale PDF behalten (optional)
+# *.pdf
+# !main.pdf
