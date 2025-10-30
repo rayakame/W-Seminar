@@ -9,6 +9,8 @@
 
 % Layout & Formatierung
 \usepackage{setspace}                % Zeilenabstand
+
+
 \usepackage{parskip}                 % Absatzformatierung
 \usepackage{fancyhdr}                % Kopf- und Fußzeilen
 
@@ -46,6 +48,7 @@
 % ===== EINSTELLUNGEN =====
 \onehalfspacing                      % 1,5-facher Zeilenabstand
 \setlength{\parindent}{0pt}          % Keine Einrückung
+\pagenumbering{arabic}
 
 % Kopf- und Fußzeilen
 \pagestyle{fancy}
@@ -58,12 +61,11 @@
 \begin{document}
 
 % Vorgegebenes Deckblatt einbinden
-\includepdf[pages=1]{deckblatt.pdf}
+\includepdf[pages={1,2,3}]{assets/deckblatt.pdf}
 
-% Römische Seitenzahlen für Verzeichnisse
-\pagenumbering{roman}
 
 % Inhaltsverzeichnis
+\setcounter{page}{2}
 \tableofcontents
 \newpage
 
@@ -76,85 +78,55 @@
 % \newpage
 
 % Arabische Seitenzahlen für Hauptteil
-\pagenumbering{arabic}
 
 % ===== HAUPTTEIL =====
 
 \section{Einleitung}
-Hier kommt deine Einleitung...
 
-\subsection{Motivation}
-Warum ist das Thema relevant?
+\section{Physikalische Grundlagen der Wärmestrahlung}
 
-\subsection{Zielsetzung}
-Was möchtest du erreichen?
+\subsection{Strahlungsgesetze}
 
-\subsection{Aufbau der Arbeit}
-Die Arbeit ist wie folgt strukturiert: ...
+\subsubsection{Das Plancksche Strahlungsgesetz}
+Die spektrale Energiedichteverteilung der Hohlraumstrahlung wird durch das Plancksche Strahlungsgesetz beschrieben.
+Die spektrale spezifische Ausstrahlung $B_f(T)$ eines schwarzen Körpers als Funktion der Frequenz $f$ und der Temperatur $T$
+lautet nach Plank (1900) \cite{plancknormalspektrum}\cite{plancknormalspektrumtheorie}:
 
-
-\section{Grundlagen}
-Theoretischer Hintergrund...
-
-\subsection{Begriffsdefinitionen}
-Wichtige Begriffe erklären...
-
-\subsection{Stand der Forschung}
-Was wurde bereits erforscht? \cite{beispielquelle}
+\begin{equation}
+  \label{Spektrale Strahldichte als Funktion der Wellenlänge}
+    B_f(T) = \frac{2hf^3}{{c_0}^2} \cdot \frac{1}{e^{hf/kT}-1} \quad \text{\cite{lmuplanck}}
+\end{equation}
 
 
-\section{Hauptteil}
-Dein Kerninhalt...
+Alternativ kann die spektrale Strahldichte als Funktion der Wellenlänge $\lambda$ formuliert werden:
+\begin{equation}
+  \label{Spektrale Strahldichte als Funktion der Wellenlänge}
+    B_{\lambda}(T) = \frac{2h{c_0}^2}{\lambda^5}\cdot \frac{1}{e^{hc_0/\lambda kT}-1} \quad \text{\cite{lmuplanck}}
+\end{equation}
 
-\subsection{Methodik}
-Wie bist du vorgegangen?
-
-\subsection{Ergebnisse}
-Was hast du herausgefunden?
-
-% Beispiel: Bild einfügen
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/beispiel.png}
-    \caption{Beschreibung des Bildes}
-    \label{fig:beispiel}
-\end{figure}
-
-Wie in Abbildung \ref{fig:beispiel} zu sehen ist...
-
-% Beispiel: Tabelle
-\begin{table}[H]
-    \centering
-    \begin{tabularx}{0.8\textwidth}{l X}
-        \toprule
-        \textbf{Begriff} & \textbf{Beschreibung} \\
-        \midrule
-        Test 1 & Beschreibung 1 \\
-        Test 2 & Beschreibung 2 \\
-        \bottomrule
-    \end{tabularx}
-    \caption{Beispieltabelle}
-    \label{tab:beispiel}
-\end{table}
+Hierbei bezeichnet $h = $
 
 
-\section{Diskussion}
-Interpretation der Ergebnisse...
+\subsection{Anwendung auf das System Sonne-Erde}
 
+\section{Molekülphysik des CO\textsubscript{2}}
 
-\section{Fazit und Ausblick}
-Zusammenfassung der wichtigsten Erkenntnisse...
+\subsection{Molekülstruktur und Schwingungsmoden}
 
-\subsection{Zusammenfassung}
-Die wesentlichen Punkte...
+\subsection{Quantenmechanische Grundlagen der Absorption}
 
-\subsection{Ausblick}
-Mögliche zukünftige Forschung...
+\subsection{Das CO\textsubscript{2}-Absorptionsspektrum}
 
+\section{Der Treibhauseffekt}
+
+\subsection{Strahlungsbilanz der Erde ohne Atmosphäre}
 
 % ===== LITERATURVERZEICHNIS =====
 \newpage
-\printbibliography[title={Literaturverzeichnis}]
+\section{Anhang}
+
+\subsection{Literaturverzeichnis}
+\printbibliography[heading=none]
 
 % ===== ANHANG (optional) =====
 % \newpage
