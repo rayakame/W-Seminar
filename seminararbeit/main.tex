@@ -29,6 +29,7 @@
 % Mathematik (falls benötigt)
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{siunitx}
 
 % Links & Verweise
 \usepackage{hyperref}                % Klickbare Links
@@ -77,8 +78,6 @@
 % \listoftables
 % \newpage
 
-% Arabische Seitenzahlen für Hauptteil
-
 % ===== HAUPTTEIL =====
 
 \section{Einleitung}
@@ -104,7 +103,11 @@ Alternativ kann die spektrale Strahldichte als Funktion der Wellenlänge $\lambd
     B_{\lambda}(T) = \frac{2h{c_0}^2}{\lambda^5}\cdot \frac{1}{e^{hc_0/\lambda kT}-1} \quad \text{\cite{lmuplanck}}
 \end{equation}
 
-Hierbei bezeichnet $h = $
+Hierbei bezeichnet $h = \SI{6.626e-34}{\joule\second}$ das Plancksche Wirkungsquantum, $c = \SI{2.998e+8}{\meter\per\second}$
+die Vakuumlichtgeschwindigkeit und $k = \SI{1.381}{\joule\per\kelvin}$ die Boltzmann-Konstante \cite{codata2018}
+
+\subsubsection{Das Stefan-Boltzmann Gesetz}
+Eine Ober
 
 
 \subsection{Anwendung auf das System Sonne-Erde}
