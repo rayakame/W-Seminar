@@ -85,26 +85,42 @@
 \section{Physikalische Grundlagen der Wärmestrahlung}
 
 \subsection{Strahlungsgesetze}
+Jedes Medium emittiert elektromagnetische Strahlung zufällig in alle Richtungen. 
+Die Intensität dieser Emission hängt sowohl von der Temperatur als auch von den Materialeigenschaften des Mediums ab. 
+Der von einer Oberfläche abgegebene Strahlungswärmestrom wird als \textit{spezifische Ausstrahlung} bezeichnet.
+
+Dabei wird zwischen der \textit{gesamten spezifischen Ausstrahlung} $E$ und der \textit{spektralen spezifischen Ausstrahlung} $E_f$ unterschieden:
+\begin{align*}
+E_f &\equiv \text{abgestrahlte Energie pro Zeit, Oberfläche und Frequenz.} \\
+E &\equiv \text{abgestrahlte Energie pro Zeit und Oberfläche.}
+\end{align*}
+\cite[S.~6--7]{radiativeHeatTransfer}
+
 
 \subsubsection{Das Plancksche Strahlungsgesetz}
-Die spektrale Energiedichteverteilung der Hohlraumstrahlung wird durch das Plancksche Strahlungsgesetz beschrieben.
-Die spektrale spezifische Ausstrahlung $B_f(T)$ eines schwarzen Körpers als Funktion der Frequenz $f$ und der Temperatur $T$
-lautet nach Plank (1900) \cite{plancknormalspektrum}\cite{plancknormalspektrumtheorie}:
+
+Die spektrale spezifische Ausstrahlung eines ideal schwarzen Körpers wird durch das Plancksche Strahlungsgesetz beschrieben. 
+Es gibt an, wie viel Energie pro Zeit, Fläche und Frequenzintervall von einer ideal schwarzen Oberfläche bei einer bestimmten Temperatur $T$ emittiert wird. 
+Dieses Gesetz wurde 1900 von Max Planck \cite{plancknormalspektrum}\cite{plancknormalspektrumtheorie} hergeleitet und ist heute als \textit{Plancksches Strahlungsgesetz} bekannt. 
+Für eine schwarze Oberfläche, die an ein transparentes Medium mit dem Brechungsindex $n$ grenzt, ergibt sich die spektrale spezifische Ausstrahlung\cite[S.7]{radiativeHeatTransfer} zu:
 
 \begin{equation}
-  \label{Spektrale Strahldichte als Funktion der Wellenlänge}
-    B_f(T) = \frac{2hf^3}{{c_0}^2} \cdot \frac{1}{e^{hf/kT}-1} \quad \text{\cite{lmuplanck}}
+  \label{Plancksche Ausstrahlung Frequenz}
+  E_f(T) = \frac{2\pi h f^3 n^2}{c_0^2} \cdot \frac{1}{e^{hf/kT}-1} 
+  \quad \text{\cite[S.8]{radiativeHeatTransfer}}
 \end{equation}
 
+Angenommen das $n$ über den Wellenlängenbereich konstant ist, lässt sich das Plancksche Strahlungsgesetz auch in Abhängigkeit von der Wellenlänge $\lambda$ formulieren:
 
-Alternativ kann die spektrale Strahldichte als Funktion der Wellenlänge $\lambda$ formuliert werden:
 \begin{equation}
-  \label{Spektrale Strahldichte als Funktion der Wellenlänge}
-    B_{\lambda}(T) = \frac{2h{c_0}^2}{\lambda^5}\cdot \frac{1}{e^{hc_0/\lambda kT}-1} \quad \text{\cite{lmuplanck}}
+  \label{Plancksche Ausstrahlung Wellenlänge}
+  E_{\lambda}(T) = \frac{2\pi h c_0^2}{n^2\lambda^5} \cdot \frac{1}{e^{hc_0/\lambda kT}-1}
+  \quad (n = \text{const}) \quad \text{\cite[S.9]{radiativeHeatTransfer}}
 \end{equation}
 
-Hierbei bezeichnet $h = \SI{6.626e-34}{\joule\second}$ das Plancksche Wirkungsquantum, $c = \SI{2.998e+8}{\meter\per\second}$
-die Vakuumlichtgeschwindigkeit und $k = \SI{1.381}{\joule\per\kelvin}$ die Boltzmann-Konstante \cite{codata2018}
+Dabei bezeichnet $h = \SI{6.626e-34}{\joule\second}$ das Plancksche Wirkungsquantum, 
+$c_0 = \SI{2.998e8}{\meter\per\second}$ die Lichtgeschwindigkeit im Vakuum 
+und $k = \SI{1.381e-23}{\joule\per\kelvin}$ die Boltzmann-Konstante \cite{codata2018}.
 
 \subsubsection{Das Stefan-Boltzmann Gesetz}
 Eine Ober
