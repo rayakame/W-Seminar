@@ -99,14 +99,14 @@ E &\equiv \text{abgestrahlte Energie pro Zeit und Oberfläche.}
 
 \subsubsection{Das Plancksche Strahlungsgesetz}
 
-Die spektrale spezifische Ausstrahlung eines ideal schwarzen Körpers wird durch das Plancksche Strahlungsgesetz beschrieben. 
+Die spektrale spezifische Ausstrahlung eines ideal schwarzen Körpers $E_b$ wird durch das Plancksche Strahlungsgesetz beschrieben. 
 Es gibt an, wie viel Energie pro Zeit, Fläche und Frequenzintervall von einer ideal schwarzen Oberfläche bei einer bestimmten Temperatur $T$ emittiert wird. 
-Dieses Gesetz wurde 1900 von Max Planck \cite{plancknormalspektrum}\cite{plancknormalspektrumtheorie} hergeleitet und ist heute als \textit{Plancksches Strahlungsgesetz} bekannt. 
+Dieses Gesetz wurde 1900 von Max Planck \cite{plancknormalspektrum} hergeleitet und ist heute als \textit{Plancksches Strahlungsgesetz} bekannt. 
 Für eine schwarze Oberfläche, die an ein transparentes Medium mit dem Brechungsindex $n$ grenzt, ergibt sich die spektrale spezifische Ausstrahlung\cite[S.7]{radiativeHeatTransfer} zu:
 
 \begin{equation}
   \label{Plancksche Ausstrahlung Frequenz}
-  E_f(T) = \frac{2\pi h f^3 n^2}{c_0^2} \cdot \frac{1}{e^{hf/kT}-1} 
+  E_{bf}(T) = \frac{2\pi h f^3 n^2}{c_0^2} \cdot \frac{1}{e^{hf/kT}-1} 
   \quad \text{\cite[S.8]{radiativeHeatTransfer}}
 \end{equation}
 
@@ -114,7 +114,7 @@ Angenommen das $n$ über den Wellenlängenbereich konstant ist, lässt sich das 
 
 \begin{equation}
   \label{Plancksche Ausstrahlung Wellenlänge}
-  E_{\lambda}(T) = \frac{2\pi h c_0^2}{n^2\lambda^5} \cdot \frac{1}{e^{hc_0/\lambda kT}-1}
+  E_{b\lambda}(T) = \frac{2\pi h c_0^2}{n^2\lambda^5} \cdot \frac{1}{e^{hc_0/\lambda kT}-1}
   \quad (n = \text{const}) \quad \text{\cite[S.9]{radiativeHeatTransfer}}
 \end{equation}
 
@@ -123,7 +123,33 @@ $c_0 = \SI{2.998e8}{\meter\per\second}$ die Lichtgeschwindigkeit im Vakuum
 und $k = \SI{1.381e-23}{\joule\per\kelvin}$ die Boltzmann-Konstante \cite{codata2018}.
 
 \subsubsection{Das Stefan-Boltzmann Gesetz}
-Eine Ober
+Die Integration der spektralen spezifischen Ausstrahlung über das gesamte elektromagnetische Spektrum liefert
+die \textit{Gesamtausstrahlung} $E$:
+\begin{equation}
+  E = \int_{0}^{\infty}E_f \, df
+\end{equation}
+
+Die Lösung dieses Integrals liefert uns das \textit{Stefan-Boltzmann Gesetz}:
+\begin{equation}
+  E(T) = \frac{2\pi^2k^4}{15c_0^2h^3}T^4 = \sigma T^4
+\end{equation}
+\cite{stefanBoltzmannLaw}
+
+Dabei bezeichnet $\sigma = \SI{5.670e-8}{\watt\per\meter\squared\per\kelvin\tothe{4}}$  die Stefan-Boltzmann Konstante \cite{codata2018}.
+
+\subsubsection{Wiensches Verschiebungsgesetz}
+Üblicherweise werden folgende Abkürzungen bei dem Plancksche'n Verschiebungsgesetz \eqref{Plancksche Ausstrahlung Wellenlänge} eingeführt:
+\begin{align}
+  C_1 &= 2\pi h c_0^2 = \SI{3.7418}{\watt\meter\squared} \\
+  C_2 &= \frac{hc_0}{k} = \SI{14.388}{\micro\meter\kelvin} = \SI{1.4388}{\centi\meter\kelvin}
+\end{align}
+
+so dass die Formel \eqref{Plancksche Ausstrahlung Wellenlänge} umgestellt werden kann zu:
+
+\begin{equation}
+  \frac{E_{b\lambda}}{n^3T^^5} = \frac{C_1}{(n\lambda T)^5[e^{C_2/(n\lambda T)}-1]} \quad (n = const)
+\end{equation}
+
 
 
 \subsection{Anwendung auf das System Sonne-Erde}
