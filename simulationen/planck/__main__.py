@@ -1,17 +1,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from simulationen.formeln import plancks_law, wien_max_wavelength
+from simulationen.formeln import plancks_law, wiens_displacement_law
 
 
 
 TEMPERATURE_EARTH = 288.0 # Kelvin
-TEMPERATURE_SUN = 5700 # Kelvin
+TEMPERATURE_SUN = 5777 # Kelvin
 
 def main():
 
-    max_wavelength_sun = wien_max_wavelength(TEMPERATURE_SUN)  # in Metern
-    max_wavelength_earth = wien_max_wavelength(TEMPERATURE_EARTH)  # in Metern
+    max_wavelength_sun = wiens_displacement_law(TEMPERATURE_SUN)  # in Metern
+    max_wavelength_earth = wiens_displacement_law(TEMPERATURE_EARTH)  # in Metern
+    print(max_wavelength_sun, max_wavelength_earth)
 
     wavelengths = np.linspace(1e-7, 100e-6, 20000)
     # anything under 1e-7 will just be shown as 0 because its to small and causes an overflow error.
@@ -21,7 +22,7 @@ def main():
     # without having an overflow error as described above
     for wavelength in wavelengths:
         spectral_radiance_sun.append(plancks_law(wavelength, TEMPERATURE_SUN))
-        spectral_radiance_earth.append(plancks_law(wavelength, TEMPERATURE_EARTH))
+        spectral_radiance_earth.append(plancks_law( wavelength, TEMPERATURE_EARTH))
 
     wavelengths = np.insert(wavelengths, 0, 0.0)
     # we put 0.0 as the first value here so that in our data there will always be a point P(0 | 0)
@@ -38,12 +39,12 @@ def main():
 
     # Sonne
     ax1.plot(wavelengths * 1e6, spectral_radiance_sun, linewidth=2.0, color='tab:orange', label=f'Sonne ({TEMPERATURE_SUN} K)')
-    ax1.set_xlabel('Wellenlänge (μm)', fontsize=12)
-    ax1.set_ylabel('Spektrale Strahldichte in W/(m²·sr·m)', fontsize=12)
+    ax1.set_xlabel(r'Wellenlänge [$\mu\text{m}$]', fontsize=12)
+    ax1.set_ylabel(r"Spektrale Ausstrahlung $E_{b\lambda}$ [$\text{W}\,\text{m}^{-2}\,\mu\text{m}^{-1}$]", fontsize=12)
     ax1.set_title(f'Sonne ({TEMPERATURE_SUN} K)', fontsize=14)
     ax1.grid(True, alpha=0.3)
     ax1.set_xlim(0, 3)  # Fokus auf sichtbaren Bereich
-    ax1.set_ylim(0, 2.6e13)
+    #ax1.set_ylim(0, 2.6e13)
     ax1.axvspan(0.4, 0.78, alpha=0.1, color='yellow', label='Sichtbares Licht')
     ax1.axvline(x=max_wavelength_sun*1e6, color='orange', linestyle='--', alpha=0.5,
                 label=f'Max Sonne: {max_wavelength_sun*1e6:.2f} μm')
@@ -51,12 +52,12 @@ def main():
 
     # Erde
     ax2.plot(wavelengths * 1e6, spectral_radiance_earth, linewidth=2.0, color='tab:blue', label=f'Erde ({TEMPERATURE_EARTH} K)')
-    ax2.set_xlabel('Wellenlänge (μm)', fontsize=12)
-    ax2.set_ylabel('Spektrale Strahldichte in W/(m²·sr·m)', fontsize=12)
+    ax2.set_xlabel(r'Wellenlänge [$\mu\text{m}$]', fontsize=12)
+    ax2.set_ylabel(r"Spektrale Ausstrahlung $E_{b\lambda}$ [$\text{W}\,\text{m}^{-2}\,\mu\text{m}^{-1}$]", fontsize=12)
     ax2.set_title(f'Erde ({TEMPERATURE_EARTH} K)', fontsize=14)
     ax2.grid(True, alpha=0.3)
     ax2.set_xlim(0, 40)  # Fokus auf Infrarot
-    ax2.set_ylim(0, 8.5e6)
+    #ax2.set_ylim(0, 8.5e6)
     ax2.axvspan(0.4, 0.78, alpha=0.1, color='yellow', label='Sichtbares Licht')
     ax2.axvline(x=max_wavelength_sun*1e6, color='orange', linestyle='--', alpha=0.5,
                 label=f'Max Sonne: {max_wavelength_sun*1e6:.2f} μm')
@@ -84,8 +85,8 @@ def main():
     ax3.axvspan(14, 16, alpha=0.3, color='green', label='CO₂-Absorption (15 μm)')
 
 
-    ax3.set_xlabel('Wellenlänge (μm)', fontsize=12)
-    ax3.set_ylabel('Normalisierte spektrale Strahldichte', fontsize=12)
+    ax3.set_xlabel(r'Wellenlänge [$\mu\text{m}$]', fontsize=12)
+    ax3.set_ylabel('Normalisierte spektrale Ausstrahlung', fontsize=12)
     ax3.set_title('Vergleich: Planck-Strahlung und CO₂-Absorptionsbanden', fontsize=14)
     ax3.grid(True, alpha=0.3, which="both")
     ax3.set_xlim(0.1, 100)

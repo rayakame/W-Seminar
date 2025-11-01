@@ -7,7 +7,7 @@ from nox import options
 import typing as t
 
 options.default_venv_backend = "uv"
-options.sessions = ["planck"]
+options.sessions = ["planck", "wien"]
 
 # uv_sync taken from: https://github.com/hikari-py/hikari/blob/master/pipelines/nox.py#L48
 #
@@ -46,3 +46,9 @@ def planck(session: nox.Session) -> None:
     uv_sync(session, groups=["planck"])
 
     session.run("python", "-m", "simulationen.planck")
+
+@nox.session(reuse_venv=True)
+def wien(session: nox.Session) -> None:
+    uv_sync(session, groups=["planck"])
+
+    session.run("python", "-m", "simulationen.wien")
