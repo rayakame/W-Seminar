@@ -10,9 +10,6 @@
 % Layout & Formatierung
 \usepackage{setspace}                % Zeilenabstand
 
-\usepackage[autostyle=true]{csquotes} % quote \enquote
-
-
 \usepackage{parskip}                 % Absatzformatierung
 \usepackage{fancyhdr}                % Kopf- und Fußzeilen
 
@@ -21,6 +18,15 @@
 \usepackage{float}                   % Bessere Positionierung
 \usepackage{caption}                 % Bildunterschriften
 \usepackage{chngcntr}
+
+\usepackage{minted}
+\setminted{
+    breaklines=true,
+    fontsize=\small,
+    linenos=true,
+    frame=single,
+    bgcolor=gray!10
+}
 
 % Tabellen
 \usepackage{tabularx}                % Flexible Tabellen
@@ -33,6 +39,9 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{siunitx}
+
+\usepackage[autostyle=true]{csquotes} % quote \enquote
+
 
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
@@ -92,19 +101,19 @@
 
 
 
-\section{Molekülphysik des CO\textsubscript{2}}
+\section{Molekülphysik des CO\texorpdfstring{$_2$}{CO2}}
 
 \subsection{Molekülstruktur und Schwingungsmoden}
 
 \subsection{Quantenmechanische Grundlagen der Absorption}
 
-\subsection{Das CO\textsubscript{2}-Absorptionsspektrum}
+\subsection{Das CO\texorpdfstring{$_2$}{CO2}-Absorptionsspektrum}
 
 \section{Der Treibhauseffekt}
 
 \subsection{Strahlungsbilanz der Erde ohne Atmosphäre}
 
-% ===== LITERATURVERZEICHNIS =====
+
 \input{chapters/anhang}
 
 

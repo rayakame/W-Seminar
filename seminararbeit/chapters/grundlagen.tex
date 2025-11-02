@@ -21,7 +21,6 @@ Dieses Gesetz wurde 1900 von Max Planck \cite{plancknormalspektrum} hergeleitet 
 Für eine schwarze Oberfläche, die an ein transparentes Medium mit dem Brechungsindex $n$ grenzt, ergibt sich die spektrale spezifische Ausstrahlung\cite[S.7]{radiativeHeatTransfer} zu:
 
 \begin{equation}
-  \label{Plancksche Ausstrahlung Frequenz mit Brechungsindex}
   E_{bf}(T, f) = \frac{2\pi h f^3 n^2}{c_0^2} \cdot \frac{1}{e^{hf/kT}-1} 
   \quad \text{\cite[S.8]{radiativeHeatTransfer}}
 \end{equation}
@@ -29,7 +28,7 @@ Für eine schwarze Oberfläche, die an ein transparentes Medium mit dem Brechung
 Zur Vereinfachung wird angenommen, dass der Brechungsindex $n = 1$ beträgt, da sich die betrachteten Vorgänge im Vakuum oder in Luft abspielen, wo dieser Wert nahezu identisch ist.
 
 \begin{equation}
-  \label{Plancksche Ausstrahlung Frequenz}
+  \label{eq:plancks_law_frequenzy}
   E_{bf}(T, f) = \frac{2\pi h f^3}{c_0^2} \cdot \frac{1}{e^{hf/kT}-1} 
 \end{equation}
 
@@ -37,7 +36,7 @@ Zur Vereinfachung wird angenommen, dass der Brechungsindex $n = 1$ beträgt, da 
 Das Plancksche Strahlungsgesetz lässt sich auch in Abhängigkeit von der Wellenlänge $\lambda$ formulieren:
 
 \begin{equation}
-  \label{Plancksche Ausstrahlung Wellenlänge}
+  \label{eq:plancks_law_wavelength}
   E_{b\lambda}(T, \lambda) = \frac{2\pi h c_0^2}{\lambda^5} \cdot \frac{1}{e^{hc_0/\lambda kT}-1}
 \end{equation}
 
@@ -55,7 +54,7 @@ elektromagnetische Spektrum liefert die \textit{Gesamtausstrahlung} $E$:
 \cite{stefanBoltzmannLaw}
 
 Für einen idealen schwarzen Körper setzen wir $E_{bf}$ aus Gleichung 
-\eqref{Plancksche Ausstrahlung Frequenz} in das Integral ein:
+\eqref{eq:plancks_law_frequenzy} in das Integral ein:
 \begin{equation*}
   E_b(T) = \int_{0}^{\infty} \frac{2\pi h f^3}{c_0^2} \cdot \frac{1}{e^{hf/kT}-1} \, df
 \end{equation*}
@@ -71,78 +70,9 @@ Das Ergebnis ist das \textit{Stefan-Boltzmann Gesetz}:
 Dabei bezeichnet $\sigma = \SI{5.670e-8}{\watt\per\meter\squared\per\kelvin\tothe{4}}$ 
 die Stefan-Boltzmann Konstante \cite{codata2018}.
 
-\iffalse
 \subsubsection{Wiensches Verschiebungsgesetz}
 Die Wellenlänge $\lambda_{max}$ bei welcher die spektrale spezifische Ausstrahlung eines schwarzen idealen Körpers $E_{b\lambda}$ 
-mit der Temperatur $T$ ein Maximum erreicht, erhält man indem man die Gleichung \eqref{Plancksche Ausstrahlung Wellenlänge} nach 
-$\lambda$ ableitet und diese Gleichung gleich $0$ setzt.
-
-\begin{equation}
-  \frac{\partial E_{b\lambda}(T, \lambda)}{\partial \lambda} = 0
-\end{equation}
-
-Ausgehend von Gleichung \eqref{Plancksche Ausstrahlung Wellenlänge} und unter Verwendung der Konstanten $C_1$ und $C_2$ 
-lautet die Bedingung für das Maximum:
-
-\begin{equation}
-  \frac{\partial}{\partial \lambda}\left[\frac{C_1}{n^2\lambda^5[e^{C_2/\lambda T}-1]}\right] = 0
-\end{equation}
-
-Durch Anwendung der Produkt- und Kettenregel erhält man:
-
-\begin{equation}
-  -\frac{5}{\lambda^6[e^{C_2/\lambda T}-1]} + \frac{C_2 e^{C_2/\lambda T}}{\lambda^7 T[e^{C_2/\lambda T}-1]^2} = 0
-\end{equation}
-
-Multiplikation mit $\lambda^7 T [e^{C_2/\lambda T}-1]^2$ und Umformung führt zu:
-
-\begin{equation}
-  C_2 e^{C_2/\lambda T} = 5\lambda T[e^{C_2/\lambda T}-1]
-\end{equation}
-
-Mit der Substitution $x = \frac{C_2}{\lambda T}$ erhält man die transzendente Gleichung:
-
-\begin{equation}
-  x = 5(1 - e^{-x})
-\end{equation}
-
-Die numerische Lösung dieser Gleichung liefert $x \approx 4.965$. Daraus ergibt sich das \textit{Wiensche Verschiebungsgesetz}:
-
-\begin{equation}
-  \lambda_{max} T = \frac{C_2}{4.965} \approx \SI{2898}{\micro\meter\kelvin}
-\end{equation}
-
-oder für ein Medium mit Brechungsindex $n$:
-
-\begin{equation}
-  n\lambda_{max} T \approx \SI{2898}{\micro\meter\kelvin}
-\end{equation}
-
-Dieses Gesetz beschreibt die Verschiebung des Emissionsmaximums zu kürzeren Wellenlängen bei steigender Temperatur 
-und erklärt beispielsweise die Farbänderung eines erhitzten Körpers von rot über gelb zu weiß.
-
-
-
-\iffalse
-
-Üblicherweise werden folgende Abkürzungen bei dem Plancksche'n Verschiebungsgesetz \eqref{Plancksche Ausstrahlung Wellenlänge} eingeführt:
-\begin{align*}
-  C_1 &= 2\pi h c_0^2 = \SI{3.7418}{\watt\meter\squared} \\
-  C_2 &= \frac{hc_0}{k} = \SI{14.388}{\micro\meter\kelvin} = \SI{1.4388}{\centi\meter\kelvin}
-\end{align*}
-
-so dass die Formel \eqref{Plancksche Ausstrahlung Wellenlänge} umgestellt werden kann zu:
-
-\begin{equation}
-  \frac{E_{b\lambda}}{n^3T^5} = \frac{C_1}{(n\lambda T)^5[e^{C_2/(n\lambda T)}-1]} \quad (n = const)
-\end{equation}
-\fi
-
-\fi
-
-\subsubsection{Wiensches Verschiebungsgesetz}
-Die Wellenlänge $\lambda_{max}$ bei welcher die spektrale spezifische Ausstrahlung eines schwarzen idealen Körpers $E_{b\lambda}$ 
-mit der Temperatur $T$ ein Maximum erreicht, erhält man indem man die Gleichung \eqref{Plancksche Ausstrahlung Wellenlänge} nach 
+mit der Temperatur $T$ ein Maximum erreicht, erhält man indem man die Gleichung \eqref{eq:plancks_law_wavelength} nach 
 $\lambda$ ableitet und diese Gleichung gleich Null setzt. Die folgende mathematische Herleitung folgt Kraus \cite[S.101]{kraus2007atmosphäre}.
 
 \begin{equation*}
@@ -256,3 +186,10 @@ deren Konzentration von der Temperatur und damit von den nicht kondensierenden T
 Die Anwendung des Wienschen Verschiebungsgesetzes (\autoref{eq:wiens_displacement_law}) auf Sonne ($T_{\text{Sonne}} = \SI{5772}{\kelvin}$\cite[S.6]{solarIrradiance}) 
 und Erde ($T_{\text{Erde}} = \SI{288}{\kelvin}$\cite[S.11]{marshall2007atmosphere}) verdeutlicht die fundamentale spektrale Asymetrie zwischen solarer und terrestrischer Strahlung.
 Während die solare Strahlung ihr Maximum bei $\lambda_{\text{Sonne,max}} = \SI{0.50}{\micro\meter}$ hat, ist das Maximum der terrestrischer Strahlung bei $\lambda_{\text{Erde,max}} = \SI{10.06}{\micro\meter}$
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{assets/planck_plot.pdf}
+    \caption{Vergleich von spektraler spezifischen Ausstrahlung von Sonne und Erde nach dem Planckschen Strahlungsgesetz mit den Absorptionsbanden des CO\textsubscript{2}.}
+    \label{fig:planck_earth_sun}
+\end{figure}

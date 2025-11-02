@@ -12,6 +12,7 @@
 *.fls
 *.lof
 *.lot
+*.minted
 
 # Backup-Dateien
 *~
