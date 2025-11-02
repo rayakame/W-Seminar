@@ -225,55 +225,51 @@ so dass die Formel \eqref{Plancksche Ausstrahlung Wellenlänge} umgestellt werde
 \subsubsection{Wiensches Verschiebungsgesetz}
 Die Wellenlänge $\lambda_{max}$ bei welcher die spektrale spezifische Ausstrahlung eines schwarzen idealen Körpers $E_{b\lambda}$ 
 mit der Temperatur $T$ ein Maximum erreicht, erhält man indem man die Gleichung \eqref{Plancksche Ausstrahlung Wellenlänge} nach 
-$\lambda$ ableitet und diese Gleichung gleich Null setzt.
+$\lambda$ ableitet und diese Gleichung gleich Null setzt. Die folgende mathematische Herleitung folgt Kraus \cite[S.101]{kraus2007atmosphäre}.
 
 \begin{equation*}
   \frac{\partial E_{b\lambda}(T, \lambda)}{\partial \lambda} = 0
 \end{equation*}
 
-Zur Vereinfachung führen wir die Abkürzungen ein:
-\begin{align*}
-  C_1 &= 2\pi h c_0^2 = \SI{3.7418e-16}{\watt\meter\squared} \\
-  C_2 &= \frac{hc_0}{k} = \SI{14388}{\micro\meter\kelvin} = \SI{1.4388}{\centi\meter\kelvin}
-\end{align*}
-
-Damit lässt sich Gleichung \eqref{Plancksche Ausstrahlung Wellenlänge} schreiben als:
-\begin{equation*}
-  E_{b\lambda}(T, \lambda) = \frac{C_1}{\lambda^5(e^{C_2/\lambda T}-1)}
-\end{equation*}
-
 Die Ableitung nach $\lambda$ ergibt mit der Produktregel:
 \begin{equation*}
-  \frac{\partial E_{b\lambda}}{\partial \lambda} = C_1 \left[ -\frac{5}{\lambda^6(e^{C_2/\lambda T}-1)} + \frac{C_2 e^{C_2/\lambda T}}{T\lambda^7(e^{C_2/\lambda T}-1)^2} \right]
+  -10 \frac{hc_0^2}{\lambda^6} \cdot \frac{1}{e^{hc_0/k\lambda T} - 1} 
+- 2 \frac{hc_0^2}{\lambda^5} \cdot \frac{1}{\left(e^{hc_0/k\lambda T} - 1\right)^2} \cdot e^{hc_0/k\lambda T} \cdot (-\frac{hc_0}{k\lambda^2 T}) = 0
 \end{equation*}
-
-Setzen wir diese Ableitung gleich Null und multiplizieren mit $\lambda^7(e^{C_2/\lambda T}-1)^2$, so erhalten wir:
 \begin{equation*}
-  -5\lambda(e^{C_2/\lambda T}-1) + \frac{C_2 e^{C_2/\lambda T}}{T} = 0
+  \frac{5}{\lambda} = \frac{1}{e^{hc_0/k\lambda T}-1} \cdot e^{hc_0/k\lambda T} \cdot \frac{hc_0}{k\lambda^2T}
 \end{equation*}
 
-Umformen liefert:
+Mit der Substitution $x = \frac{hc_0}{k\lambda T}$ ergibt sich die transzendente Gleichung:
 \begin{equation*}
-  C_2 e^{C_2/\lambda T} = 5\lambda T(e^{C_2/\lambda T}-1)
+  5 = \frac{x\cdot e^x}{e^x -1}
 \end{equation*}
 
-Mit der Substitution $x = \frac{C_2}{\lambda T}$ ergibt sich die transzendente Gleichung:
-\begin{equation*}
-  x = 5(1 - e^{-x})
-\end{equation*}
+Die numerische Lösung dieser Gleichung liefert $x \approx 4.9651$. 
+Rücksubstitution in $x_{max} = \frac{hc_0}{k\lambda_{max} T}$ ergibt das \textit{Wiensche Verschiebungsgesetz}:
 
-Die numerische Lösung dieser Gleichung liefert $x \approx 4.965$. 
-Rücksubstitution in $x = \frac{C_2}{\lambda_{max} T}$ ergibt das \textit{Wiensche Verschiebungsgesetz}:
+\begin{align*}
+\lambda_{max} &= \frac{h c_0}{k x_{max} T} \\
+\lambda_{max} T &= \frac{h c_0}{k x_{max}} \\
+&= \frac{\SI{6.62612e-34}{\joule\second} \cdot \SI{2.99792e8}{\meter\per\second}}{\SI{1.38065e-23}{\joule\per\kelvin} \cdot 4.9651}\\
+&= \SI{2.8978e-3}{\meter\kelvin}
+\end{align*}
 
+
+Das Wiensche Verschiebungsgesetz besagt, dass sich das Maximum der spektralen Ausstrahlung mit steigender Temperatur zu kürzeren Wellenlängen verschiebt\cite[S.101]{kraus2007atmosphäre}.
+Die Konstante $b = \SI{2.8978e-3}{\meter\kelvin}$ wird als \textit{Wiensche Verschiebungskonstante} bezeichnet\cite[S.49]{codata2018}.
+Umgestellt nach der Wellenlänge des Maximums ergibt sich:
 \begin{equation}
-  \label{Wiensches Verschiebungsgesetz}
-  \lambda_{max} T = \frac{C_2}{4.965} \approx \SI{2898}{\micro\meter\kelvin}
+  \label{Wien umgestellt}
+  \lambda_{max} = \frac{b}{T}
 \end{equation}
 
-Das Wiensche Verschiebungsgesetz besagt, dass sich das Maximum der spektralen Ausstrahlung mit steigender Temperatur zu kürzeren Wellenlängen verschiebt. 
-So emittiert beispielsweise ein schwarzer Körper bei Raumtemperatur ($T = \SI{288}{\kelvin}$) am stärksten bei $\lambda_{max} \approx \SI{10.06}{\micro\meter}$ im infraroten Bereich, 
-während die Sonne ($T \approx \SI{5777}{\kelvin}$) ihr Maximum bei $\lambda_{max} \approx \SI{0.50}{\micro\meter}$ im sichtbaren Bereich hat.
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/wien_plot.pdf}
+    \caption{Spektrale spezifische Ausstrahlung $E_{b\lambda}$ eines schwarzen Körpers nach dem Planckschen Strahlungsgesetz für verschiedene Temperaturen. Die gestrichelte Linie verbindet die Maxima der Planck-Kurven und verdeutlicht das Wiensche Verschiebungsgesetz.}
+    \label{fig:planck_wien}
+\end{figure}
 
 \subsection{Anwendung auf das System Sonne-Erde}
 
