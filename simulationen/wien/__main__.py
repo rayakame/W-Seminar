@@ -8,10 +8,8 @@ def main():
     wavelengths = np.linspace(1e-7, 100e-6, 20000)
     temperature_range = np.linspace(500, 5000, 5)
 
-    # Plancksche Strahlung für mehrere Temperaturen (vektoriell)
     spectral_radiances = [plancks_law(wavelengths, T) for T in temperature_range]
 
-    # Wiensche Verschiebungslinie
     radiances = plancks_law(wavelengths, wiens_displacement_law_temperature(wavelengths))
 
     fig, ax = plt.subplots()

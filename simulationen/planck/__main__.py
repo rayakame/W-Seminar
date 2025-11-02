@@ -1,12 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+from simulationen import ROOT_DIR
 from simulationen.formeln import plancks_law, wiens_displacement_law
 
 
 
 TEMPERATURE_EARTH = 288.0 # Kelvin
-TEMPERATURE_SUN = 5777 # Kelvin
+TEMPERATURE_SUN = 5772 # Kelvin
 
 def main():
 
@@ -43,7 +44,7 @@ def main():
     ax1.set_ylabel(r"Spektrale Ausstrahlung $E_{b\lambda}$ [$\text{W}\,\text{m}^{-2}\,\mu\text{m}^{-1}$]", fontsize=12)
     ax1.set_title(f'Sonne ({TEMPERATURE_SUN} K)', fontsize=14)
     ax1.grid(True, alpha=0.3)
-    ax1.set_xlim(0, 3)  # Fokus auf sichtbaren Bereich
+    ax1.set_xlim(0, 4)  # Fokus auf sichtbaren Bereich
     #ax1.set_ylim(0, 2.6e13)
     ax1.axvspan(0.4, 0.78, alpha=0.1, color='yellow', label='Sichtbares Licht')
     ax1.axvline(x=max_wavelength_sun*1e6, color='orange', linestyle='--', alpha=0.5,
@@ -102,6 +103,7 @@ def main():
                 fontsize=10, color='blue')
 
 
+    plt.savefig(ROOT_DIR / "seminararbeit" / "assets" / "planck_plot.pdf", bbox_inches='tight')
     plt.tight_layout()
     plt.show()
 
