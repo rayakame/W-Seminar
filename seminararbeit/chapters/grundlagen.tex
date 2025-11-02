@@ -1,0 +1,258 @@
+\section{Physikalische Grundlagen der Wärmestrahlung}
+
+\subsection{Strahlungsgesetze}
+Jedes Medium emittiert elektromagnetische Strahlung zufällig in alle Richtungen. 
+Die Intensität dieser Emission hängt sowohl von der Temperatur als auch von den Materialeigenschaften des Mediums ab. 
+Der von einer Oberfläche abgegebene Strahlungswärmestrom wird als \textit{spezifische Ausstrahlung} bezeichnet.
+
+Dabei wird zwischen der \textit{gesamten spezifischen Ausstrahlung} $E$ und der \textit{spektralen spezifischen Ausstrahlung} $E_f$ unterschieden:
+\begin{align*}
+E_f &\equiv \text{abgestrahlte Energie pro Zeit, Oberfläche und Frequenz.} \\
+E &\equiv \text{abgestrahlte Energie pro Zeit und Oberfläche.}
+\end{align*}
+\cite[S.~6--7]{radiativeHeatTransfer}
+
+
+\subsubsection{Das Plancksche Strahlungsgesetz}
+
+Die spektrale spezifische Ausstrahlung eines ideal schwarzen Körpers $E_b$ wird durch das Plancksche Strahlungsgesetz beschrieben. 
+Es gibt an, wie viel Energie pro Zeit, Fläche und Frequenzintervall von einer ideal schwarzen Oberfläche bei einer bestimmten Temperatur $T$ emittiert wird. 
+Dieses Gesetz wurde 1900 von Max Planck \cite{plancknormalspektrum} hergeleitet und ist heute als \textit{Plancksches Strahlungsgesetz} bekannt. 
+Für eine schwarze Oberfläche, die an ein transparentes Medium mit dem Brechungsindex $n$ grenzt, ergibt sich die spektrale spezifische Ausstrahlung\cite[S.7]{radiativeHeatTransfer} zu:
+
+\begin{equation}
+  \label{Plancksche Ausstrahlung Frequenz mit Brechungsindex}
+  E_{bf}(T, f) = \frac{2\pi h f^3 n^2}{c_0^2} \cdot \frac{1}{e^{hf/kT}-1} 
+  \quad \text{\cite[S.8]{radiativeHeatTransfer}}
+\end{equation}
+
+Zur Vereinfachung wird angenommen, dass der Brechungsindex $n = 1$ beträgt, da sich die betrachteten Vorgänge im Vakuum oder in Luft abspielen, wo dieser Wert nahezu identisch ist.
+
+\begin{equation}
+  \label{Plancksche Ausstrahlung Frequenz}
+  E_{bf}(T, f) = \frac{2\pi h f^3}{c_0^2} \cdot \frac{1}{e^{hf/kT}-1} 
+\end{equation}
+
+
+Das Plancksche Strahlungsgesetz lässt sich auch in Abhängigkeit von der Wellenlänge $\lambda$ formulieren:
+
+\begin{equation}
+  \label{Plancksche Ausstrahlung Wellenlänge}
+  E_{b\lambda}(T, \lambda) = \frac{2\pi h c_0^2}{\lambda^5} \cdot \frac{1}{e^{hc_0/\lambda kT}-1}
+\end{equation}
+
+Dabei bezeichnet $h = \SI{6.626e-34}{\joule\second}$ das Plancksche Wirkungsquantum, 
+$c_0 = \SI{2.998e8}{\meter\per\second}$ die Lichtgeschwindigkeit im Vakuum 
+und $k = \SI{1.381e-23}{\joule\per\kelvin}$ die Boltzmann-Konstante \cite{codata2018}.
+
+\subsubsection{Das Stefan-Boltzmann Gesetz}
+\label{sec:stefan_boltzmann}
+Die Integration der spektralen spezifischen Ausstrahlung über das gesamte 
+elektromagnetische Spektrum liefert die \textit{Gesamtausstrahlung} $E$:
+\begin{equation}
+  E = \int_{0}^{\infty}E_f \, df
+\end{equation}
+\cite{stefanBoltzmannLaw}
+
+Für einen idealen schwarzen Körper setzen wir $E_{bf}$ aus Gleichung 
+\eqref{Plancksche Ausstrahlung Frequenz} in das Integral ein:
+\begin{equation*}
+  E_b(T) = \int_{0}^{\infty} \frac{2\pi h f^3}{c_0^2} \cdot \frac{1}{e^{hf/kT}-1} \, df
+\end{equation*}
+
+Die Auswertung dieses Integrals erfordert komplexe Integrationstechniken und ist 
+in Integraltabellen dokumentiert\cite[S.13]{radiativeHeatTransfer}. 
+Das Ergebnis ist das \textit{Stefan-Boltzmann Gesetz}:
+\begin{equation}
+    \label{eq:stefan_boltzmann}
+  E_b(T) = \frac{2\pi^5k^4}{15c_0^2h^3}T^4 = \sigma T^4 \quad \text{\cite{stefanBoltzmannLaw}}
+\end{equation}
+
+Dabei bezeichnet $\sigma = \SI{5.670e-8}{\watt\per\meter\squared\per\kelvin\tothe{4}}$ 
+die Stefan-Boltzmann Konstante \cite{codata2018}.
+
+\iffalse
+\subsubsection{Wiensches Verschiebungsgesetz}
+Die Wellenlänge $\lambda_{max}$ bei welcher die spektrale spezifische Ausstrahlung eines schwarzen idealen Körpers $E_{b\lambda}$ 
+mit der Temperatur $T$ ein Maximum erreicht, erhält man indem man die Gleichung \eqref{Plancksche Ausstrahlung Wellenlänge} nach 
+$\lambda$ ableitet und diese Gleichung gleich $0$ setzt.
+
+\begin{equation}
+  \frac{\partial E_{b\lambda}(T, \lambda)}{\partial \lambda} = 0
+\end{equation}
+
+Ausgehend von Gleichung \eqref{Plancksche Ausstrahlung Wellenlänge} und unter Verwendung der Konstanten $C_1$ und $C_2$ 
+lautet die Bedingung für das Maximum:
+
+\begin{equation}
+  \frac{\partial}{\partial \lambda}\left[\frac{C_1}{n^2\lambda^5[e^{C_2/\lambda T}-1]}\right] = 0
+\end{equation}
+
+Durch Anwendung der Produkt- und Kettenregel erhält man:
+
+\begin{equation}
+  -\frac{5}{\lambda^6[e^{C_2/\lambda T}-1]} + \frac{C_2 e^{C_2/\lambda T}}{\lambda^7 T[e^{C_2/\lambda T}-1]^2} = 0
+\end{equation}
+
+Multiplikation mit $\lambda^7 T [e^{C_2/\lambda T}-1]^2$ und Umformung führt zu:
+
+\begin{equation}
+  C_2 e^{C_2/\lambda T} = 5\lambda T[e^{C_2/\lambda T}-1]
+\end{equation}
+
+Mit der Substitution $x = \frac{C_2}{\lambda T}$ erhält man die transzendente Gleichung:
+
+\begin{equation}
+  x = 5(1 - e^{-x})
+\end{equation}
+
+Die numerische Lösung dieser Gleichung liefert $x \approx 4.965$. Daraus ergibt sich das \textit{Wiensche Verschiebungsgesetz}:
+
+\begin{equation}
+  \lambda_{max} T = \frac{C_2}{4.965} \approx \SI{2898}{\micro\meter\kelvin}
+\end{equation}
+
+oder für ein Medium mit Brechungsindex $n$:
+
+\begin{equation}
+  n\lambda_{max} T \approx \SI{2898}{\micro\meter\kelvin}
+\end{equation}
+
+Dieses Gesetz beschreibt die Verschiebung des Emissionsmaximums zu kürzeren Wellenlängen bei steigender Temperatur 
+und erklärt beispielsweise die Farbänderung eines erhitzten Körpers von rot über gelb zu weiß.
+
+
+
+\iffalse
+
+Üblicherweise werden folgende Abkürzungen bei dem Plancksche'n Verschiebungsgesetz \eqref{Plancksche Ausstrahlung Wellenlänge} eingeführt:
+\begin{align*}
+  C_1 &= 2\pi h c_0^2 = \SI{3.7418}{\watt\meter\squared} \\
+  C_2 &= \frac{hc_0}{k} = \SI{14.388}{\micro\meter\kelvin} = \SI{1.4388}{\centi\meter\kelvin}
+\end{align*}
+
+so dass die Formel \eqref{Plancksche Ausstrahlung Wellenlänge} umgestellt werden kann zu:
+
+\begin{equation}
+  \frac{E_{b\lambda}}{n^3T^5} = \frac{C_1}{(n\lambda T)^5[e^{C_2/(n\lambda T)}-1]} \quad (n = const)
+\end{equation}
+\fi
+
+\fi
+
+\subsubsection{Wiensches Verschiebungsgesetz}
+Die Wellenlänge $\lambda_{max}$ bei welcher die spektrale spezifische Ausstrahlung eines schwarzen idealen Körpers $E_{b\lambda}$ 
+mit der Temperatur $T$ ein Maximum erreicht, erhält man indem man die Gleichung \eqref{Plancksche Ausstrahlung Wellenlänge} nach 
+$\lambda$ ableitet und diese Gleichung gleich Null setzt. Die folgende mathematische Herleitung folgt Kraus \cite[S.101]{kraus2007atmosphäre}.
+
+\begin{equation*}
+  \frac{\partial E_{b\lambda}(T, \lambda)}{\partial \lambda} = 0
+\end{equation*}
+
+Die Ableitung nach $\lambda$ ergibt mit der Produktregel:
+\begin{equation*}
+  -10 \frac{hc_0^2}{\lambda^6} \cdot \frac{1}{e^{hc_0/k\lambda T} - 1} 
+- 2 \frac{hc_0^2}{\lambda^5} \cdot \frac{1}{\left(e^{hc_0/k\lambda T} - 1\right)^2} \cdot e^{hc_0/k\lambda T} \cdot \left(-\frac{hc_0}{k\lambda^2 T}\right) = 0
+\end{equation*}
+\begin{equation*}
+  \frac{5}{\lambda} = \frac{1}{e^{hc_0/k\lambda T}-1} \cdot e^{hc_0/k\lambda T} \cdot \frac{hc_0}{k\lambda^2T}
+\end{equation*}
+
+Mit der Substitution $x = \frac{hc_0}{k\lambda T}$ ergibt sich die transzendente Gleichung:
+\begin{equation*}
+  5 = \frac{x\cdot e^x}{e^x -1}
+\end{equation*}
+
+Die numerische Lösung dieser Gleichung liefert $x \approx 4.9651$. 
+Rücksubstitution in $x_{max} = \frac{hc_0}{k\lambda_{max} T}$ ergibt das \textit{Wiensche Verschiebungsgesetz}:
+
+\begin{align*}
+\lambda_{max} &= \frac{h c_0}{k x_{max} T} \\
+\lambda_{max} T &= \frac{h c_0}{k x_{max}} \\
+&= \frac{\SI{6.62612e-34}{\joule\second} \cdot \SI{2.99792e8}{\meter\per\second}}{\SI{1.38065e-23}{\joule\per\kelvin} \cdot 4.9651}\\
+&= \SI{2.8978e-3}{\meter\kelvin}
+\end{align*}
+
+
+Das Wiensche Verschiebungsgesetz besagt, dass sich das Maximum der spektralen Ausstrahlung mit steigender Temperatur zu kürzeren Wellenlängen verschiebt\cite[S.101]{kraus2007atmosphäre}.
+Die Konstante $b = \SI{2.8978e-3}{\meter\kelvin}$ wird als \textit{Wiensche Verschiebungskonstante} bezeichnet\cite[S.49]{codata2018}.
+Umgestellt nach der Wellenlänge des Maximums ergibt sich:
+\begin{equation}
+  \label{eq:wiens_displacement_law}
+  \lambda_{max} = \frac{b}{T}
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/wien_plot.pdf}
+    \caption{Spektrale spezifische Ausstrahlung $E_{b\lambda}$ eines schwarzen Körpers nach dem Planckschen Strahlungsgesetz für verschiedene Temperaturen. Die gestrichelte Linie verbindet die Maxima der Planck-Kurven und verdeutlicht das Wiensche Verschiebungsgesetz.}
+    \label{fig:planck_wien}
+\end{figure}
+
+\subsection{Strahlungsbilanz der Erde}
+Die Erde bezieht nahezu ihre gesamte Energie von der Sonne. Um ein thermisches Gleichgewicht aufrechtzuerhalten, muss sie 
+Energie mit derselben Rate wieder abstrahlen, mit der sie diese empfängt\cite[S.9]{marshall2007atmosphere}:
+
+\begin{equation}
+  P_{\text{in}} = P_{\text{out}}
+  \label{eq:power_balance}
+\end{equation}
+
+Die einfallende solare Bestrahlungsstärke am oberen Rand der Atmosphäre, die sogenannte \textit{Solarkonstante}, beträgt $S_0 = \SI{1361}{\watt\per\meter\squared}$\cite[S.~5--6]{solarIrradiance}.
+Da die Querschnittsfläche der Erde, welche die solare Strahlung abfängt, $\pi r^2$ beträgt\cite[S.11]{marshall2007atmosphere}, wobei $r = \SI{6.371e6}{\meter}$\cite[S.56]{formelsammlung} der Erdradius ist, ergibt sich für die einfallende Strahlungsleistung:
+\begin{align}
+  P_{\text{solar}} &= S_0\pi r^2 \nonumber\\
+         &= \SI{1.735e17}{\watt}
+  \label{eq:solar_power}
+\end{align}
+
+Jedoch wird nicht die gesamte Strahlung von der Erde absorbiert, da ein Teil reflektiert wird. Der Anteil der reflektierten Strahlung wird als \textit{Albedo} $\alpha$ bezeichnet. 
+Abbildung \ref{fig:albedo_map} zeigt, dass $\alpha$ von der reflektierenden Oberfläche abhängt (detaillierte Werte für verschiedene Oberflächen siehe Anhang \autoref{tab:albedos_surfaces}).
+Im globalen Mittel wird ein Anteil von $\alpha_p \simeq 0{,}30$ der eingehenden Strahlung reflektiert. Diese Größe wird als \textit{planetare Albedo} bezeichnet\cite[S.11]{marshall2007atmosphere}.\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/albedo_map.pdf}
+    \caption{Räumliche Verteilung der Albedo an der Erdoberfläche\cite[S.12]{marshall2007atmosphere}.}
+    \label{fig:albedo_map}
+\end{figure}
+
+Daraus folgt für die von der Erde absorbierte Strahlungsleistung:
+\begin{align}
+  P_{\text{in}} &= (1-\alpha_p)S_0\pi r^2 \nonumber\\
+         &= \SI{1.215e17}{\watt}
+  \label{eq:absorbed_power}
+\end{align}
+
+Wegen des Energiegleichgewichts muss die von der Erde emittierte Strahlung die absorbierte Strahlung kompensieren. Dazu kann man annehmen, dass sich die Erde
+wie ein idealer schwarzer Körper mit gleichmäßiger Temperatur $T_e$ verhält (bekannt als \textit{effektive planetare Temperatur}) und dass das \textit{Stefan-Boltzmann-Gesetz} wie in \autoref{sec:stefan_boltzmann} anwendbar ist.
+
+\autoref{eq:stefan_boltzmann} gibt die Gesamtausstrahlung $E_b(T)$ an, welche die ausgestrahlte Leistung pro Einheit der Oberfläche beschreibt: $E_b = \frac{P}{A}$\cite{stefanBoltzmannLaw}. 
+Die Erde strahlt über ihre gesamte Oberfläche $A = 4\pi r^2$ ab. Umgestellt nach der Strahlungsleistung ergibt sich\cite[S.11]{marshall2007atmosphere}:
+\begin{equation}
+    P_{\text{out}} = \sigma \cdot 4\pi r^2 \cdot T_e^4
+    \label{eq:earth_emission}
+\end{equation}
+
+Durch Einsetzen von \autoref{eq:absorbed_power} und \autoref{eq:earth_emission} in \autoref{eq:power_balance} und Umstellen nach $T_e$ erhält man:
+\begin{equation}
+    T_e = \left(\frac{S_0(1-\alpha_p)}{4\sigma}\right)^{1/4}
+    \label{eq:effective_temperature}
+\end{equation}
+
+Mit den Werten $S_0 = \SI{1361}{\watt\per\meter\squared}$, $\alpha_p = 0{,}30$ und $\sigma = \SI{5.670e-8}{\watt\per\meter\squared\per\kelvin\tothe{4}}$ ergibt sich:
+\begin{align}
+    T_e &= \left(\frac{\SI{1361}{\watt\per\meter\squared} \cdot (1-0{,}30)}{4 \cdot \SI{5.670e-8}{\watt\per\meter\squared\per\kelvin\tothe{4}}}\right)^{1/4} \nonumber\\
+    &= \SI{254.6}{\kelvin}
+    \label{eq:effective_temperature_value}
+\end{align}
+
+Diese Temperatur von etwa \SI{-18}{\celsius} liegt deutlich unter der gemessenen globalen Mitteltemperatur der Erdoberfläche von circa \SI{288}{\kelvin}\cite[S.11]{marshall2007atmosphere}. 
+Die Differenz von etwa \SI{33}{\kelvin} wird durch den natürlichen Treibhauseffekt der Atmosphäre verursacht. Lacis et al. (2010) schlussfolgern: \enquote{In round numbers, water vapor accounts for
+about 50\% of Earth's greenhouse effect, with clouds contributing 25\%, CO2 20\%, and the minor GHGs and aerosols accounting for the remaining 5\%.}\cite{atmosphericCO2}, 
+was zunächst vermuten lässt, dass CO\textsubscript{2} nicht die bedeutendste Rolle im Treibhauseffekt spielt. Jedoch bilden die nicht kondensierenden Treibhausgase 
+CO\textsubscript{2}, O\textsubscript{3}, N\textsubscript{2}O und CH\textsubscript{4} die Grundlage des Treibhauseffekts, da sie im Gegensatz zu Wasserdampf nicht durch Niederschlag 
+aus der Atmosphäre entfernt werden. Wasserdampf und Wolken (zusammen 75\%) wirken als schnelle Rückkopplungsmechanismen, 
+deren Konzentration von der Temperatur und damit von den nicht kondensierenden Treibhausgasen abhängt\cite{atmosphericCO2}.
+
+Die Anwendung des Wienschen Verschiebungsgesetzes (\autoref{eq:wiens_displacement_law}) auf Sonne ($T_{\text{Sonne}} = \SI{5772}{\kelvin}$\cite[S.6]{solarIrradiance}) 
+und Erde ($T_{\text{Erde}} = \SI{288}{\kelvin}$\cite[S.11]{marshall2007atmosphere}) verdeutlicht die fundamentale spektrale Asymetrie zwischen solarer und terrestrischer Strahlung.
+Während die solare Strahlung ihr Maximum bei $\lambda_{\text{Sonne,max}} = \SI{0.50}{\micro\meter}$ hat, ist das Maximum der terrestrischer Strahlung bei $\lambda_{\text{Erde,max}} = \SI{10.06}{\micro\meter}$
