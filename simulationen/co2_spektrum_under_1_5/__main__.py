@@ -43,7 +43,7 @@ ax1.plot(wl_grid, absorbance_percent, color='darkblue', linewidth=1.5, label=r"$
 ax1.set_xlabel(r'Wellenlänge [$\mu\text{m}$]', fontsize=12)
 ax1.set_ylabel('Absorption [%]', fontsize=12)
 ax1.set_title('CO2 Absorptionsspektrum',
-              fontsize=16, fontweight='bold')
+              fontsize=20)
 ax1.grid(True, alpha=0.3, linestyle='--')
 ax1.set_xlim(wl_grid.min(),wl_grid.max())
 #\ax1.set_ylim(0.1)
