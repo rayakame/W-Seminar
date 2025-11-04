@@ -10,11 +10,10 @@ def read_hitran_par(filename: str) -> pd.DataFrame:
 
     with open(filename, 'r') as f:
         for line in f:
-            # HITRAN Format-Spezifikation
             molecule_id = int(line[0:2])
             isotopologue = int(line[2:3])
-            wavenumber = float(line[3:15])  # cm⁻¹
-            intensity = float(line[15:25])  # cm/molecule bei 296K
+            wavenumber = float(line[3:15])
+            intensity = float(line[15:25])
 
             data.append({
                 'molecule': molecule_id,

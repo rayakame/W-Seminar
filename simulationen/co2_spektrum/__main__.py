@@ -9,7 +9,7 @@ FILENAME = ROOT_DIR / "data" / "hitran_co2_2025-11-04.par"
 df = read_hitran_par(FILENAME)
 
 print(f"Geladene Linien: {len(df)}")
-print(f"Wellenzahlbereich: {df['wavenumber'].min():.1f} - {df['wavenumber'].max():.1f} cm⁻¹")
+print(f"Wellenzahlbereich: {df['wavenumber'].min():.1f} - {df['wavenumber'].max():.1f}")
 wn_min_filter = 555
 wn_max_filter = 100000
 
@@ -17,8 +17,8 @@ df_filtered = df[(df['wavenumber'] >= wn_min_filter) &
                  (df['wavenumber'] <= wn_max_filter)].copy()
 
 print(f"\nNach Filter: {len(df_filtered)} Linien")
-print(f"Gefilterte Wellenzahl: {df_filtered['wavenumber'].min():.1f} - {df_filtered['wavenumber'].max():.1f} cm⁻¹")
-print(f"Entspricht Wellenlänge: {10000/df_filtered['wavenumber'].max():.2f} - {10000/df_filtered['wavenumber'].min():.2f} μm")
+print(f"Gefilterte Wellenzahl: {df_filtered['wavenumber'].min():.1f} - {df_filtered['wavenumber'].max():.1f}")
+print(f"Entspricht Wellenlänge: {10000/df_filtered['wavenumber'].max():.2f} - {10000/df_filtered['wavenumber'].min():.2f} micrometer")
 
 wn_min = df_filtered['wavenumber'].min()
 wn_max = df_filtered['wavenumber'].max()
@@ -39,7 +39,7 @@ fig, ax1 = plt.subplots(figsize=(14, 7))
 
 
 ax1.plot(wl_grid, absorbance * 100, color='darkblue', linewidth=1.5, label=r"$\mathrm{CO_2}$")
-ax1.set_xlabel('Wellenlänge [μm]', fontsize=12)
+ax1.set_xlabel('Wellenlänge [$\mu\text{m}$]', fontsize=12)
 ax1.set_ylabel('Absorption [%]', fontsize=12)
 ax1.set_title('CO2 Absorptionsspektrum',
               fontsize=14)

@@ -33,7 +33,16 @@ haben, um absorbiert oder emittiert zu werden. Dies führt zu diskreten Spektral
 \subsection{Molekülstruktur und Schwingungsmoden}
 Wir haben bereits die 3 möglichen Arten der Energieniveaus eines Moleküls kennengelernt. Jedoch ist die Energie
 welche nötig ist um den Orbit eines Elektrons zu ändern so groß, das man Elektromagnetische Strahlung mit sehr niedriger
-Wellenlänge benötigt (zwischen $\SI{10e-2}{\micro\meter}$ und $\SI{1.5}{\micro\meter}$). \cite[S. ~287]{radiativeHeatTransfer} Da 
+Wellenlänge benötigt (zwischen $\SI{10e-2}{\micro\meter}$ und $\SI{1.5}{\micro\meter}$)\cite[S. ~287]{radiativeHeatTransfer}.
+Da wir uns auf CO\textsubscript{2} konzentrieren wollen und dieses keine für uns relevanten Absorptionsbanden im Bereich unter 
+$\SI{1.5}{\micro\meter}$ besitzt
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{assets/co2_absorption_under_1_5.pdf}
+    \caption{Spektrale spezifische Ausstrahlung $E_{b\lambda}$ eines schwarzen Körpers nach dem Planckschen Strahlungsgesetz für verschiedene Temperaturen. Die gestrichelte Linie verbindet die Maxima der Planck-Kurven und verdeutlicht das Wiensche Verschiebungsgesetz. Grafik wurde mithilfe von \autocite{python} erstellt, der Code ist im Anhang \autoref{lst:wien} dokumentiert.}
+    \label{fig:co2_spektrum_under_1_5}
+\end{figure}
 
 \begin{equation}
     E_j = \frac{\hbar^2 }{2I}j(j + 1) = hc_0j(j+1), \quad j = 0,1,2,... \quad \text{\cite[S.~293]{radiativeHeatTransfer}}
