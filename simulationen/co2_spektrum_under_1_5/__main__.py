@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 from simulationen import ROOT_DIR
 from simulationen.utils import read_hitran_par, create_absorption_spectrum
 
-FILENAME = "data_2025-11-04.par"
+FILENAME = ROOT_DIR / "data" / "hitran_co2_2025-11-04.par"
 
 df = read_hitran_par(FILENAME)
 
