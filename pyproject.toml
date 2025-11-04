@@ -5,6 +5,7 @@ description = "Add your description here"
 requires-python = ">=3.13"
 dependencies = [
     "nox>=2025.10.16",
+    "pandas>=2.3.3",
 ]
 
 [dependency-groups]
