@@ -40,10 +40,9 @@ fig, ax1 = plt.subplots(figsize=(14, 7))
 absorbance_percent = absorbance * 100
 
 ax1.plot(wl_grid, absorbance_percent, color='darkblue', linewidth=1.5, label=r"$\mathrm{CO_2}$")
-ax1.set_xlabel(r'Wellenlänge [$\mu\text{m}$]', fontsize=12)
-ax1.set_ylabel('Absorption [%]', fontsize=12)
-ax1.set_title('CO2 Absorptionsspektrum',
-              fontsize=20)
+ax1.set_xlabel(r'Wellenlänge [$\mu\text{m}$]', fontsize=20)
+ax1.set_ylabel('Absorption [%]', fontsize=20)
+#ax1.set_title('CO2 Absorptionsspektrum',fontsize=20)
 ax1.grid(True, alpha=0.3, linestyle='--')
 ax1.set_xlim(wl_grid.min(),wl_grid.max())
 #\ax1.set_ylim(0.1)
@@ -51,8 +50,8 @@ ax1.set_xlim(wl_grid.min(),wl_grid.max())
 
 ax1.fill_between(wl_grid, 0, absorbance_percent, color='darkblue', alpha=0.2)
 
-
-ax1.legend(loc='upper right')
+ax1.tick_params(axis='both', labelsize=18)
+ax1.legend(loc='upper left', fontsize=18)
 
 plt.tight_layout()
 plt.savefig(ROOT_DIR / "seminararbeit" / "assets" / "co2_absorption_under_1_5.pdf", bbox_inches='tight')
