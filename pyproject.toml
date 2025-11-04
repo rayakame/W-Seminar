@@ -5,11 +5,14 @@ description = "Add your description here"
 requires-python = ">=3.13"
 dependencies = [
     "nox>=2025.10.16",
-    "pandas>=2.3.3",
 ]
 
 [dependency-groups]
 planck = [
     "matplotlib>=3.10.7",
     "scipy>=1.16.3",
+]
+co2 = [
+    "matplotlib>=3.10.7",
+    "pandas>=2.3.3",
 ]
