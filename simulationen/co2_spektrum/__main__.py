@@ -39,7 +39,7 @@ fig, ax1 = plt.subplots(figsize=(14, 7))
 
 
 ax1.plot(wl_grid, absorbance * 100, color='darkblue', linewidth=1.5, label=r"$\mathrm{CO_2}$")
-ax1.set_xlabel('Wellenlänge [$\mu\text{m}$]', fontsize=12)
+ax1.set_xlabel(r'Wellenlänge [$\mu\text{m}$]', fontsize=12)
 ax1.set_ylabel('Absorption [%]', fontsize=12)
 ax1.set_title('CO2 Absorptionsspektrum',
               fontsize=14)

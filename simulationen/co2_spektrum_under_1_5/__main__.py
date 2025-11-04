@@ -40,10 +40,10 @@ fig, ax1 = plt.subplots(figsize=(14, 7))
 absorbance_percent = absorbance * 100
 
 ax1.plot(wl_grid, absorbance_percent, color='darkblue', linewidth=1.5, label=r"$\mathrm{CO_2}$")
-ax1.set_xlabel('Wellenlänge [$\mu\text{m}$]', fontsize=12)
+ax1.set_xlabel(r'Wellenlänge [$\mu\text{m}$]', fontsize=12)
 ax1.set_ylabel('Absorption [%]', fontsize=12)
 ax1.set_title('CO2 Absorptionsspektrum',
-              fontsize=14)
+              fontsize=16, fontweight='bold')
 ax1.grid(True, alpha=0.3, linestyle='--')
 ax1.set_xlim(wl_grid.min(),wl_grid.max())
 #\ax1.set_ylim(0.1)
