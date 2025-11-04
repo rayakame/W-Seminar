@@ -19,13 +19,17 @@
 \usepackage{caption}                 % Bildunterschriften
 \usepackage{chngcntr}
 
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
 \usepackage{minted}
 \setminted{
     breaklines=true,
-    fontsize=\small,
+    fontsize=\scriptsize,
     linenos=true,
     frame=single,
-    bgcolor=gray!10
+    %bgcolor=gray!10
 }
 
 % Tabellen
@@ -46,6 +50,10 @@
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
+\numberwithin{listing}{section}
+
+\newenvironment{code}{\captionsetup{type=listing}}{}
+
 
 % Links & Verweise
 \usepackage{hyperref}                % Klickbare Links
@@ -77,10 +85,12 @@
 % ===== DOKUMENT =====
 \begin{document}
 
+\pagenumbering{Roman}
 % Vorgegebenes Deckblatt einbinden
 \includepdf[pages={1,2,3}]{assets/deckblatt.pdf}
 
 
+\pagenumbering{arabic}
 % Inhaltsverzeichnis
 \setcounter{page}{2}
 \tableofcontents
@@ -97,18 +107,7 @@
 % ===== HAUPTTEIL =====
 \input{chapters/einleitung}
 \input{chapters/grundlagen}
-
-
-
-
-\section{Molekülphysik des CO\texorpdfstring{$_2$}{CO2}}
-
-\subsection{Molekülstruktur und Schwingungsmoden}
-
-\subsection{Quantenmechanische Grundlagen der Absorption}
-
-\subsection{Das CO\texorpdfstring{$_2$}{CO2}-Absorptionsspektrum}
-
+\input{chapters/molekülphysik.tex}
 \section{Der Treibhauseffekt}
 
 \subsection{Strahlungsbilanz der Erde ohne Atmosphäre}

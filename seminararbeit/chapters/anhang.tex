@@ -4,9 +4,10 @@
 \subsection{Literaturverzeichnis}
 \printbibliography[heading=none]
 
- \newpage
- \pagenumbering{Alph}
- \subsection{Daten und Tabellen}
+\newpage
+\pagenumbering{Alph}
+\subsection{Daten und Tabellen}
+
 \begin{table}[H]
     \centering
     \begin{tabularx}{0.8\textwidth}{l X}
@@ -32,8 +33,31 @@
 \end{table}
 
 \subsection{Quellcode}
-\begin{listing}[H]
+
+
+\renewcommand{\listoflistingscaption}{{\large Liste aller Quellcodes}}
+\listoflistings
+
+\newpage
+
+\begin{code}
+\inputminted{python}{../simulationen/formeln/formeln.py}
+\caption[Verschiedene implementierungen für physikalische Gesetzte.]{Verschiedene implementierungen für physikalische Gesetzte welche von anderen Quellcodes benutzt werden.}
+\label{lst:formeln}
+\end{code}
+
+\newpage
+
+\begin{code}
+\inputminted{python}{../simulationen/wien/__main__.py}
+\caption[Planck Funktion für verschiedene Temperaturen mit Wienschem Verschiebungsgesetz.]{Planck Funktion für verschiedene Temperaturen mit Wienschem Verschiebungsgesetz. Benutzt Formeln aus \autoref{lst:formeln}.}
+\label{lst:wien}
+\end{code}
+
+\newpage
+
+\begin{code}
 \inputminted{python}{../simulationen/planck/__main__.py}
-\caption{Vollständiges Python-Skript zur Strahlungsberechnung}
-\label{lst:planck_full}
-\end{listing}
+\caption[Planck Funktion für Sonne \& Erde mit CO2 Absorptionsbänden.]{Planck Funktion für Sonne \& Erde mit CO2 Absorptionsbänden. Benutzt Formeln aus \autoref{lst:formeln}.}
+\label{lst:planck}
+\end{code}
