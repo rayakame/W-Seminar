@@ -32,6 +32,67 @@
     \label{tab:albedos_surfaces}
 \end{table}
 
+\subsection{Formeln und Herleitungen}
+\subsubsection{Herleitung der 3 Übergangsformeln}
+\label{sec:herleitung_3_zweige}
+Die in \autoref{sec:combined_transitions} beschriebenen 3 Gleichungen für die verschiedenen Zweige eines Vibrations-Rotations-Bands kommen wie folgt zustande:
+
+Als Grundlage wird \autoref{eq:combined_harmonic_rigid} genommen und da wir ja einen Übergang der Energieniveaus brauchen, 
+gehen wir erstmal von einem anfänglichen $\upsilon''$, $j''$ und finalen $\upsilon'$, $j'$ Zustand aus:
+\ifthenelse{\boolean{formeln}}{
+    \begin{align*}
+        \Delta E &= E_{j'\upsilon'} - E_{j''\upsilon''} \\
+                 &= h\nu_e\left(\upsilon' + \frac{1}{2}\right) + hc_0B_{\upsilon'}j'(j'+1) \\
+                 &\quad - \left[h\nu_e\left(\upsilon'' + \frac{1}{2}\right) + hc_0B_{\upsilon''}j''(j''+1)\right] \\
+                 &= h\nu_e(\upsilon' - \upsilon'') + hc_0\left[B_{\upsilon'}j'(j'+1) - B_{\upsilon''}j''(j''+1)\right]
+    \end{align*}
+}{}
+
+Wir betrachten hier nur den Fundamentalübergang einer Absorption, deswegen gilt $\Delta \upsilon = +1$ was zu $\upsilon' = \upsilon'' + 1$ führt. 
+Die Notation für beide Zustände wird jetzt zu $\upsilon'' = \upsilon$ und $\upsilon' = \upsilon + 1$ vereinfacht. In die Formel eingesetzt:
+\ifthenelse{\boolean{formeln}}{
+    \begin{align*}
+        \Delta E &= h\nu_e(\upsilon + 1 - \upsilon) + hc_0\left[B_{\upsilon+1}j'(j'+1) - B_{\upsilon}j''(j''+1)\right] \\
+                    &= h\nu_e + hc_0\left[B_{\upsilon+1}j'(j'+1) - B_{\upsilon}j''(j''+1)\right]
+    \end{align*}
+}{}
+
+Umgerechnet in Wellenzahl ergibt sich:
+\ifthenelse{\boolean{formeln}}{
+    \begin{equation*}
+        \Delta\eta = \frac{\Delta E}{hc_0} = \frac{\nu_e}{c_0} + B_{\upsilon+1}j'(j'+1) - B_{\upsilon}j''(j''+1)
+    \end{equation*}
+}{}
+
+Da $\eta_0 = \nu_e/c_0$:
+\ifthenelse{\boolean{formeln}}{
+    \begin{equation}
+        \Delta\eta = \eta_0 + B_{\upsilon+1}j'(j'+1) - B_{\upsilon}j''(j''+1)
+        \label{eq:delta_eta}
+    \end{equation}
+}{}
+
+Ähnlich wie bei einem vorherigen Schritt führen wir wieder die Vereinfachung $j'' = j$ ein, $j'$ kann auch wieder vereinfacht werden,
+je nach Zweig zu $j' = j + 1$, $j' = j$ oder $j' = j - 1$. Für den $P$ Zweig ($j' = j - 1$) ergibt das:
+\ifthenelse{\boolean{formeln}}{
+        \begin{align*}
+j'(j'+1) &= (j-1)(j-1+1) \\
+            &= (j-1) \cdot j \\
+            &= j^2 - j 
+    \end{align*}
+}{}
+
+Eingesetzt in \autoref{eq:delta_eta}: 
+
+\ifthenelse{\boolean{formeln}}{
+    \begin{align*}
+        \eta_P &= \eta_0 + B_{\upsilon+1}(j^2 - j) - B_{\upsilon}j(j+1) \\
+                  &= \eta_0 + B_{\upsilon+1}j^2 - B_{\upsilon+1}j - B_{\upsilon}j^2 - B_{\upsilon}j \\
+                  &= \eta_0 + j^2(B_{\upsilon+1} - B_{\upsilon}) - j(B_{\upsilon+1} + B_{\upsilon})
+    \end{align*}
+}{}
+
+
 \subsection{Quellcode}
 
 
@@ -74,8 +135,16 @@
 
 \begin{code}
 \inputminted{python}{../simulationen/co2_spektrum/__main__.py}
-\caption[Visualisierung des CO\texorpdfstring{$_2$}{2}-Absorptionsspektrums]{Visualisierung des CO\texorpdfstring{$_2$}{2}-Absorptionsspektrums mithilfe von HITRAN Daten \autocite{DBhitran2020}}
+\caption[Visualisierung des CO\texorpdfstring{$_2$}{2}-Absorptionsspektrums]{Visualisierung des CO\texorpdfstring{$_2$}{2}-Absorptionsspektrums mithilfe von HITRAN Daten \autocite{DBhitran2020}. Benutzt Funktionen aus \autoref{lst:utils}.}
 \label{lst:co2_spektrum}
+\end{code}
+
+\newpage
+
+\begin{code}
+\inputminted{python}{../simulationen/co2_spektrum_under_1_5/__main__.py}
+\caption[Visualisierung des CO\texorpdfstring{$_2$}{2}-Absorptionsspektrums unter 1.5 micrometern]{Visualisierung des CO\texorpdfstring{$_2$}{2}-Absorptionsspektrums unterhalb von $\SI{1.5}{\micro\meter}$ mithilfe von HITRAN Daten \autocite{DBhitran2020}. Benutzt Funktionen aus \autoref{lst:utils}.}
+\label{lst:co2_spektrum_small}
 \end{code}
 
 

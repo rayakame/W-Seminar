@@ -70,7 +70,15 @@
 \usepackage[backend=biber,style=numeric,sorting=nty]{biblatex}
 \addbibresource{literatur.bib}
 
+
 % ===== EINSTELLUNGEN =====
+\newboolean{abbildungen}
+\newboolean{formeln}
+
+\setboolean{abbildungen}{true}
+\setboolean{formeln}{true}
+
+
 \onehalfspacing                      % 1,5-facher Zeilenabstand
 \setlength{\parindent}{0pt}          % Keine Einrückung
 \pagenumbering{arabic}
