@@ -3,7 +3,7 @@
 Energie emittiert wird. Elektromagnetische Strahlung ist eine Form der Energieübertragung, die sich im Raum ausbreitet und entweder 
 als elektromagnetische Wellen (wie von der elektromagnetischen Wellentheorie beschrieben; \cite{electricityMagnetism})
 oder als masselose Energiequanten, sogenannte \textit{Photonen} (wie von der Quantenmechanik beschrieben; \cite{quantumMechanics}),
-aufgefasst werden kann. Keine der beiden Sichtweisen kann alle beobachteten Strahlungsphänomene vollständig beschreiben, weshalb beide
+aufgefasst werden kann. Keine der beiden Sichtweisen können alle beobachteten Strahlungsphänomene vollständig beschreiben, weshalb beide
 Konzepte komplementär verwendet werden. \cite[S.~1--2]{radiativeHeatTransfer}
 
 Elektromagnetische Strahlung bewegt sich mit der \textit{Lichtgeschwindigkeit} $c = c_0/n$ wobei $c_0 = \SI{2.998e8}{\meter\per\second}$ 
@@ -28,8 +28,7 @@ Elektromagnetische Wellen werden durch folgende Eigenschaften charakterisiert:
     \caption{Charakteristische Eigenschaften elektromagnetischer Wellen \cite[S.~4]{radiativeHeatTransfer}.}
     \label{tab:wave_properties}
 \end{table}
-
-\vspace{-0.3cm} 
+\vspace{-0.4cm} 
 \ifthenelse{\boolean{formeln}}{
   \begin{equation}
     \nu = \frac{c_0}{\lambda} = c_0\eta
@@ -87,7 +86,6 @@ Die Intensität dieser Emission hängt sowohl von der Temperatur als auch von de
 Der von einer Oberfläche abgegebene Strahlungswärmestrom wird als \textit{spezifische Ausstrahlung} bezeichnet.
 
 Dabei wird zwischen der \textit{gesamten spezifischen Ausstrahlung} $E$ und der \textit{spektralen spezifischen Ausstrahlung} $E_{\nu}$ unterschieden:
-
 \ifthenelse{\boolean{formeln}}{
   \begin{align*}
   E_{\nu} &\equiv \text{abgestrahlte Energie pro Zeit, Oberfläche und Frequenz.} \\
@@ -99,7 +97,7 @@ Dabei wird zwischen der \textit{gesamten spezifischen Ausstrahlung} $E$ und der 
 
 \subsubsection{Das Plancksche Strahlungsgesetz}
 
-Die spektrale spezifische Ausstrahlung eines ideal schwarzen Körpers $E_b$ wird durch das Plancksche Strahlungsgesetz beschrieben. 
+Die spektrale spezifische Ausstrahlung eines ideal schwarzen Körpers $E_{b\nu}$ wird durch das Plancksche Strahlungsgesetz beschrieben. 
 Es gibt an, wie viel Energie pro Zeit, Fläche und Frequenzintervall von einer ideal schwarzen Oberfläche bei einer bestimmten Temperatur $T$ emittiert wird. 
 Dieses Gesetz wurde 1900 von Max Planck \cite{plancknormalspektrum} hergeleitet und ist heute als \textit{Plancksches Strahlungsgesetz} bekannt. 
 Für eine schwarze Oberfläche ergibt sich die spektrale spezifische Ausstrahlung\cite[S.~7]{radiativeHeatTransfer} zu:
@@ -107,7 +105,7 @@ Für eine schwarze Oberfläche ergibt sich die spektrale spezifische Ausstrahlun
 \ifthenelse{\boolean{formeln}}{
   \begin{equation}
     \label{eq:plancks_law_frequenzy}
-    E_{bf}(T, \nu) = \frac{2\pi h \nu^3}{c_0^2} \cdot \frac{1}{e^{h\nu/kT}-1} 
+    E_{b\nu}(T, \nu) = \frac{2\pi h \nu^3}{c_0^2} \cdot \frac{1}{e^{h\nu/kT}-1} 
   \end{equation}
 }{}
 

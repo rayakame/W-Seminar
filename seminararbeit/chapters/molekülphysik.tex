@@ -13,21 +13,27 @@ Behandlung zu vertiefen.
 
 
 \subsection{Grundlagen der molekularen Absorption}
-Ein Photon, welches auf ein Gasmolekül trifft, kann entweder absorbiert oder gestreut werden. 
-Die Streuung ändert die Ausbreitungsrichtung und gegebenenfalls die Energie  des Photons. Dieser Effekt ist für 
-unsere Betrachtung jedoch von untergeordneter Bedeutung, weswegen wir uns auf die Absorption konzentrieren. Die 
-Absorption eines Photons führt dazu, dass das Energieniveau des Moleküls angehoben wird. Umgekehrt kann ein Molekül 
+Ein Photon, das auf ein Gasmolekül trifft, kann entweder absorbiert oder gestreut werden. 
+Die Streuung ändert die Ausbreitungsrichtung und gegebenenfalls die Energie des Photons. Dieser Effekt ist für 
+unsere Betrachtung jedoch von untergeordneter Bedeutung, weshalb der Fokus auf der Absorption liegt. Wird ein 
+Photon absorbiert, führt dies dazu, dass das Energieniveau des Moleküls angehoben wird. Umgekehrt kann ein Molekül 
 sein Energieniveau senken, indem es ein Photon emittiert.
 
-Die Gesamtenergie eines Moleküls setzt sich aus verschiedenen Beiträgen zusammen: der elektronischen Energie, 
+Moleküle besitzen eine Gesamtenergie, die sich aus verschiedenen Beiträgen zusammensetzt: der elektronischen Energie, 
 die durch die Verteilung der Elektronen in den Molekülorbitalen bestimmt wird, der Rotationsenergie, die aus 
 der Drehbewegung des gesamten Moleküls um seine Trägheitsachsen resultiert, sowie der Schwingungsenergie, 
 die durch die periodischen Relativbewegungen der Atomkerne gegeneinander entsteht.
 
-Die Quantenmechanik besagt, dass die Energieniveaus für molekulare Elektronenorbitale, ebenso wie die 
-Energieniveaus für molekulare Rotation und Vibration, nur diskrete Werte annehmen können. Da die Energie 
-eines Photons direkt proportional zu seiner Frequenz ist ($E = h\nu$), müssen Photonen eine bestimmte Frequenz 
-haben, um absorbiert oder emittiert zu werden. Dies führt zu diskreten Spektrallinien.
+Für die Wechselwirkung eines Moleküls mit elektromagnetischer Strahlung ist ein zeitlich veränderliches 
+Dipolmoment fundamental. Dies bedeutet, dass sich die Ladungsverteilung im Molekül während der Rotation 
+oder Schwingung periodisch ändern muss, wodurch ein oszillierendes elektrisches Dipolmoment entsteht.
+
+Nach den Grundsätzen der Quantenmechanik können die Energieniveaus für molekulare Elektronenorbitale, 
+ebenso wie die Energieniveaus für molekulare Rotation und Vibration, nur bestimmte diskrete 
+Werte annehmen. Ein Photon kann nur dann absorbiert werden, wenn seine Energie 
+$E = h\nu$ exakt der Energiedifferenz zwischen zwei erlaubten Zuständen entspricht 
+(Resonanzbedingung). Daher können nur Photonen mit ganz bestimmten Frequenzen absorbiert 
+oder emittiert werden, was zu charakteristischen Spektrallinien führt.
 
 
 \subsection{Molekülstruktur und Schwingungsmoden}
@@ -35,7 +41,7 @@ haben, um absorbiert oder emittiert zu werden. Dies führt zu diskreten Spektral
 Wir haben bereits die drei möglichen Arten der Energieniveaus eines Moleküls kennengelernt. Jedoch ist die Energie,
 welche nötig ist, um elektronische Übergänge zu bewirken, so groß, dass man elektromagnetische Strahlung mit sehr niedriger
 Wellenlänge benötigt (zwischen $\SI{0.01}{\micro\meter}$ und $\SI{1.5}{\micro\meter}$)\cite[S.~287]{radiativeHeatTransfer}.
-Da wir uns auf CO\textsubscript{2} konzentrieren wollen und dieses keine für uns relevanten Absorptionsbanden im Bereich unter 
+Da sich diese Arbeit auf CO\textsubscript{2} konzentriert und dieses keine für uns relevanten Absorptionsbanden im Bereich unter 
 $\SI{1.5}{\micro\meter}$ besitzt (siehe \autoref{fig:co2_spektrum_under_1_5}), werden wir diese Energieänderungen vernachlässigen.
 
 
@@ -48,41 +54,44 @@ $\SI{1.5}{\micro\meter}$ besitzt (siehe \autoref{fig:co2_spektrum_under_1_5}), w
     \end{figure}
 }{}
 Vibrationsübergänge erfordern deutlich weniger Energie, weshalb die zugehörigen Spektrallinien zwischen $\SI{1.5}{\micro\meter}$ und $\SI{10}{\micro\meter}$ auftreten.
-Rotationsübergänge benötigen die geringste Energie und erscheinen daher bei Wellenlängen oberhalb von $\SI{10}{\micro\meter}$. In der Praxis werden 
+Rotationsübergänge benötigen die geringste Energie und erscheinen daher bei Wellenlängen oberhalb von $\SI{10}{\micro\meter}$. Für unseren Fokus auf 
+CO\textsubscript{2} spielen reine Rotationsübergänge jedoch keine Rolle, da CO\textsubscript{2} aufgrund seiner symmetrischen linearen Struktur 
+kein permanentes Dipolmoment besitzt, welches für reine Rotationsübergänge erforderlich wäre. In der Praxis werden 
 Vibrationsübergänge jedoch fast immer von simultanen Rotationsübergängen begleitet. Daraus resultieren eng benachbarte Spektrallinien,
-die teilweise überlappen und die sogenannten \textit{Vibrations-Rotations-Bänder} im Infrarotspektrum formen, auf welche wir uns konzentrieren werden.
-Diese entstehen durch die \textit{Freiheitsgrade} eines Moleküls. Jedes Molekül bewegt sich im dreidimensionalen Raum, weswegen jedes Molekül drei 
+die teilweise überlappen und die sogenannten \textit{Vibrations-Rotations-Bänder} im Infrarotspektrum formen, die im Fokus dieser Arbeit stehen.
+Diese entstehen durch die \textit{Freiheitsgrade} eines Moleküls. Jedes Molekül bewegt sich im dreidimensionalen Raum, weshalb jedes Molekül drei 
 translatorische Freiheitsgrade für die x-, y- und z-Richtung besitzt. Da jedes Atom eines Moleküls sich theoretisch im dreidimensionalen Raum bewegen kann, 
 beträgt die Gesamtzahl der Freiheitsgrade eines Moleküls mit $N$ Atomen $3N$. Da die Atome im Molekül miteinander verbunden sind, können sie sich nicht 
 unabhängig voneinander bewegen, sondern nur relativ zueinander. Diese Bewegungen entsprechen den Vibrations- und Rotations-Freiheitsgraden. Die Anzahl dieser 
 inneren Freiheitsgrade beträgt $3N - 3$, also die Gesamtzahl der Freiheitsgrade minus die drei translatorischen Freiheitsgrade. Je nachdem, ob das Molekül linear 
-oder nicht linear ist, werden diese inneren Freiheitsgrade unterschiedlich auf Rotations- und Vibrations-Freiheitsgrade aufgeteilt. Für lineare Moleküle gibt es 
+oder nichtlinear ist, werden diese inneren Freiheitsgrade unterschiedlich auf Rotations- und Vibrations-Freiheitsgrade aufgeteilt. Für lineare Moleküle gibt es 
 zwei Rotations-Freiheitsgrade. Für CO\textsubscript{2} ergeben sich daher $3 \cdot 3 - 3 - 2 = 4$ Vibrations-Freiheitsgrade.
 
 \ifthenelse{\boolean{abbildungen}}{
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{assets/degrees_of_freedom.pdf}
-        \caption{Rotations- und Vibrations-Freiheitsgrade für (a) zweiatomige, (b) linear dreiatomige und (c) nicht lineare dreiatomige Moleküle. \cite[S.~293]{radiativeHeatTransfer}}
+        \caption{Rotations- und Vibrations-Freiheitsgrade für (a) zweiatomige, (b) linear dreiatomige und (c) nichtlineare dreiatomige Moleküle. \cite[S.~293]{radiativeHeatTransfer}}
         \label{fig:degrees_of_freedom}
     \end{figure}
 }{}
 
 \subsection{Quantenmechanische Grundlagen der Absorption}
 \subsubsection{Rotationsübergänge}
-Zur Vereinfachung wird angenommen, dass ein Molekül aus Punktmassen besteht, welche durch starre, masselose Stäbe verbunden sind, 
+Zur Vereinfachung wird angenommen, dass ein Molekül aus Punktmassen besteht, die durch starre, masselose Stäbe verbunden sind, 
 das sogenannte Modell des starren Rotators (rigid rotator model). Mit diesem Modell lassen sich 
 die erlaubten Rotationsenergieniveaus mittels der Schrödinger-Gleichung berechnen. Die Lösung dieser Gleichung für lineare Moleküle besagt, 
-dass die möglichen Energieniveaus wie folgt gegeben sind \cite[S.~293]{radiativeHeatTransfer}:
+dass die möglichen Energieniveaus wie folgt gegeben sind \cite[S.~293]{radiativeHeatTransfer}\cite[S.~66]{herzberg}:
 \ifthenelse{\boolean{formeln}}{
     \begin{equation}
-        E_j = \frac{\hbar^2 }{2I}j(j + 1) = hc_0Bj(j+1), \quad j = 0,1,2,... \quad \text{\cite[S.~293]{radiativeHeatTransfer}}
+        E_j = \frac{\hbar^2 }{2I}j(j + 1) = hc_0Bj(j+1), \quad j = 0,1,2,... 
+        \quad \text{\cite[S.~293]{radiativeHeatTransfer}\cite[S.~68--71]{herzberg}}
         \label{eq:rigid_rotator}
     \end{equation}
 }{}
 
-Dabei ist $I$ das Trägheitsmoment des Moleküls und $\hbar$ die modifizierte Planck-Konstante. Zur Vereinfachung wurde
-$B$ eingeführt, welches die \textit{Rotationskonstante} beschreibt. Die Rotationsquantenzahl $j$ beschreibt den Rotationszustand
+Dabei ist $I$ das Trägheitsmoment des Moleküls und $\hbar$ die reduzierte Planck-Konstante. Zur Vereinfachung wurde
+$B$ eingeführt, das die \textit{Rotationskonstante} beschreibt. Die Rotationsquantenzahl $j$ beschreibt den Rotationszustand
 des Moleküls. Für den Grundzustand gilt $j = 0$, bei dem das Molekül nicht rotiert. Je höher $j$ ist, desto schneller ist die 
 Rotationsgeschwindigkeit des Moleküls \cite[S.~294]{radiativeHeatTransfer}.
 
@@ -94,21 +103,21 @@ Rotationsübergänge trotzdem für CO\textsubscript{2} von Bedeutung sind, wird 
 
 \subsubsection{Vibrationsübergänge}
 Zur Vereinfachung wird angenommen, dass zwei Punktmassen durch eine perfekt elastische masselose Feder verbunden sind. Dieses Modell
-wird der harmonische Oszillator genannt. Bei diesem Modell lassen sich die möglichen Energieniveaus ebenfalls mit einer Lösung der 
-Schrödinger-Gleichung berechnen \cite[S.~294--259]{radiativeHeatTransfer}:
+wird als harmonische Oszillator bezeichnet. Bei diesem Modell lassen sich die möglichen Energieniveaus ebenfalls mit einer Lösung der 
+Schrödinger-Gleichung berechnen \cite[S.~294--259]{radiativeHeatTransfer}\cite[S.~73--74]{herzberg}:
 
 \ifthenelse{\boolean{formeln}}{
     \begin{equation}
         E_{\upsilon} = h\nu_e\left(\upsilon + \frac{1}{2}\right), \quad \upsilon = 0,1,2,... 
-        \quad \text{\cite[S.~259]{radiativeHeatTransfer}}
+        \quad \text{\cite[S.~259]{radiativeHeatTransfer}\cite[S.~76]{herzberg}}
         \label{eq:harmonic_oscillator}
     \end{equation}
 }{}
 
-Dabei ist $\nu_e$ die Eigenfrequenz der harmonischen Schwingung und $\upsilon$ ist die Vibrationsquantenzahl, welche
+Dabei ist $\nu_e$ die Eigenfrequenz der harmonischen Schwingung und $\upsilon$ ist die Vibrationsquantenzahl, die
 ähnlich wie die Rotationsquantenzahl den Vibrationszustand beschreibt. Dieses Modell lässt nur die Auswahlregel 
-$\Delta \upsilon = \pm 1$ zu, sodass bei diesem Modell die Vibrationszustände nur um $1$ erhöht oder gesenkt werden können. 
-Dies würde zu einer einzigen Spektrallinie bei der Frequenz der Eigenfrequenz führen \cite[S.~295]{radiativeHeatTransfer}:
+$\Delta \upsilon = \pm 1$ zu, sodass die Vibrationszustände nur um $1$ erhöht oder gesenkt werden können. 
+Dies würde zu einer einzigen Spektrallinie bei der Eigenfrequenz führen \cite[S.~295]{radiativeHeatTransfer}:
 \ifthenelse{\boolean{formeln}}{
     \begin{equation}
         \Delta E = E_{\upsilon + 1} - E_{\upsilon} = h\nu_e\left(\left(\upsilon + \frac{3}{2}\right) - \left(\upsilon + \frac{1}{2}\right)\right) = h\nu_e = \text{const}
@@ -123,9 +132,9 @@ wird durch ein Integral berechnet das beide Funktionen multipliziert.
 Dieses Integral ist nur dann nicht null, wenn die Wellenfunktionen die richtige Symmetrie haben. Das passiert nur bei $\Delta \upsilon = \pm 1$
 \fi
 
-Leider ist das Modell eines harmonischen Oszillators deutlich ungenauer als das des starren Rotators. Dies lässt sich dadurch erklären,
+Allerdings ist das Modell eines harmonischen Oszillators deutlich ungenauer als das des starren Rotators. Dies lässt sich dadurch erklären,
 dass bei einer perfekt elastischen Feder die Kraft linear mit der Auslenkung zunimmt, wohingegen die Kraft bei Atomen, die sich
-relativ zueinander bewegen, nicht linear zunimmt. Wenn man daher eine komplexere Federkonstante in die Analyse einbezieht, führt dies zu
+relativ zueinander bewegen, nichtlinear zunimmt. Wird daher eine komplexere Federkonstante in die Analyse einbezogen, führt dies zu
 weiteren Termen in \autoref{eq:harmonic_oscillator}, wodurch sich die Auswahlregel zu $\Delta \upsilon = \pm 1, \pm 2, \pm 3, \ldots$ 
 ändert. Dies resultiert in mehreren ungefähr gleichmäßig voneinander entfernten Spektrallinien. Der Übergang mit $\Delta \upsilon = \pm 1$ 
 wird als \textit{Fundamentalübergang} bezeichnet und ist normalerweise bei weitem der stärkste, während die weiteren Übergänge mit 
@@ -139,7 +148,7 @@ stehenden Ebenen stattfindet \cite[S.~295--297]{radiativeHeatTransfer}.
 
 \subsubsection{Kombinierte Übergänge}
 \label{sec:combined_transitions}
-Wären für CO\textsubscript{2} nur Vibrationsübergänge möglich, gäbe es im Absorptionsspektrum nur sehr schmale sichtbare Spektrallinien.
+Wären für CO\textsubscript{2} nur Vibrationsübergänge möglich, gäbe es im Absorptionsspektrum nur sehr schmale Spektrallinien.
 Dies ist jedoch nicht der Fall (siehe \autoref{fig:co2_spektrum}), da Vibrationsübergänge und Rotationsübergänge oft gleichzeitig stattfinden und zu den
 oben genannten \textit{Vibrations-Rotations-Bändern} führen, welche aus vielen nah aneinanderliegenden Spektrallinien bestehen. Für Fundamentalübergänge 
 liegt der Mittelpunkt dieser Linien wie beim Modell des harmonischen Oszillators bei der Eigenfrequenz des Vibrationsübergangs $\nu_e$. Dieser Punkt wird
@@ -172,8 +181,8 @@ Spektrallinien in diesen Zweigen sind gegeben durch:
 \end{subequations}
 
 wobei $\eta_0$ die Bandmitte bezeichnet. Die detaillierte Herleitung dieser Formeln findet sich in \autoref{sec:herleitung_3_zweige}. 
-Bei der Bandmitte $\eta_0$ selbst tritt keine Spektrallinie auf. Wenn $B_{\upsilon} = B_{\upsilon+1}$ dann gibt es keinen Q-Zweig,
-dies ist oft der Fall bei linearen Molekülen wie CO\textsubscript{2}. In \autoref{fig:co2_spektrum_v3} sieht man die $P$- und $R$-Zweige des
+Bei der Bandmitte $\eta_0$ selbst tritt keine Spektrallinie auf. Wenn $B_{\upsilon} = B_{\upsilon+1}$, dann gibt es keinen Q-Zweig,
+dies ist oft der Fall bei linearen Molekülen wie CO\textsubscript{2}. \autoref{fig:co2_spektrum_v3} zeigt die $P$- und $R$-Zweige des
 $\upsilon_3$ Bandes von CO\textsubscript{2} visualisiert. Der $Q$-Zweig tritt nicht auf.
 
 \ifthenelse{\boolean{abbildungen}}{
