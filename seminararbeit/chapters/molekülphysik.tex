@@ -1,4 +1,4 @@
-\section{Molekülphysik des CO\texorpdfstring{$_2$}{CO2}}
+\section{Molekülphysik des CO\texorpdfstring{$_2$}{2}}
 Die Wechselwirkung elektromagnetischer Strahlung mit atmosphärischen Molekülen 
 ist ein quantenmechanisches Phänomen von erheblicher Komplexität. Im Rahmen dieser 
 Arbeit liegt der Fokus auf den durch CO\textsubscript{2} bedingten Aspekten des Treibhauseffekts,
@@ -168,8 +168,8 @@ der Rotationsenergie:
 Im Gegensatz zum idealisierten starren Rotator ist die Rotationskonstante in realen Molekülen 
 vom Vibrationszustand abhängig, weshalb hier $B_{\upsilon}$ verwendet wird. Durch die gleichzeitige 
 Änderung von Rotations- und Vibrationszustand entstehen bei einem Fundamentalübergang 
-($\Delta \upsilon = \pm 1$) drei charakteristische Zweige: der P-Zweig ($\Delta j = -1$), 
-der Q-Zweig ($\Delta j = 0$) und der R-Zweig ($\Delta j = +1$) \cite[S.~298]{radiativeHeatTransfer}. Die Wellenzahlen der 
+($\Delta \upsilon = \pm 1$) drei charakteristische Zweige: der $P$-Zweig ($\Delta j = -1$), 
+der $Q$-Zweig ($\Delta j = 0$) und der $R$-Zweig ($\Delta j = +1$) \cite[S.~298]{radiativeHeatTransfer}. Die Wellenzahlen der 
 Spektrallinien in diesen Zweigen sind gegeben durch:
 
 \begin{subequations}
@@ -181,10 +181,34 @@ Spektrallinien in diesen Zweigen sind gegeben durch:
 \end{subequations}
 
 wobei $\eta_0$ die Bandmitte bezeichnet. Die detaillierte Herleitung dieser Formeln findet sich in \autoref{sec:herleitung_3_zweige}. 
-Bei der Bandmitte $\eta_0$ selbst tritt keine Spektrallinie auf. Wenn $B_{\upsilon} = B_{\upsilon+1}$, dann gibt es keinen Q-Zweig,
-dies ist oft der Fall bei linearen Molekülen wie CO\textsubscript{2}. \autoref{fig:co2_spektrum_v3} zeigt die $P$- und $R$-Zweige des
-$\upsilon_3$ Bandes von CO\textsubscript{2} visualisiert. Der $Q$-Zweig tritt nicht auf.
+Bei linearen Molekülen wie CO\textsubscript{2} gibt es oft keinen $Q$-Zweig. Mehr dazu in \autoref{sec:co2_spektrum}.
 
+\subsection{Das CO\texorpdfstring{$_2$}{2}-Absorptionsspektrum}
+\label{sec:co2_spektrum}
+\ifthenelse{\boolean{abbildungen}}{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{assets/co2_absorption.pdf}
+        \caption{Absorptionsspektrum von CO\textsubscript{2}. Daten stammen aus der HITRAN-Datenbank \autocite{DBhitran2020}, 
+        Grafik wurde mithilfe von \autocite{python} erstellt, der Code ist im Anhang \ref{lst:co2_spektrum_small} dokumentiert.}
+        \label{fig:co2_spektrum}
+    \end{figure}
+}{}
+
+\autoref{fig:co2_spektrum} zeigt die charakteristischen Absorptionsbanden von CO\textsubscript{2}. Die beiden Hauptabsorptionsbanden 
+sind die zweifach entartete Biegeschwingung $\upsilon_2$ bei $\approx \SI{667}{\per\centi\meter}$ ($\approx \SI{15.0}{\micro\meter}$) 
+und die asymmetrische Streckschwingung $\upsilon_3$ bei $\approx \SI{2349}{\per\centi\meter}$ ($\approx \SI{4.26}{\micro\meter}$). 
+Die in \autoref{fig:degrees_of_freedom} dargestellte symmetrische Streckschwingung $\upsilon_1$ bei $\approx \SI{1388}{\per\centi\meter}$ 
+($\approx \SI{7.20}{\micro\meter}$) erscheint nicht im Spektrum, da diese Schwingungsmode keine Änderung des Dipolmoments bewirkt und somit 
+infrarot-inaktiv ist \cite[S.~39]{Shimanouchi1972}. 
+
+Das Absorptionsband bei $\approx \SI{2.7}{\micro\meter}$ resultiert aus Kombinationsschwingungen: Die Überlagerung von $\upsilon_1 + \upsilon_3$ 
+ergibt $\approx \SI{3737}{\per\centi\meter}$ ($\approx \SI{2.68}{\micro\meter}$), während die Kombination $2\upsilon_2 + \upsilon_3$ zu 
+$\approx \SI{3683}{\per\centi\meter}$ ($\approx \SI{2.72}{\micro\meter}$) führt \cite[S.~274]{herzbergPolyatomic}. Bei kritischer Beobachtung
+fällt auf das die symmetrische Streckschwingung $\upsilon_1$ eigentlich infrarot-inaktiv ist, jedoch wird die Kombination infrarot-aktiv, da 
+die gleichzeitige Anregung mit $\upsilon_3$ zu einer Dipolmomentänderung führt.
+
+\subsubsection{Das \texorpdfstring{$\upsilon_3$}{v3}-Vibrationsband von CO\texorpdfstring{$_2$}{2}}
 \ifthenelse{\boolean{abbildungen}}{
     \begin{figure}[H]
         \centering
@@ -194,15 +218,12 @@ $\upsilon_3$ Bandes von CO\textsubscript{2} visualisiert. Der $Q$-Zweig tritt ni
         \label{fig:co2_spektrum_v3}
     \end{figure}
 }{}
+Bei genauerer Betrachtung des $\upsilon_3$-Vibrationsbandes in \autoref{fig:co2_spektrum_v3} zeigt sich, dass kein Q-Zweig gebildet wird.
+Das lässt sich durch den Drehimpuls eines Photons erklären, jedes Photon trägt einen Drehimpuls von $\hbar$, welcher bei Absorption auf das
+Molekül übertragen werden muss. Deswegen muss es einen kombinierten Rotationsübergang ($\Delta\upsilon = +1$, $\Delta j = \pm 1$) geben. Da unsere Auswahlregel
+$\Delta j = 0$ nicht zulässt, ist der Q-Zweig verboten. Die $P$- und $R$-Zweige sind gut sichtbar.
 
 
+\subsubsection{Das \texorpdfstring{$\upsilon_2$}{v2}-Vibrationsband von CO\texorpdfstring{$_2$}{2}}
 
-\subsection{Das CO\texorpdfstring{$_2$}{CO2}-Absorptionsspektrum}
-\ifthenelse{\boolean{abbildungen}}{
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{assets/co2_absorption.pdf}
-        \caption{Absorptionsspektrum von CO\textsubscript{2}. Daten kommen von der HITRAN Datenbank \autocite{DBhitran2020}, Grafik wurde mithilfe von \autocite{python} erstellt, der Code ist im Anhang \ref{lst:co2_spektrum_small} dokumentiert.}
-        \label{fig:co2_spektrum}
-    \end{figure}
-}{}
+
