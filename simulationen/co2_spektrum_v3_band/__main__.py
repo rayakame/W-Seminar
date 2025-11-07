@@ -40,18 +40,14 @@ fig, ax1 = plt.subplots(figsize=(14, 7))
 
 absorbance_percent = absorbance * 100
 
-# Bandzentrum
 V3_CENTER = 2349.16
 
-# P- und R-Zweige als farbige Bereiche
 ax1.axvspan(wn_grid.min(), V3_CENTER, alpha=0.15, color='orange', label='P-Zweig')
 ax1.axvspan(V3_CENTER, wn_grid.max(), alpha=0.15, color='green', label='R-Zweig')
 
-# Spektrum
 ax1.plot(wn_grid, absorbance_percent, color='darkblue', linewidth=1.5, label=r"$\mathrm{CO_2}$")
 ax1.fill_between(wn_grid, 0, absorbance_percent, color='darkblue', alpha=0.2)
 
-# Bandzentrum
 ax1.axvline(V3_CENTER, color='red', linestyle='--', linewidth=1.5,
             label=r'$\nu_3$-Bandzentrum')
 

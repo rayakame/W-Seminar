@@ -31,6 +31,7 @@ haben, um absorbiert oder emittiert zu werden. Dies führt zu diskreten Spektral
 
 
 \subsection{Molekülstruktur und Schwingungsmoden}
+\label{sec:vibration_modes}
 Wir haben bereits die drei möglichen Arten der Energieniveaus eines Moleküls kennengelernt. Jedoch ist die Energie,
 welche nötig ist, um elektronische Übergänge zu bewirken, so groß, dass man elektromagnetische Strahlung mit sehr niedriger
 Wellenlänge benötigt (zwischen $\SI{0.01}{\micro\meter}$ und $\SI{1.5}{\micro\meter}$)\cite[S.~287]{radiativeHeatTransfer}.
@@ -62,25 +63,9 @@ zwei Rotations-Freiheitsgrade. Für CO\textsubscript{2} ergeben sich daher $3 \c
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{assets/degrees_of_freedom.pdf}
-        \caption{Rotations- und Vibrations-Freiheitsgrade für (a) zweiatomige, (b) linear dreiatomige und (c) nichtlineare dreiatomige Moleküle. \cite[S.~293]{radiativeHeatTransfer}}
+        \caption{Rotations- und Vibrations-Freiheitsgrade für (a) zweiatomige, (b) linear dreiatomige und (c) nicht lineare dreiatomige Moleküle. \cite[S.~293]{radiativeHeatTransfer}}
         \label{fig:degrees_of_freedom}
     \end{figure}
-}{}
-
-\ifthenelse{\boolean{formeln}}{
-    \begin{equation}
-        E_j = \frac{\hbar^2 }{2I}j(j + 1) = hc_0B_{\upsilon }j(j+1), \quad j = 0,1,2,... \quad \text{\cite[S.~293]{radiativeHeatTransfer}}
-    \end{equation}
-
-    $E = hf = hc_0\eta \Rightarrow \eta = \frac{E}{hc_0}$
-
-    \begin{equation}
-        E_{\upsilon} = hv_e(\upsilon + \frac{1}{2}), \quad \upsilon = 0,1,2,...
-    \end{equation}
-
-    \begin{equation}
-        E_{\upsilon j} = hv_e(\upsilon + \frac{1}{2}) + B_{\upsilon }j(j+1), \quad \upsilon = 0,1,2,...
-    \end{equation}
 }{}
 
 \subsection{Quantenmechanische Grundlagen der Absorption}
@@ -140,11 +125,16 @@ Dieses Integral ist nur dann nicht null, wenn die Wellenfunktionen die richtige 
 
 Leider ist das Modell eines harmonischen Oszillators deutlich ungenauer als das des starren Rotators. Dies lässt sich dadurch erklären,
 dass bei einer perfekt elastischen Feder die Kraft linear mit der Auslenkung zunimmt, wohingegen die Kraft bei Atomen, die sich
-relativ zueinander bewegen, nichtlinear zunimmt. Wenn man daher eine komplexere Federkonstante in die Analyse einbezieht, führt dies zu
+relativ zueinander bewegen, nicht linear zunimmt. Wenn man daher eine komplexere Federkonstante in die Analyse einbezieht, führt dies zu
 weiteren Termen in \autoref{eq:harmonic_oscillator}, wodurch sich die Auswahlregel zu $\Delta \upsilon = \pm 1, \pm 2, \pm 3, \ldots$ 
 ändert. Dies resultiert in mehreren ungefähr gleichmäßig voneinander entfernten Spektrallinien. Der Übergang mit $\Delta \upsilon = \pm 1$ 
 wird als \textit{Fundamentalübergang} bezeichnet und ist normalerweise bei weitem der stärkste, während die weiteren Übergänge mit 
-$\Delta \upsilon = \pm 2$, $\Delta \upsilon = \pm 3$, $\ldots$ als Obertöne bezeichnet werden \cite[S.~295]{radiativeHeatTransfer}.
+$\Delta \upsilon = \pm 2$, $\Delta \upsilon = \pm 3$, $\ldots$ als Obertöne bezeichnet werden. Der Vibrationszustand eines Moleküls 
+wird mithilfe der Vibrationsquantenzahlen beschrieben, bei CO\textsubscript{2} beispielsweise durch $(\upsilon_1, \upsilon_2, \upsilon_3)$. 
+Obwohl CO\textsubscript{2} vier Vibrations-Freiheitsgrade besitzt (siehe \autoref{sec:vibration_modes}), 
+werden nur drei Quantenzahlen benötigt. Der Grund hierfür ist, dass die zweite Vibrationsmode $\upsilon_2$ 
+zweifach entartet ist: Es handelt sich um dieselbe Schwingung, die in zwei senkrecht zueinander 
+stehenden Ebenen stattfindet \cite[S.~295--297]{radiativeHeatTransfer}.
 
 
 \subsubsection{Kombinierte Übergänge}
@@ -181,11 +171,20 @@ Spektrallinien in diesen Zweigen sind gegeben durch:
 \end{align}
 \end{subequations}
 
-wobei $\eta_0$ die Bandmitte bezeichnet. Die detaillierte Herleitung dieser Formeln 
-findet sich in \autoref{sec:herleitung_3_zweige}. Bei der Bandmitte 
-$\eta_0$ selbst tritt keine Spektrallinie auf.
+wobei $\eta_0$ die Bandmitte bezeichnet. Die detaillierte Herleitung dieser Formeln findet sich in \autoref{sec:herleitung_3_zweige}. 
+Bei der Bandmitte $\eta_0$ selbst tritt keine Spektrallinie auf. Wenn $B_{\upsilon} = B_{\upsilon+1}$ dann gibt es keinen Q-Zweig,
+dies ist oft der Fall bei linearen Molekülen wie CO\textsubscript{2}. In \autoref{fig:co2_spektrum_v3} sieht man die $P$- und $R$-Zweige des
+$\upsilon_3$ Bandes von CO\textsubscript{2} visualisiert. Der $Q$-Zweig tritt nicht auf.
 
-
+\ifthenelse{\boolean{abbildungen}}{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{assets/co2_absorption_v3_band.pdf}
+        \caption{Absorptionsspektrum des $\upsilon_3$-Vibrationsbandes von CO\textsubscript{2}. Daten kommen von der HITRAN Datenbank \autocite{DBhitran2020}
+         und von \cite[S.~39]{Shimanouchi1972}, Grafik wurde mithilfe von \autocite{python} erstellt, der Code ist im Anhang \ref{lst:co2_spektrum_v3} dokumentiert.}
+        \label{fig:co2_spektrum_v3}
+    \end{figure}
+}{}
 
 
 

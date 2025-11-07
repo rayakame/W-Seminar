@@ -37,7 +37,7 @@ def create_absorption_spectrum(wavenumbers, intensities, wn_grid,
 
     for wn, intensity in zip(wavenumbers, intensities):
         lorentz = (gamma_L / np.pi) / ((wn_grid - wn) ** 2 + gamma_L ** 2)
-        alpha = intensity * number_density * lorentz  # cm⁻¹
+        alpha = intensity * number_density * lorentz
         optical_depth += alpha * path_length_cm
 
 
