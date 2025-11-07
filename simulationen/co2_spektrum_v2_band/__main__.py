@@ -39,8 +39,7 @@ absorbance, optical_depth = create_absorption_spectrum(
 )
 
 
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(18, 8),
-                                gridspec_kw={'width_ratios': [10, 8]})
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(18, 15))
 
 absorbance_percent = absorbance * 100
 
