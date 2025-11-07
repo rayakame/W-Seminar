@@ -26,17 +26,24 @@ def read_hitran_par(filename: str) -> pd.DataFrame:
 
 
 def create_absorption_spectrum(wavenumbers, intensities, wn_grid,
-                               path_length=100, concentration=400e-6):
-    number_density = 2.69e19 * concentration
+                               path_length=1.0, concentration=400e-6, pressure=1.0, temperature=296, gamma=0.1):
+    number_density = 2.69e19 * (pressure * 1.0) * (273.15 / temperature) * concentration
 
     optical_depth = np.zeros_like(wn_grid)
 
-    gamma = 0.1
+    gamma_L = gamma * pressure
+
+    path_length_cm = path_length * 100
 
     for wn, intensity in zip(wavenumbers, intensities):
-        lorentz = gamma / (np.pi * ((wn_grid - wn) ** 2 + gamma ** 2))
-        optical_depth += intensity * number_density * path_length * 100 * lorentz
+        lorentz = (gamma_L / np.pi) / ((wn_grid - wn) ** 2 + gamma_L ** 2)
+        alpha = intensity * number_density * lorentz  # cm⁻¹
+        optical_depth += alpha * path_length_cm
 
-    absorbance = 1 - np.exp(-optical_depth)
 
-    return absorbance
+
+    transmission = np.exp(-optical_depth)
+
+    absorbance = 1 - transmission
+
+    return absorbance, optical_depth

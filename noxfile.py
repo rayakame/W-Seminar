@@ -59,6 +59,7 @@ def co2(session: nox.Session) -> None:
 
     session.run("python", "-m", "simulationen.co2_spektrum")
     session.run("python", "-m", "simulationen.co2_spektrum_under_1_5")
+    session.run("python", "-m", "simulationen.co2_spektrum_v3_band")
 
 @nox.session(reuse_venv=True)
 def co2_all(session: nox.Session) -> None:
@@ -71,3 +72,9 @@ def co2_small(session: nox.Session) -> None:
     uv_sync(session, groups=["co2"])
 
     session.run("python", "-m", "simulationen.co2_spektrum_under_1_5")
+
+@nox.session(reuse_venv=True)
+def co2_v3(session: nox.Session) -> None:
+    uv_sync(session, groups=["co2"])
+
+    session.run("python", "-m", "simulationen.co2_spektrum_v3_band")

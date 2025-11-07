@@ -22,14 +22,17 @@ print(f"Entspricht Wellenlänge: {10000/df_filtered['wavenumber'].max():.2f} - {
 
 wn_min = df_filtered['wavenumber'].min()
 wn_max = df_filtered['wavenumber'].max()
-wn_grid = np.linspace(wn_min, wn_max, 5000)
+wn_grid = np.linspace(wn_min, wn_max, 15000)
 
-absorbance = create_absorption_spectrum(
+absorbance, optical_depth = create_absorption_spectrum(
     df_filtered['wavenumber'].values,
     df_filtered['intensity'].values,
     wn_grid,
-    path_length=100,
-    concentration=400e-6
+    path_length=100.0,
+    pressure=1.0,
+    temperature=296,
+    concentration=400e-6,
+    gamma=0.1
 )
 
 wl_grid = 10000.0 / wn_grid
