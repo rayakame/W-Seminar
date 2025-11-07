@@ -48,7 +48,7 @@ ax1.axvspan(V3_CENTER, wn_grid.max(), alpha=0.15, color='green', label='R-Zweig'
 ax1.plot(wn_grid, absorbance_percent, color='darkblue', linewidth=1.5, label=r"$\mathrm{CO_2}$")
 ax1.fill_between(wn_grid, 0, absorbance_percent, color='darkblue', alpha=0.2)
 
-ax1.axvline(V3_CENTER, color='red', linestyle='--', linewidth=1.5,
+ax1.axvline(V3_CENTER, color='red', linestyle='--', linewidth=2,
             label=r'$\nu_3$-Bandzentrum')
 
 ax1.set_xlabel(r'Wellenzahl $\eta$ [$\mathrm{cm}^{-1}$]', fontsize=20)
