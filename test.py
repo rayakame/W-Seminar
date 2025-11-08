@@ -36,7 +36,7 @@ ax.quiver(0, 0, 0,  # Startpunkt (x, y, z)
           arrow_length_ratio=0.015,  # Größe der Pfeilspitze
           linewidth=2,
           alpha=0.7,
-          label='Molekülachse')
+          label='Zeit')
 ax.quiver(0, 0, -A*1.55,  # Startpunkt (x, y, z)
           0, 0, 2*A*1.55,  # Richtungsvektor (dx, dy, dz)
           color='green',
@@ -51,6 +51,8 @@ ax.quiver(0, A*1.55, 0,  # Startpunkt (x, y, z)
           linewidth=2,
           alpha=0.7,
           label=r'${\upsilon_2}^y$-Schwingung')
+#ax.plot([], [], ' ', label=r'Molekülachse $\perp$ ${\upsilon_2}^x$-${\upsilon_2}^y$-Ebene')
+
 
 # Projektionen auf die Ebenen (mit besserer Sichtbarkeit)
 # xy-Ebene (Sicht von oben)
