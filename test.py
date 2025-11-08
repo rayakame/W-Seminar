@@ -76,7 +76,7 @@ for x_pos in [0, max(x)/2, max(x)]:
 
 # Legende
 ax.legend(loc='lower center',
-          fontsize=18)
+          fontsize=14,bbox_to_anchor=(0.5, 0.1))
 
 # Gleichmäßige Skalierung für alle Achsen
 ax.set_box_aspect([3, 1, 1])  # x-Achse länger, da Fortschreiten
@@ -89,7 +89,7 @@ ax.view_init(elev=10, azim=-53, roll=0)
 
 plt.subplots_adjust(left=0, right=1, top=1, bottom=0)
 
-bbox = fig.bbox_inches.from_bounds(5, 0, 8, 5.5)
+bbox = fig.bbox_inches.from_bounds(5, 0.5, 8, 5)
 
 plt.savefig(ROOT_DIR / "seminararbeit" / "assets" / "co2_absorption_v2_schwingung.pdf",
             bbox_inches=bbox)
