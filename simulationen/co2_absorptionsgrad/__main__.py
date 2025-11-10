@@ -13,7 +13,7 @@ wn_max = df['wavenumber'].max()
 
 
 gamma = 0.1
-points_per_linewidth = 0.12
+points_per_linewidth = 0.08
 delta_wn = gamma / points_per_linewidth
 n_points = int((wn_max - wn_min) / delta_wn)
 wn_grid = np.linspace(wn_min, wn_max, n_points)
@@ -31,7 +31,6 @@ TEMPERATURE = 255
 TEMPERATURE_SURFACE = 288
 # Oberflächentemperatur
 
-print(effective_pressure(PATH_LENGTH))
 absorbance, optical_depth = create_absorption_spectrum(
     df['wavenumber'], df['intensity'], wn_grid,
     path_length=8000,
