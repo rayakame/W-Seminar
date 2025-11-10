@@ -595,6 +595,10 @@ co2 = [
     { name = "matplotlib" },
     { name = "pandas" },
 ]
+co2absorption = [
+    { name = "pandas" },
+    { name = "scipy" },
+]
 planck = [
     { name = "matplotlib" },
     { name = "scipy" },
@@ -607,6 +611,10 @@ requires-dist = [{ name = "nox", specifier = ">=2025.10.16" }]
 co2 = [
     { name = "matplotlib", specifier = ">=3.10.7" },
     { name = "pandas", specifier = ">=2.3.3" },
+]
+co2absorption = [
+    { name = "pandas", specifier = ">=2.3.3" },
+    { name = "scipy", specifier = ">=1.16.3" },
 ]
 planck = [
     { name = "matplotlib", specifier = ">=3.10.7" },

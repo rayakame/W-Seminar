@@ -12,14 +12,14 @@ V2_CENTER = 667.38
 
 df = read_hitran_par(FILENAME)
 
-wn_min_filter = 555
-wn_max_filter = 100000
+#wn_min_filter = 1
+#wn_max_filter = 1000000
+#
+#df_filtered = df[(df['wavenumber'] >= wn_min_filter) &
+#                 (df['wavenumber'] <= wn_max_filter)].copy()
 
-df_filtered = df[(df['wavenumber'] >= wn_min_filter) &
-                 (df['wavenumber'] <= wn_max_filter)].copy()
-
-wn_min = df_filtered['wavenumber'].min()
-wn_max = df_filtered['wavenumber'].max()
+wn_min = df['wavenumber'].min()
+wn_max = df['wavenumber'].max()
 
 gamma = 0.1
 points_per_linewidth = 0.12

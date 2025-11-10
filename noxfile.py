@@ -7,7 +7,7 @@ from nox import options
 import typing as t
 
 options.default_venv_backend = "uv"
-options.sessions = ["planck", "wien", "co2"]
+options.sessions = ["planck", "wien", "co2", "co2_absorption"]
 
 # uv_sync taken from: https://github.com/hikari-py/hikari/blob/master/pipelines/nox.py#L48
 #
@@ -85,3 +85,10 @@ def co2_v2(session: nox.Session) -> None:
     uv_sync(session, groups=["co2"])
 
     session.run("python", "-m", "simulationen.co2_spektrum_v2_band")
+
+
+@nox.session(reuse_venv=True)
+def co2_absorption(session: nox.Session) -> None:
+    uv_sync(session, groups=["co2absorption"])
+
+    session.run("python", "-m", "simulationen.co2_absorptionsgrad")

@@ -47,3 +47,32 @@ def create_absorption_spectrum(wavenumbers, intensities, wn_grid,
     absorbance = 1 - transmission
 
     return absorbance, optical_depth
+
+
+def calculate_total_emissivity(wn_grid, absorbance, temperature=288.0):
+    """
+    Berechnet die totale Emissivität durch Integration über das Planck-Spektrum
+    """
+    from scipy import constants
+
+    # Planck-Funktion für jede Wellenzahl (in Wellenzahl-Einheiten)
+    c1 = 2 * constants.pi * constants.h * constants.c ** 2  # [W m² sr⁻¹]
+    c2 = constants.h * constants.c / constants.k  # [m K]
+
+    # Umrechnung: Wellenzahl [cm⁻¹] → Wellenlänge [m]
+    wavelength = 1e-2 / wn_grid  # [m]
+
+    # Planck-Funktion B_λ [W m⁻² m⁻¹ sr⁻¹]
+    planck = c1 / (wavelength ** 5 * (np.exp(c2 / (wavelength * temperature)) - 1))
+
+    # Umrechnung von B_λ zu B_η (Wellenzahl-Einheiten)
+    # B_η = B_λ * |dλ/dη| = B_λ * (1e-2/η²)
+    planck_wn = planck * (1e-2 / wn_grid ** 2)
+
+    # Gewichtete Integration
+    numerator = np.trapz(absorbance * planck_wn, wn_grid)
+    denominator = constants.sigma * temperature**4
+
+    epsilon = numerator / denominator
+
+    return epsilon
