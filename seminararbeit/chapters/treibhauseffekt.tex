@@ -17,7 +17,7 @@ führt zu einer Erhöhung der Oberflächentemperatur gegenüber dem Zustand ohne
 Die physikalischen Grundlagen dieses Prozesses wurden bereits im 19. Jahrhundert erkannt: 
 Joseph Fourier identifizierte 1824 den Mechanismus der atmosphärischen Wärmespeicherung, 
 John Tyndall wies dies 1863 experimentell nach, und Svante Arrhenius quantifizierte 1896 erstmals den Zusammenhang 
-zwischen CO\textsubscript{2}-Konzentration und globaler Temperatur \cite{atmosphericCO2}.
+zwischen \ce{CO2}-Konzentration und globaler Temperatur \cite{atmosphericCO2}.
 
 \subsection{Treibhausmodelle}
 Zur quantitativen Beschreibung des Treibhauseffekts dienen vereinfachte Strahlungsbilanzmodelle, 
@@ -40,7 +40,7 @@ mithilfe des Stefan-Boltzmann-Gesetzes aus \autoref{eq:stefan_boltzmann}:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.75\textwidth]{assets/athmosphäre_einfach.pdf}
-        \caption{Schematische Darstellung des einfachen Treibhausmodells \cite[S.~15]{marshall2007atmosphere}}
+        \caption{Schematische Darstellung des einfachen Treibhausmodells \cite[S.~15]{marshall2007atmosphere}. Bild wurde mithilfe von \cite{bigjpg} hochskaliert.}
         \label{fig:easy_greenhouse}
     \end{figure}
 }{}
@@ -64,17 +64,17 @@ ergibt sich:
 \ifthenelse{\boolean{formeln}}{
   \begin{equation}
       (1-\alpha_p)\frac{S_0}{4} = \sigma \cdot T_a^4
-      \label{aljksdjasjdoiwjd}
+      \label{eq:simple_greenhouse_atm_balance}
   \end{equation}
 }{}
 Für das zweite Energiegleichgewicht folgt:
 \ifthenelse{\boolean{formeln}}{
   \begin{equation}
       \sigma \cdot T_s^4 = (1-\alpha_p)\frac{S_0}{4} + \sigma \cdot T_a^4
-      \label{oikhaojdhwoadw}
+      \label{eq:simple_greenhouse_surface_balance}
   \end{equation}
 }{}
-Durch Einsetzen von \autoref{aljksdjasjdoiwjd} in \autoref{oikhaojdhwoadw} ergibt sich:
+Durch Einsetzen von \autoref{eq:simple_greenhouse_atm_balance} in \autoref{eq:simple_greenhouse_surface_balance} ergibt sich:
 \ifthenelse{\boolean{formeln}}{
   \begin{align*}
       \sigma \cdot T_s^4 &= 2\sigma \cdot T_a^4 \\
@@ -86,8 +86,8 @@ Dies zeigt, dass die Oberflächentemperatur in diesem Modell um den Faktor $2^{1
 größer ist als die effektive planetare Temperatur: $\SI{254.6}{\kelvin} \cdot 1{,}19 \approx \SI{303}{\kelvin}$.
 Dieser Wert liegt näher an der globalen Mitteltemperatur der Erdoberfläche von $\SI{288}{\kelvin}$, 
 stellt jedoch eine Überschätzung dar. Diese Diskrepanz resultiert aus der 
-Modellannahme, dass die Atmosphäre die gesamte Infrarotstrahlung absorbiert. Wie in \autoref{sec:co2_spektrum} 
-gezeigt wurde, absorbiert CO\textsubscript{2} jedoch nicht den gesamten Infrarot-Wellenlängenbereich, 
+Modellannahme, dass die Atmosphäre sämtliche Infrarotstrahlung absorbiert. Wie in \autoref{sec:co2_spektrum} 
+gezeigt wurde, absorbiert \ce{CO2} jedoch nicht den gesamten Infrarot-Wellenlängenbereich, 
 sondern nur bestimmte spektrale Banden. Folglich muss das Treibhausmodell 
 dahingehend modifiziert werden, dass es nur einen Teil der Infrarotstrahlung absorbiert.
 
@@ -102,7 +102,7 @@ als idealer schwarzer Körper ohne Atmosphäre.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.75\textwidth]{assets/treibhausmodell_leaky.pdf}
-        \caption{Schematische Darstellung des undichten Treibhausmodells \cite[S.~17]{marshall2007atmosphere}}
+        \caption{Schematische Darstellung des undichten Treibhausmodells \cite[S.~17]{marshall2007atmosphere}. Bild wurde mithilfe von \cite{bigjpg} hochskaliert.}
         \label{fig:leaky_greenhouse}
     \end{figure}
 }{}
@@ -137,7 +137,7 @@ Werte vorliegen. Aufgelöst nach $\varepsilon$ ergibt sich:
   \end{equation}
 }{}
 \subsubsection{Berechnung des Absorptionsgrads von CO\texorpdfstring{$_2$}{2}}
-Um den spezifischen Beitrag von CO\textsubscript{2} zur Gesamtabsorption zu berechnen, lässt sich
+Um den spezifischen Beitrag von \ce{CO2} zur Gesamtabsorption zu berechnen, lässt sich
 die Absorption für jede Wellenlänge bestimmen und über den gesamten Wellenlängenbereich integrieren.
 \ifthenelse{\boolean{formeln}}{
   \begin{equation}
@@ -145,24 +145,23 @@ die Absorption für jede Wellenlänge bestimmen und über den gesamten Wellenlä
         = \frac{\int_0^\infty \varepsilon(\lambda) \cdot E_{b\lambda}(\lambda, T_s) \, d\lambda}{\sigma T_s^4}
     \end{equation}
 }{}
-Die wellenlängenabhängige Absorption von CO\textsubscript{2} $\varepsilon(\lambda)$ wurde mithilfe der HITRAN-Datenbank \cite{DBhitran2020} bestimmt.
+Die wellenlängenabhängige Absorption von \ce{CO2} $\varepsilon(\lambda)$ wurde mithilfe der HITRAN-Datenbank \cite{DBhitran2020} bestimmt.
 Die numerische Berechnung erfolgte mittels Python \cite{python}, der zugehörige Code ist in Anhang \ref{lst:co2_absorption} dargestellt. 
-Daraus ergibt sich $\varepsilon_{\text{CO}_2} = \SI{23.01}{\percent}$. Nach dieser Berechnung trägt CO\textsubscript{2} mit etwa $\SI{29.6}{\percent}$ zum
+Daraus ergibt sich $\varepsilon_{\text{CO}_2} = \SI{23.01}{\percent}$. Nach dieser Berechnung trägt \ce{CO2} mit etwa $\SI{29.6}{\percent}$ zum
 gesamten Absorptionsgrad bei. Experimentelle Daten zeigen jedoch, dass dieser Wert bei etwa $\SI{20}{\percent}$ liegt \cite{atmosphericCO2}. Dieser relative Fehler von ca. $\SI{48}{\percent}$
-lässt sich durch verschiedene Faktoren erklären, die aus den Vereinfachungen des verwendeten Treibhausmodells resultieren. Hauptsächlich resultiert die Abweichung daraus,
-dass das Modell die Atmosphäre als homogene Schicht behandelt. Tatsächlich variieren Parameter wie Druck, Temperatur und Konzentration
-stark mit der Höhe. Zudem stellt die isolierte Betrachtung von CO\textsubscript{2} eine weitere Fehlerquelle dar, da sich das Absorptionsspektrum von CO\textsubscript{2}
+lässt sich durch verschiedene Faktoren erklären, die aus den Vereinfachungen des verwendeten Treibhausmodells resultieren. Die Abweichung resultiert 
+hauptsächlich daraus, dass das Modell die Atmosphäre als homogene Schicht behandelt. Tatsächlich variieren Parameter wie Druck, Temperatur und Konzentration
+stark mit der Höhe. Zudem stellt die isolierte Betrachtung von \ce{CO2} eine weitere Fehlerquelle dar, da sich das Absorptionsspektrum von \ce{CO2}
 beispielsweise mit dem von H\textsubscript{2}O überschneidet.
 
 \subsection{Spektrale Absorptionseigenschaften der Atmosphäre}
-Wir haben bereits erkannt das die Annahme das die Atmosphäre einen konstanten Teil $\varepsilon$ der
-IR-Strahlung absorbiert eine starke Vereinfachung ist. In der Realität weist die Atmosphäre eine 
-ausgeprägt spektrale Struktur auf:
+Es wurde bereits erkannt, dass die Annahme, die Atmosphäre absorbiere einen konstanten Anteil $\varepsilon$
+der IR-Strahlung, eine starke Vereinfachung darstellt. In Wirklichkeit weist die Atmosphäre eine ausgeprägte spektrale Struktur auf:
 \ifthenelse{\boolean{abbildungen}}{
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{assets/atmosphäre_absorption.pdf}
-        \caption{Absorptionsspektrum der Atmosphäre \cite[S.~13]{marshall2007atmosphere}}
+        \caption{Absorptionsspektrum der Atmosphäre \cite[S.~13]{marshall2007atmosphere}. Bild wurde mithilfe von \cite{bigjpg} hochskaliert.}
         \label{fig:atmos_absorption}
     \end{figure}
 }{}
@@ -174,15 +173,15 @@ transparent (atmosphärisches Fenster), bei anderen nahezu undurchlässig. Bemer
 die Hauptbestandteile N\textsubscript{2} und O\textsubscript{2} praktisch nicht zur Absorption beitragen, O\textsubscript{2} absorbiert 
 nur im fernen UV und minimal im nahen IR, während N\textsubscript{2} über den gesamten relevanten Spektralbereich 
 transparent bleibt. Der Treibhauseffekt wird somit ausschließlich durch Spurengase wie H\textsubscript{2}O, 
-CO\textsubscript{2} und CH\textsubscript{2} verursacht.
+\ce{CO2} und \ce{CH4} verursacht.
 
 \subsection{Strahlungsantrieb durch CO\texorpdfstring{$_2$}{2}-Erhöhung}
-Der Strahlungsantrieb $\Delta F$ wird defindert als die Änderung der Netto-Strahlungsenergieflussdichte
+Der Strahlungsantrieb $\Delta F$ wird definiert als die Änderung der Netto-Strahlungsenergieflussdichte
 (in $\si{\watt\per\meter\squared}$) am Oberrand der Atmosphäre. Ein positiver Strahlungsantrieb
 führt zu einer Energiezufuhr zum Klimasystem und damit zu einer Erwärmung, während ein negativer Strahlungsantrieb
 eine Abkühlung bewirkt.
 
-Für Änderungen der atmosphärischen CO\textsubscript{2}-Konzentration ergibt sich der Strahlungsantrieb aus detaillierten
+Für Änderungen der atmosphärischen \ce{CO2}-Konzentration ergibt sich der Strahlungsantrieb aus detaillierten
 Strahlungstransfer-Berechnungen zu \cite[S.~2718]{newRadiativeForcingEstimates}:
 \ifthenelse{\boolean{formeln}}{
   \begin{equation}
@@ -190,7 +189,7 @@ Strahlungstransfer-Berechnungen zu \cite[S.~2718]{newRadiativeForcingEstimates}:
       \label{eq:radiative_forcing_co2}
   \end{equation}
 }{}
-wobei $C$ die aktuelle CO\textsubscript{2}-Konzentration und $C_0 = 280$ppm die vorindustrielle Referenzkonzentration
+wobei $C$ die aktuelle \ce{CO2}-Konzentration und $C_0 = \SI{280}{ppm}$ die vorindustrielle Referenzkonzentration
 bezeichnet. Die Temperaturantwort des Klimasystems auf einen Strahlungsantrieb wird durch die Klimasensitivität $\partial T_S / \partial Q$
 beschrieben \cite[S.~19]{marshall2007atmosphere}:
 \ifthenelse{\boolean{formeln}}{
@@ -208,8 +207,8 @@ sich aus der Ableitung des Stefan-Boltzmann-Gesetzes \cite[S.~19]{marshall2007at
       \quad \text{\cite[S.~19]{marshall2007atmosphere}}
   \end{equation}
 }{}
-Mit $T_e = \SI{255}{\kelvin}$ folgt für eine CO\textsubscript{2}-Verdopplung ($\Delta F \approx \SI{3.71}{\watt\per\meter\squared}$) 
+Für $T_e = \SI{255}{\kelvin}$ folgt für eine \ce{CO2}-Verdopplung ($\Delta F \approx \SI{3.71}{\watt\per\meter\squared}$) 
 eine direkte Temperaturerhöhung von nur etwa $\SI{0.99}{\kelvin}$.
 
-Das reale Klimasystem weist jedoch starke Rückkopplungen auf, hauptsächlich durch Wasserdampf, weswegen im realen Klimasystem eine Verdopplung
-von CO\textsubscript{2} zu einer Temperaturerhöhung von $\approx \SI{4}{\kelvin}$ führt \cite{atmosphericCO2}.
+Das reale Klimasystem weist jedoch starke Rückkopplungen auf, hauptsächlich durch Wasserdampf. Daher führt im realen Klimasystem eine Verdopplung
+von \ce{CO2} zu einer Temperaturerhöhung von $\approx \SI{4}{\kelvin}$ führt \cite{atmosphericCO2}.
