@@ -17,7 +17,7 @@ führt zu einer Erhöhung der Oberflächentemperatur gegenüber dem Zustand ohne
 Die physikalischen Grundlagen dieses Prozesses wurden bereits im 19. Jahrhundert erkannt: 
 Joseph Fourier identifizierte 1824 den Mechanismus der atmosphärischen Wärmespeicherung, 
 John Tyndall wies dies 1863 experimentell nach, und Svante Arrhenius quantifizierte 1896 erstmals den Zusammenhang 
-zwischen CO\textsubscript{2}-Konzentration und globaler Temperatur \cite{lacis2010atmospheric}.
+zwischen CO\textsubscript{2}-Konzentration und globaler Temperatur \cite{atmosphericCO2}.
 
 \subsection{Treibhausmodelle}
 Zur quantitativen Beschreibung des Treibhauseffekts dienen vereinfachte Strahlungsbilanzmodelle, 
@@ -44,7 +44,6 @@ mithilfe des Stefan-Boltzmann-Gesetzes aus \autoref{eq:stefan_boltzmann}:
         \label{fig:easy_greenhouse}
     \end{figure}
 }{}
-
 Die Energiezufuhr erfolgt durch die Sonneneinstrahlung. Da nur die Querschnittsfläche 
 der Erde die Sonnenstrahlung abfängt, muss die Sonneneinstrahlung auf
 die gesamte Erdoberfläche umgerechnet werden. Der Faktor für den Anteil der reflektierten
@@ -55,8 +54,6 @@ Sonneneinstrahlung (planetare Albedo $\alpha_p$) bleibt gleich (siehe \autoref{s
       E_{\text{in}} &= (1-\alpha_p)\frac{S_0}{4}
   \end{align}
 }{}
-
-
 In diesem Treibhausmodell existieren zwei fundamentale Energiegleichgewichte:
 $E_\text{in} = A\uparrow$, also Gesamteinstrahlung = Gesamtausstrahlung,
 und $S\uparrow = E_\text{in} + A\downarrow$, also Ausstrahlung der 
@@ -70,7 +67,6 @@ ergibt sich:
       \label{aljksdjasjdoiwjd}
   \end{equation}
 }{}
-
 Für das zweite Energiegleichgewicht folgt:
 \ifthenelse{\boolean{formeln}}{
   \begin{equation}
@@ -78,7 +74,6 @@ Für das zweite Energiegleichgewicht folgt:
       \label{oikhaojdhwoadw}
   \end{equation}
 }{}
-
 Durch Einsetzen von \autoref{aljksdjasjdoiwjd} in \autoref{oikhaojdhwoadw} ergibt sich:
 \ifthenelse{\boolean{formeln}}{
   \begin{align*}
@@ -111,7 +106,6 @@ als idealer schwarzer Körper ohne Atmosphäre.
         \label{fig:leaky_greenhouse}
     \end{figure}
 }{}
-
 Das Energiegleichgewicht zwischen Gesamteinstrahlung und Gesamtausstrahlung
 lautet in diesem Modell:
 \ifthenelse{\boolean{formeln}}{
@@ -133,7 +127,6 @@ Mit $S\uparrow = \sigma T_s^4$ und $E_\text{in} = \sigma T_e^4$ ergibt sich:
       T_s = \left( \frac{2}{2-\varepsilon} \right)^{1/4}T_e
   \end{equation}
 }{}
-
 Die detaillierte Herleitung befindet sich in \autoref{sec:anhang_treibhausmodell}. Mit dieser
 Gleichung lässt sich der reelle Absorptionsgrad der Atmosphäre bestimmen, da für
 $T_s = \SI{288}{\kelvin}$ und $T_e = \SI{254.6}{\kelvin}$ 
@@ -143,16 +136,20 @@ Werte vorliegen. Aufgelöst nach $\varepsilon$ ergibt sich:
     \varepsilon = 2 - \frac{2}{(T_s/T_e)^4} = \SI{77.8}{\percent}
   \end{equation}
 }{}
-
 \subsubsection{Berechnung des Absorptionsgrads von CO\texorpdfstring{$_2$}{2}}
-Um den spezifischen Beitrag von CO\textsubscript{2} der Gesamtabsorption zu berechnen, können
-wir die Absorption jeder Wellenlänge berechnen und über den gesamten Wellenlängenbereich integrieren.
+Um den spezifischen Beitrag von CO\textsubscript{2} zur Gesamtabsorption zu berechnen, lässt sich
+die Absorption für jede Wellenlänge bestimmen und über den gesamten Wellenlängenbereich integrieren.
 \ifthenelse{\boolean{formeln}}{
   \begin{equation}
       \varepsilon_{\text{CO}_2}(T) = \frac{\int_0^\infty \varepsilon(\lambda) \cdot E_{b\lambda}(\lambda, T_s) \, d\lambda}{\int_0^\infty E_{b\lambda}(\lambda, T_s) \, d\lambda}
         = \frac{\int_0^\infty \varepsilon(\lambda) \cdot E_{b\lambda}(\lambda, T_s) \, d\lambda}{\sigma T_s^4}
     \end{equation}
 }{}
-
-Die Wellenlängenabhängige Absorption von CO\textsubscript{2} $\varepsilon(\lambda)$ erhalten wir mithilfe der HITRAN-Daten \cite{DBhitran2020}.
-Die Berechnung erfolgte mithilfe von Python \cite{python}, der Code ist in ... dokumentiert. Das Ergebnis ist: $\varepsilon_{\text{CO}_2} = \SI{22.95}{\percent}$.
+Die wellenlängenabhängige Absorption von CO\textsubscript{2} $\varepsilon(\lambda)$ wurde mithilfe der HITRAN-Datenbank \cite{DBhitran2020} bestimmt.
+Die numerische Berechnung erfolgte mittels Python \cite{python}, der zugehörige Code ist in Anhang \ref{lst:co2_absorption} dargestellt. 
+Daraus ergibt sich $\varepsilon_{\text{CO}_2} = \SI{22.95}{\percent}$. Nach dieser Berechnung trägt CO\textsubscript{2} mit etwa $\SI{30}{\percent}$ zum
+gesamten Absorptionsgrad bei. Experimentelle Daten zeigen jedoch, dass dieser Wert bei etwa $\SI{20}{\percent}$ liegt \cite{atmosphericCO2}. Dieser relative Fehler von ca. $\SI{33}{\percent}$
+lässt sich durch verschiedene Faktoren erklären, die aus den Vereinfachungen des verwendeten Treibhausmodells resultieren. Hauptsächlich resultiert die Abweichung daraus,
+dass das Modell die Atmosphäre als homogene Schicht behandelt. Tatsächlich variieren Parameter wie Druck, Temperatur und Konzentration
+stark mit der Höhe. Zudem stellt die isolierte Betrachtung von CO\textsubscript{2} eine weitere Fehlerquelle dar, da sich das Absorptionsspektrum von CO\textsubscript{2}
+beispielsweise mit dem von H\textsubscript{2}O überschneidet.
