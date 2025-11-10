@@ -1,6 +1,16 @@
 \newpage
 \section{Anhang}
 
+\subsection{Abbildungsverzeichnis}
+\vspace{-1.3cm}
+\begingroup
+\renewcommand{\listfigurename}{}  % Überschrift entfernen
+\listoffigures
+\endgroup
+
+\newpage
+
+
 \subsection{Literaturverzeichnis}
 \printbibliography[heading=none]
 
@@ -33,6 +43,43 @@
 \end{table}
 
 \subsection{Formeln und Herleitungen}
+\subsubsection{Herleitung des Wienschen Verschiebungsgesetzes}
+\label{sec:herleitung_wien}
+Das in \autoref{sec:wien} erläuterte Wiensche Verschiebungsgesetz wird durch die Ableitung des Planckschen Verschiebungsgesetzes \eqref{eq:plancks_law_wavelength}
+nach $\lambda$ hergeleitet, indem man die Ableitung gleich null setzt. Die folgende mathematische Herleitung folgt Kraus \cite[S.~101]{kraus2007atmosphäre}.
+\ifthenelse{\boolean{formeln}}{
+  \begin{equation*}
+    \frac{\partial E_{b\lambda}(T, \lambda)}{\partial \lambda} = 0
+  \end{equation*}
+}{}
+Die Ableitung nach $\lambda$ ergibt mit der Produktregel:
+\ifthenelse{\boolean{formeln}}{
+  \begin{equation*}
+    -10 \frac{hc_0^2}{\lambda^6} \cdot \frac{1}{e^{hc_0/k\lambda T} - 1} 
+  - 2 \frac{hc_0^2}{\lambda^5} \cdot \frac{1}{\left(e^{hc_0/k\lambda T} - 1\right)^2} \cdot e^{hc_0/k\lambda T} \cdot \left(-\frac{hc_0}{k\lambda^2 T}\right) = 0
+  \end{equation*}
+  \begin{equation*}
+    \frac{5}{\lambda} = \frac{1}{e^{hc_0/k\lambda T}-1} \cdot e^{hc_0/k\lambda T} \cdot \frac{hc_0}{k\lambda^2T}
+  \end{equation*}
+}{}
+Mit der Substitution $x = \frac{hc_0}{k\lambda T}$ ergibt sich die transzendente Gleichung:
+\ifthenelse{\boolean{formeln}}{
+  \begin{equation*}
+    5 = \frac{x\cdot e^x}{e^x -1}
+  \end{equation*}
+}{}
+Die numerische Lösung dieser Gleichung liefert $x \approx 4.9651$. 
+Rücksubstitution in $x_{max} = \frac{hc_0}{k\lambda_{max} T}$ ergibt das \textit{Wiensche Verschiebungsgesetz}:
+\ifthenelse{\boolean{formeln}}{
+  \begin{align*}
+  \lambda_{max} &= \frac{h c_0}{k x_{max} T} \\
+  \lambda_{max} T &= \frac{h c_0}{k x_{max}} \\
+  &= \frac{\SI{6.62612e-34}{\joule\second} \cdot \SI{2.99792e8}{\meter\per\second}}{\SI{1.38065e-23}{\joule\per\kelvin} \cdot 4.9651}\\
+  &= \SI{2.8978e-3}{\meter\kelvin}
+  \end{align*}
+}{}
+
+
 \subsubsection{Herleitung der 3 Übergangsformeln}
 \label{sec:herleitung_3_zweige}
 Die in \autoref{sec:combined_transitions} beschriebenen 3 Gleichungen für die verschiedenen Zweige eines Vibrations-Rotations-Bands kommen wie folgt zustande:
@@ -87,9 +134,44 @@ Eingesetzt in \autoref{eq:delta_eta}:
 \ifthenelse{\boolean{formeln}}{
     \begin{align*}
         \eta_P &= \eta_0 + B_{\upsilon+1}(j^2 - j) - B_{\upsilon}j(j+1) \\
-                  &= \eta_0 + B_{\upsilon+1}j^2 - B_{\upsilon+1}j - B_{\upsilon}j^2 - B_{\upsilon}j \\
-                  &= \eta_0 + j^2(B_{\upsilon+1} - B_{\upsilon}) - j(B_{\upsilon+1} + B_{\upsilon})
+                &= \eta_0 + B_{\upsilon+1}j^2 - B_{\upsilon+1}j - B_{\upsilon}j^2 - B_{\upsilon}j \\
+                &= \eta_0 + j^2(B_{\upsilon+1} - B_{\upsilon}) - j(B_{\upsilon+1} + B_{\upsilon})
     \end{align*}
+}{}
+
+\subsection{Herleitungen für das Treibhausmodell}
+\label{sec:anhang_treibhausmodell}
+Für die Formel
+\ifthenelse{\boolean{formeln}}{
+    \begin{equation*}
+        S\uparrow = \frac{2}{2-\varepsilon}E_\text{in}
+    \end{equation*}
+}{}
+
+müssen wir erstmal das Energiegleichgewicht zwischen Gesamteinstrahlung und Gesamtausstrahlung aufstellen:
+\ifthenelse{\boolean{formeln}}{
+  \begin{equation*}
+      E_\text{in} = A\uparrow +  (1 - \varepsilon ) S\uparrow
+  \end{equation*}
+}{}
+
+Da $A\downarrow$ = $A\uparrow$ und $A\downarrow = S\uparrow - E_\text{in}$ ergibt sich:
+\ifthenelse{\boolean{formeln}}{
+  \begin{align*}
+      E_\text{in} &= A\uparrow +  (1 - \varepsilon ) S\uparrow \\
+      E_\text{in} &= S\uparrow - E_\text{in} +  (1 - \varepsilon ) S\uparrow \\
+      E_\text{in} &= (2 - \varepsilon ) S\uparrow - E_\text{in} \\
+      2E_\text{in} &= (2 - \varepsilon ) S\uparrow \\
+      S\uparrow &= \frac{2}{2-\varepsilon}E_\text{in} \\
+  \end{align*}
+}{}
+
+Da $S\uparrow = \sigma T_s^4$ und da $E_\text{in} = \sigma T_e^4$ ergibt sich:
+\ifthenelse{\boolean{formeln}}{
+  \begin{align*}
+      \sigma T_s^4 &= \frac{2}{2-\varepsilon}\sigma T_e^4\\
+      T_s &= \left( \frac{2}{2-\varepsilon} \right)^{1/4}T_e
+  \end{align*}
 }{}
 
 

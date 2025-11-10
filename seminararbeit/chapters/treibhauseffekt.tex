@@ -1,0 +1,158 @@
+\section{Der Treibhauseffekt}
+Die Analyse der Strahlungsbilanz in \autoref{sec:strahlungsbilanz_erde} zeigte,
+dass die berechnete effektive planetare Temperatur deutlich unter der gemessenen 
+globalen Mitteltemperatur liegt. Diese Differenz resultiert aus dem natürlichen
+Treibhauseffekt. Der zentrale Mechanismus dieses Effekts und dessen Einfluss auf die Energiebilanz
+der Erde werden im folgenden Kapitel untersucht.
+
+\subsection{Mechanismus des Treibhauseffekts}
+Der Treibhauseffekt entsteht durch die wellenlängenabhängige Absorption 
+elektromagnetischer Strahlung in der Atmosphäre. Während die kurzwellige solare Strahlung 
+die Atmosphäre weitgehend ungehindert durchdringt und die Erdoberfläche erwärmt, wird 
+die von der Oberfläche emittierte langwellige Infrarotstrahlung teilweise von atmosphärischen 
+Spurengasen absorbiert. Die Atmosphäre emittiert ihrerseits thermische Strahlung sowohl 
+in Richtung Weltraum als auch zurück zur Erdoberfläche. Diese zusätzliche Gegenstrahlung 
+führt zu einer Erhöhung der Oberflächentemperatur gegenüber dem Zustand ohne Atmosphäre.
+
+Die physikalischen Grundlagen dieses Prozesses wurden bereits im 19. Jahrhundert erkannt: 
+Joseph Fourier identifizierte 1824 den Mechanismus der atmosphärischen Wärmespeicherung, 
+John Tyndall wies dies 1863 experimentell nach, und Svante Arrhenius quantifizierte 1896 erstmals den Zusammenhang 
+zwischen CO\textsubscript{2}-Konzentration und globaler Temperatur \cite{lacis2010atmospheric}.
+
+\subsection{Treibhausmodelle}
+Zur quantitativen Beschreibung des Treibhauseffekts dienen vereinfachte Strahlungsbilanzmodelle, 
+die den Mechanismus schrittweise veranschaulichen und eine analytische Abschätzung der 
+Oberflächentemperatur ermöglichen.
+
+\subsubsection{Das einfache Treibhausmodell}
+Das Modell setzt voraus, dass die Atmosphäre vollständig transparent für kurzwellige
+Sonnenstrahlung ist, jedoch vollständig opak für Infrarotstrahlung (visualisiert 
+in \autoref{fig:easy_greenhouse}). Folglich ist die Gesamtausstrahlung der Erde
+von der Temperatur der Atmosphäre $T_a$ abhängig, da nicht die Erdoberfläche direkt, sondern
+die Atmosphäre in den Weltraum strahlt. Die Gesamtausstrahlung ergibt sich 
+mithilfe des Stefan-Boltzmann-Gesetzes aus \autoref{eq:stefan_boltzmann}:
+\ifthenelse{\boolean{formeln}}{
+  \begin{equation}
+      E_{\text{out}} = \sigma \cdot T_a^4 = A\uparrow 
+  \end{equation}
+}{}
+\ifthenelse{\boolean{abbildungen}}{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth]{assets/athmosphäre_einfach.pdf}
+        \caption{Schematische Darstellung des einfachen Treibhausmodells \cite[S.~15]{marshall2007atmosphere}}
+        \label{fig:easy_greenhouse}
+    \end{figure}
+}{}
+
+Die Energiezufuhr erfolgt durch die Sonneneinstrahlung. Da nur die Querschnittsfläche 
+der Erde die Sonnenstrahlung abfängt, muss die Sonneneinstrahlung auf
+die gesamte Erdoberfläche umgerechnet werden. Der Faktor für den Anteil der reflektierten
+Sonneneinstrahlung (planetare Albedo $\alpha_p$) bleibt gleich (siehe \autoref{sec:strahlungsbilanz_erde}).
+\ifthenelse{\boolean{formeln}}{
+  \begin{align}
+      E_{\text{sun}} &= \frac{\text{interceptierte Sonnenstrahlung}}{\text{Oberfläche der Erde}} = \frac{S_0\pi r^2}{4\pi r^2} = \frac{S_0}{4}\\
+      E_{\text{in}} &= (1-\alpha_p)\frac{S_0}{4}
+  \end{align}
+}{}
+
+
+In diesem Treibhausmodell existieren zwei fundamentale Energiegleichgewichte:
+$E_\text{in} = A\uparrow$, also Gesamteinstrahlung = Gesamtausstrahlung,
+und $S\uparrow = E_\text{in} + A\downarrow$, also Ausstrahlung der 
+Oberfläche = auf die Oberfläche einfallende Strahlung.
+
+Wird das Stefan-Boltzmann-Gesetz in das erste Energiegleichgewicht eingesetzt,
+ergibt sich:
+\ifthenelse{\boolean{formeln}}{
+  \begin{equation}
+      (1-\alpha_p)\frac{S_0}{4} = \sigma \cdot T_a^4
+      \label{aljksdjasjdoiwjd}
+  \end{equation}
+}{}
+
+Für das zweite Energiegleichgewicht folgt:
+\ifthenelse{\boolean{formeln}}{
+  \begin{equation}
+      \sigma \cdot T_s^4 = (1-\alpha_p)\frac{S_0}{4} + \sigma \cdot T_a^4
+      \label{oikhaojdhwoadw}
+  \end{equation}
+}{}
+
+Durch Einsetzen von \autoref{aljksdjasjdoiwjd} in \autoref{oikhaojdhwoadw} ergibt sich:
+\ifthenelse{\boolean{formeln}}{
+  \begin{align*}
+      \sigma \cdot T_s^4 &= 2\sigma \cdot T_a^4 \\
+      T_s &= 2^{1/4}T_a
+  \end{align*}
+}{}
+
+Dies zeigt, dass die Oberflächentemperatur in diesem Modell um den Faktor $2^{1/4} \approx 1{,}19$
+größer ist als die effektive planetare Temperatur: $\SI{254.6}{\kelvin} \cdot 1{,}19 \approx \SI{303}{\kelvin}$.
+Dieser Wert liegt näher an der globalen Mitteltemperatur der Erdoberfläche von $\SI{288}{\kelvin}$, 
+stellt jedoch eine Überschätzung dar. Diese Diskrepanz resultiert aus der 
+Modellannahme, dass die Atmosphäre die gesamte Infrarotstrahlung absorbiert. Wie in \autoref{sec:co2_spektrum} 
+gezeigt wurde, absorbiert CO\textsubscript{2} jedoch nicht den gesamten Infrarot-Wellenlängenbereich, 
+sondern nur bestimmte spektrale Banden. Folglich muss das Treibhausmodell 
+dahingehend modifiziert werden, dass es nur einen Teil der Infrarotstrahlung absorbiert.
+
+\subsubsection{Das undichte Treibhausmodell}
+Im erweiterten Modell wird angenommen, dass die Atmosphäre einen Teil der von der Oberfläche
+emittierten Strahlung absorbiert und einen Teil transmittiert. Das Modell arbeitet mit
+drei Temperaturen: $T_a$ bezeichnet die Temperatur der Atmosphäre,
+$T_s$ die Oberflächentemperatur und $T_e$ die effektive planetare Temperatur 
+(wie in \autoref{sec:strahlungsbilanz_erde} definiert), also die Temperatur der Erde 
+als idealer schwarzer Körper ohne Atmosphäre.
+\ifthenelse{\boolean{abbildungen}}{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth]{assets/treibhausmodell_leaky.pdf}
+        \caption{Schematische Darstellung des undichten Treibhausmodells \cite[S.~17]{marshall2007atmosphere}}
+        \label{fig:leaky_greenhouse}
+    \end{figure}
+}{}
+
+Das Energiegleichgewicht zwischen Gesamteinstrahlung und Gesamtausstrahlung
+lautet in diesem Modell:
+\ifthenelse{\boolean{formeln}}{
+  \begin{equation}
+      E_\text{in} = A\uparrow +  (1 - \varepsilon ) S\uparrow
+  \end{equation}
+}{}
+wobei $\varepsilon$ den Absorptionsgrad der Atmosphäre im Infrarotbereich beschreibt. 
+Das Energiegleichgewicht $S\uparrow = E_\text{in} + A\downarrow$ bleibt unverändert. 
+Da $A\downarrow = A\uparrow$ gilt, folgt:
+\ifthenelse{\boolean{formeln}}{
+  \begin{equation*}
+      S\uparrow = \frac{2}{2-\varepsilon}E_\text{in}
+  \end{equation*}
+}{}
+Mit $S\uparrow = \sigma T_s^4$ und $E_\text{in} = \sigma T_e^4$ ergibt sich:
+\ifthenelse{\boolean{formeln}}{
+  \begin{equation}
+      T_s = \left( \frac{2}{2-\varepsilon} \right)^{1/4}T_e
+  \end{equation}
+}{}
+
+Die detaillierte Herleitung befindet sich in \autoref{sec:anhang_treibhausmodell}. Mit dieser
+Gleichung lässt sich der reelle Absorptionsgrad der Atmosphäre bestimmen, da für
+$T_s = \SI{288}{\kelvin}$ und $T_e = \SI{254.6}{\kelvin}$ 
+Werte vorliegen. Aufgelöst nach $\varepsilon$ ergibt sich:
+\ifthenelse{\boolean{formeln}}{
+  \begin{equation}
+    \varepsilon = 2 - \frac{2}{(T_s/T_e)^4} = \SI{77.8}{\percent}
+  \end{equation}
+}{}
+
+\subsubsection{Berechnung des Absorptionsgrads von CO\texorpdfstring{$_2$}{2}}
+Um den spezifischen Beitrag von CO\textsubscript{2} der Gesamtabsorption zu berechnen, können
+wir die Absorption jeder Wellenlänge berechnen und über den gesamten Wellenlängenbereich integrieren.
+\ifthenelse{\boolean{formeln}}{
+  \begin{equation}
+      \varepsilon_{\text{CO}_2}(T) = \frac{\int_0^\infty \varepsilon(\lambda) \cdot E_{b\lambda}(\lambda, T_s) \, d\lambda}{\int_0^\infty E_{b\lambda}(\lambda, T_s) \, d\lambda}
+        = \frac{\int_0^\infty \varepsilon(\lambda) \cdot E_{b\lambda}(\lambda, T_s) \, d\lambda}{\sigma T_s^4}
+    \end{equation}
+}{}
+
+Die Wellenlängenabhängige Absorption von CO\textsubscript{2} $\varepsilon(\lambda)$ erhalten wir mithilfe der HITRAN-Daten \cite{DBhitran2020}.
+Die Berechnung erfolgte mithilfe von Python \cite{python}, der Code ist in ... dokumentiert. Das Ergebnis ist:

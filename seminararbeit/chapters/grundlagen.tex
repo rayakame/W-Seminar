@@ -1,4 +1,11 @@
 \section{Physikalische Grundlagen der Wärmestrahlung}
+Um den Treibhauseffekt zu verstehen, ist es essenziell zu verstehen, wie die Erde den Großteil ihrer Energie erhält und 
+wie die Erde ihre überschüssige Energie wieder abgibt. Der Energiehaushalt der Erde wird hauptsächlich durch 
+Strahlungsprozesse bestimmt: Die Erde erhält Energie durch Strahlung der Sonne und strahlt selber wieder Energie in
+den Weltraum \cite[S.~9--11]{marshall2007atmosphere}. Im folgenden Kapitel betrachten wir diese Strahlungsprozesse im Detail, um die Grundlage
+des Treibhauseffekts zu verstehen.
+
+\subsection{Grundbegriffe der elektromagnetischen Strahlung}
 \textit{Wärmestrahlung} bezeichnet die elektromagnetische Strahlung, die von Materie aufgrund ihrer thermischen
 Energie emittiert wird. Elektromagnetische Strahlung ist eine Form der Energieübertragung, die sich im Raum ausbreitet und entweder 
 als elektromagnetische Wellen (wie von der elektromagnetischen Wellentheorie beschrieben; \cite{electricityMagnetism})
@@ -81,6 +88,7 @@ Elektromagnetische Wellen werden durch folgende Eigenschaften charakterisiert:
 }{}
 
 \subsection{Strahlungsgesetze}
+\label{sec:strahlungsgesetzte}
 Jedes Medium emittiert elektromagnetische Strahlung zufällig in alle Richtungen. 
 Die Intensität dieser Emission hängt sowohl von der Temperatur als auch von den Materialeigenschaften des Mediums ab. 
 Der von einer Oberfläche abgegebene Strahlungswärmestrom wird als \textit{spezifische Ausstrahlung} bezeichnet.
@@ -156,57 +164,19 @@ Dabei bezeichnet $\sigma = \SI{5.670e-8}{\watt\per\meter\squared\per\kelvin\toth
 die Stefan-Boltzmann Konstante \cite{codata2018}.
 
 \subsubsection{Wiensches Verschiebungsgesetz}
-Die Wellenlänge $\lambda_{max}$ bei welcher die spektrale spezifische Ausstrahlung eines schwarzen idealen Körpers $E_{b\lambda}$ 
-mit der Temperatur $T$ ein Maximum erreicht, erhält man, indem man die Gleichung \eqref{eq:plancks_law_wavelength} nach 
-$\lambda$ ableitet und diese Gleichung gleich Null setzt. Die folgende mathematische Herleitung folgt Kraus \cite[S.~101]{kraus2007atmosphäre}.
-
-\ifthenelse{\boolean{formeln}}{
-  \begin{equation*}
-    \frac{\partial E_{b\lambda}(T, \lambda)}{\partial \lambda} = 0
-  \end{equation*}
-}{}
-
-Die Ableitung nach $\lambda$ ergibt mit der Produktregel:
-\ifthenelse{\boolean{formeln}}{
-  \begin{equation*}
-    -10 \frac{hc_0^2}{\lambda^6} \cdot \frac{1}{e^{hc_0/k\lambda T} - 1} 
-  - 2 \frac{hc_0^2}{\lambda^5} \cdot \frac{1}{\left(e^{hc_0/k\lambda T} - 1\right)^2} \cdot e^{hc_0/k\lambda T} \cdot \left(-\frac{hc_0}{k\lambda^2 T}\right) = 0
-  \end{equation*}
-  \begin{equation*}
-    \frac{5}{\lambda} = \frac{1}{e^{hc_0/k\lambda T}-1} \cdot e^{hc_0/k\lambda T} \cdot \frac{hc_0}{k\lambda^2T}
-  \end{equation*}
-}{}
-
-Mit der Substitution $x = \frac{hc_0}{k\lambda T}$ ergibt sich die transzendente Gleichung:
-\ifthenelse{\boolean{formeln}}{
-  \begin{equation*}
-    5 = \frac{x\cdot e^x}{e^x -1}
-  \end{equation*}
-}{}
-
-Die numerische Lösung dieser Gleichung liefert $x \approx 4.9651$. 
-Rücksubstitution in $x_{max} = \frac{hc_0}{k\lambda_{max} T}$ ergibt das \textit{Wiensche Verschiebungsgesetz}:
-
-\ifthenelse{\boolean{formeln}}{
-  \begin{align*}
-  \lambda_{max} &= \frac{h c_0}{k x_{max} T} \\
-  \lambda_{max} T &= \frac{h c_0}{k x_{max}} \\
-  &= \frac{\SI{6.62612e-34}{\joule\second} \cdot \SI{2.99792e8}{\meter\per\second}}{\SI{1.38065e-23}{\joule\per\kelvin} \cdot 4.9651}\\
-  &= \SI{2.8978e-3}{\meter\kelvin}
-  \end{align*}
-}{}
-
-
-Das Wiensche Verschiebungsgesetz besagt, dass sich das Maximum der spektralen Ausstrahlung mit steigender Temperatur zu kürzeren Wellenlängen verschiebt\cite[S.~101]{kraus2007atmosphäre}.
-Die Konstante $b = \SI{2.8978e-3}{\meter\kelvin}$ wird als \textit{Wiensche Verschiebungskonstante} bezeichnet\cite[S.~49]{codata2018}.
-Umgestellt nach der Wellenlänge des Maximums ergibt sich:
+\label{sec:wien}
+Die Wellenlänge $\lambda_{max}$, bei welcher die spektrale spezifische Ausstrahlung eines idealen schwarzen Körpers $E_{b\lambda}$ 
+mit der Temperatur $T$ ein Maximum erreicht, erhält man durch Ableitung der Gleichung \eqref{eq:plancks_law_wavelength} nach 
+$\lambda$ und Nullsetzen dieser Ableitung (die vollständige Herleitung befindet sich in \autoref{sec:herleitung_wien}). 
+Das daraus resultierende \textit{Wiensche Verschiebungsgesetz} besagt, dass sich das Maximum der spektralen Ausstrahlung mit steigender 
+Temperatur zu kürzeren Wellenlängen verschiebt \cite[S.~101]{kraus2007atmosphäre}, wobei die Konstante 
+$b = \SI{2.8978e-3}{\meter\kelvin}$ als \textit{Wiensche Verschiebungskonstante} bezeichnet wird \cite[S.~49]{codata2018}:
 \ifthenelse{\boolean{formeln}}{
   \begin{equation}
     \label{eq:wiens_displacement_law}
     \lambda_{max} = \frac{b}{T}
   \end{equation}
 }{}
-
 \ifthenelse{\boolean{abbildungen}}{
   \begin{figure}[H]
       \centering
@@ -215,8 +185,8 @@ Umgestellt nach der Wellenlänge des Maximums ergibt sich:
       \label{fig:planck_wien}
   \end{figure}
 }{}
-
 \subsection{Strahlungsbilanz der Erde}
+\label{sec:strahlungsbilanz_erde}
 Die Erde bezieht nahezu ihre gesamte Energie von der Sonne. Um ein thermisches Gleichgewicht aufrechtzuerhalten, muss sie 
 Energie mit derselben Rate wieder abstrahlen, mit der sie diese empfängt\cite[S.~9]{marshall2007atmosphere}:
 
@@ -309,7 +279,9 @@ Während die solare Strahlung ihr Maximum bei $\lambda_{\text{Sonne,max}} = \SI{
       \label{fig:planck_earth_sun}
   \end{figure}
 }{}
-
-Die spektrale Lage der CO\textsubscript{2}-Absorptionsbanden erklärt, warum CO\textsubscript{2} als Treibhausgas wirkt: Es ist weitgehend transparent für die kurzwellige
-Sonnenstrahlung, absorbiert jedoch die langwellige Strahlung, die von der Erde emittiert wird. Die fundamentale Frage, die sich daraus ergibt, ist: \textit{Warum absorbiert 
-CO\textsubscript{2} gerade bei diesen Wellenlängen?} Im folgenden Kapitel wird die molekülphysikalische Grundlage dieser Absorption detailliert untersucht.
+Die in diesem Kapitel dargestellten Strahlungsgesetze bilden das Fundament für das Verständnis des Treibhauseffekts. 
+Die Analyse der Strahlungsbilanz zeigt, dass die berechnete effektive planetare Temperatur deutlich 
+unter der gemessenen globalen Mitteltemperatur liegt \cite[S.~11]{marshall2007atmosphere}. Diese Differenz 
+resultiert aus dem natürlichen Treibhauseffekt, dessen zentraler Mechanismus die wellenlängenselektive 
+Absorption durch Treibhausgase wie CO\textsubscript{2} ist, wie man schon in \autoref{fig:planck_earth_sun} erkennen kann.
+Die molekularen Grundlagen der CO\textsubscript{2}-Absorption werden im folgenden Kapitel untersucht.

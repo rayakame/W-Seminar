@@ -1,8 +1,12 @@
 \section{Molekülphysik des CO\texorpdfstring{$_2$}{2}}
-Die Wechselwirkung elektromagnetischer Strahlung mit atmosphärischen Molekülen 
-ist ein quantenmechanisches Phänomen von erheblicher Komplexität. Im Rahmen dieser 
-Arbeit liegt der Fokus auf den durch CO\textsubscript{2} bedingten Aspekten des Treibhauseffekts,
-ohne die vollständige molekülphysikalische Theorie zu behandeln.
+Bei Betrachtung der \autoref{fig:planck_earth_sun} stellt sich die fundamentale Frage: 
+\textit{Warum absorbiert CO\textsubscript{2} gerade bei diesen spezifischen Wellenlängen?} 
+Die Antwort liegt in der quantenmechanischen Wechselwirkung elektromagnetischer Strahlung 
+mit dem CO\textsubscript{2}-Molekül, einem Phänomen von erheblicher Komplexität. Im Rahmen 
+dieser Arbeit wird der Fokus auf die für den Treibhauseffekt relevanten Absorptionsprozesse 
+von CO\textsubscript{2} gelegt, wobei die quantenmechanischen Grundlagen zur besseren 
+Verständlichkeit teilweise vereinfacht dargestellt werden, ohne die vollständige 
+molekülphysikalische Theorie zu behandeln.
 
 Für praktische Berechnungen atmosphärischer Strahlungstransfers stehen umfassende 
 spektroskopische Datenbanken zur Verfügung. Die HITRAN-Datenbank \cite{hitran2020}\cite{DBhitran2020} enthält hochaufgelöste 
@@ -14,26 +18,27 @@ Behandlung zu vertiefen.
 
 \subsection{Grundlagen der molekularen Absorption}
 Ein Photon, das auf ein Gasmolekül trifft, kann entweder absorbiert oder gestreut werden. 
-Die Streuung ändert die Ausbreitungsrichtung und gegebenenfalls die Energie des Photons. Dieser Effekt ist für 
-unsere Betrachtung jedoch von untergeordneter Bedeutung, weshalb der Fokus auf der Absorption liegt. Wird ein 
-Photon absorbiert, führt dies dazu, dass das Energieniveau des Moleküls angehoben wird. Umgekehrt kann ein Molekül 
-sein Energieniveau senken, indem es ein Photon emittiert.
+Der Effekt der Streuung ist für unsere Betrachtung jedoch von untergeordneter Bedeutung, 
+weshalb der Fokus auf der Absorption liegt. Wird ein Photon absorbiert, führt dies dazu, 
+dass das Energieniveau des Moleküls angehoben wird. Umgekehrt kann ein Molekül sein 
+Energieniveau senken, indem es ein Photon emittiert. Die Gesamtenergie eines Moleküls
+setzt sich dabei aus verschiedenen Beiträgen zusammen: der elektronischen Energie, 
+die durch die Verteilung der Elektronen in den Molekülorbitalen bestimmt wird, der 
+Rotationsenergie, die aus der Drehbewegung des gesamten Moleküls um seine Trägheitsachsen 
+resultiert, sowie der Schwingungsenergie, die durch die periodischen Relativbewegungen der 
+Atomkerne gegeneinander entsteht \cite[S.~286--287, S.~292]{radiativeHeatTransfer}.
 
-Moleküle besitzen eine Gesamtenergie, die sich aus verschiedenen Beiträgen zusammensetzt: der elektronischen Energie, 
-die durch die Verteilung der Elektronen in den Molekülorbitalen bestimmt wird, der Rotationsenergie, die aus 
-der Drehbewegung des gesamten Moleküls um seine Trägheitsachsen resultiert, sowie der Schwingungsenergie, 
-die durch die periodischen Relativbewegungen der Atomkerne gegeneinander entsteht.
-
-Für die Wechselwirkung eines Moleküls mit elektromagnetischer Strahlung ist ein zeitlich veränderliches 
-Dipolmoment fundamental. Dies bedeutet, dass sich die Ladungsverteilung im Molekül während der Rotation 
-oder Schwingung periodisch ändern muss, wodurch ein oszillierendes elektrisches Dipolmoment entsteht.
+Für die Wechselwirkung eines Moleküls mit elektromagnetischer Strahlung im Infrarotbereich ist 
+ein zeitlich veränderliches Dipolmoment fundamental. Dies bedeutet, dass sich die Ladungsverteilung 
+des Moleküls während der Rotation oder Schwingung periodisch ändern muss, wodurch ein oszillierendes 
+elektrisches Dipolmoment entsteht \cite[S.~273]{demtröder2013molekülphysik}.
 
 Nach den Grundsätzen der Quantenmechanik können die Energieniveaus für molekulare Elektronenorbitale, 
 ebenso wie die Energieniveaus für molekulare Rotation und Vibration, nur bestimmte diskrete 
 Werte annehmen. Ein Photon kann nur dann absorbiert werden, wenn seine Energie 
 $E = h\nu$ exakt der Energiedifferenz zwischen zwei erlaubten Zuständen entspricht 
 (Resonanzbedingung). Daher können nur Photonen mit ganz bestimmten Frequenzen absorbiert 
-oder emittiert werden, was zu charakteristischen Spektrallinien führt.
+oder emittiert werden, was zu charakteristischen Spektrallinien führt \cite[S.~287]{radiativeHeatTransfer}.
 
 
 \subsection{Molekülstruktur und Schwingungsmoden}
@@ -43,29 +48,26 @@ welche nötig ist, um elektronische Übergänge zu bewirken, so groß, dass man 
 Wellenlänge benötigt (zwischen $\SI{0.01}{\micro\meter}$ und $\SI{1.5}{\micro\meter}$)\cite[S.~287]{radiativeHeatTransfer}.
 Da sich diese Arbeit auf CO\textsubscript{2} konzentriert und dieses keine für uns relevanten Absorptionsbanden im Bereich unter 
 $\SI{1.5}{\micro\meter}$ besitzt (siehe \autoref{fig:co2_spektrum_under_1_5}), werden wir diese Energieänderungen vernachlässigen.
-
-
 \ifthenelse{\boolean{abbildungen}}{
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{assets/co2_absorption_under_1_5.pdf}
-        \caption{Absorptionsspektrum von CO\textsubscript{2} unter $\SI{1.5}{\micro\meter}$. Das einzige erkennbare Absorptionsband bei circa $\SI{1.435}{\micro\meter}$ ist nur knapp über $2\%$ Absorption. Daten kommen von der HITRAN Datenbank \autocite{DBhitran2020}, Grafik wurde mithilfe von \autocite{python} erstellt, der Code ist im Anhang \ref{lst:co2_spektrum_small} dokumentiert.}
+        \caption{Absorptionsspektrum von CO\textsubscript{2} unter $\SI{1.5}{\micro\meter}$. Das einzige erkennbare Absorptionsband bei circa $\SI{1.435}{\micro\meter}$ ist nur knapp über $1.75\%$ Absorption. Daten kommen von der HITRAN Datenbank \autocite{DBhitran2020}, Grafik wurde mithilfe von \autocite{python} erstellt, der Code ist im Anhang \ref{lst:co2_spektrum_small} dokumentiert.}
         \label{fig:co2_spektrum_under_1_5}
     \end{figure}
 }{}
-Vibrationsübergänge erfordern deutlich weniger Energie, weshalb die zugehörigen Spektrallinien zwischen $\SI{1.5}{\micro\meter}$ und $\SI{10}{\micro\meter}$ auftreten.
-Rotationsübergänge benötigen die geringste Energie und erscheinen daher bei Wellenlängen oberhalb von $\SI{10}{\micro\meter}$. Für unseren Fokus auf 
-CO\textsubscript{2} spielen reine Rotationsübergänge jedoch keine Rolle, da CO\textsubscript{2} aufgrund seiner symmetrischen linearen Struktur 
-kein permanentes Dipolmoment besitzt, welches für reine Rotationsübergänge erforderlich wäre. In der Praxis werden 
-Vibrationsübergänge jedoch fast immer von simultanen Rotationsübergängen begleitet. Daraus resultieren eng benachbarte Spektrallinien,
+Vibrationsübergänge erfordern deutlich weniger Energie, weshalb die zugehörigen Spektrallinien typischerweise zwischen $\SI{1.5}{\micro\meter}$ und 
+$\SI{10}{\micro\meter}$ auftreten.Rotationsübergänge benötigen die geringste Energie und erscheinen daher bei Wellenlängen oberhalb von $\SI{10}{\micro\meter}$. 
+In der Praxis werden Vibrationsübergänge jedoch fast immer von simultanen Rotationsübergängen begleitet. Daraus resultieren eng benachbarte Spektrallinien,
 die teilweise überlappen und die sogenannten \textit{Vibrations-Rotations-Bänder} im Infrarotspektrum formen, die im Fokus dieser Arbeit stehen.
 Diese entstehen durch die \textit{Freiheitsgrade} eines Moleküls. Jedes Molekül bewegt sich im dreidimensionalen Raum, weshalb jedes Molekül drei 
 translatorische Freiheitsgrade für die x-, y- und z-Richtung besitzt. Da jedes Atom eines Moleküls sich theoretisch im dreidimensionalen Raum bewegen kann, 
 beträgt die Gesamtzahl der Freiheitsgrade eines Moleküls mit $N$ Atomen $3N$. Da die Atome im Molekül miteinander verbunden sind, können sie sich nicht 
 unabhängig voneinander bewegen, sondern nur relativ zueinander. Diese Bewegungen entsprechen den Vibrations- und Rotations-Freiheitsgraden. Die Anzahl dieser 
 inneren Freiheitsgrade beträgt $3N - 3$, also die Gesamtzahl der Freiheitsgrade minus die drei translatorischen Freiheitsgrade. Je nachdem, ob das Molekül linear 
-oder nichtlinear ist, werden diese inneren Freiheitsgrade unterschiedlich auf Rotations- und Vibrations-Freiheitsgrade aufgeteilt. Für lineare Moleküle gibt es 
-zwei Rotations-Freiheitsgrade. Für CO\textsubscript{2} ergeben sich daher $3 \cdot 3 - 3 - 2 = 4$ Vibrations-Freiheitsgrade.
+oder nichtlinear ist, werden diese inneren Freiheitsgrade unterschiedlich auf Rotations- und Vibrations-Freiheitsgrade aufgeteilt (siehe \autoref{fig:degrees_of_freedom}). 
+Für lineare Moleküle gibt es zwei Rotations-Freiheitsgrade. Für CO\textsubscript{2} ergeben sich daher $3 \cdot 3 - 3 - 2 = 4$ Vibrations-Freiheitsgrade 
+\cite[S.~292--293]{radiativeHeatTransfer}.
 
 \ifthenelse{\boolean{abbildungen}}{
     \begin{figure}[H]
@@ -104,7 +106,7 @@ Rotationsübergänge trotzdem für CO\textsubscript{2} von Bedeutung sind, wird 
 \subsubsection{Vibrationsübergänge}
 Zur Vereinfachung wird angenommen, dass zwei Punktmassen durch eine perfekt elastische masselose Feder verbunden sind. Dieses Modell
 wird als harmonische Oszillator bezeichnet. Bei diesem Modell lassen sich die möglichen Energieniveaus ebenfalls mit einer Lösung der 
-Schrödinger-Gleichung berechnen \cite[S.~294--259]{radiativeHeatTransfer}\cite[S.~73--74]{herzberg}:
+Schrödinger-Gleichung berechnen \cite[S.~294--295]{radiativeHeatTransfer}\cite[S.~73--74]{herzberg}:
 
 \ifthenelse{\boolean{formeln}}{
     \begin{equation}
@@ -174,13 +176,13 @@ Spektrallinien in diesen Zweigen sind gegeben durch:
 
 \begin{subequations}
 \begin{align}
-    \eta_P(j) &= \eta_0 + j^2(B_{\upsilon+1} - B_{\upsilon}) - j(B_{\upsilon+1} + B_{\upsilon})\\
-    \eta_Q(j) &= \eta_0 + j(j+1)(B_{\upsilon+1} - B_{\upsilon}) \\
-    \eta_R(j) &= \eta_0 + j^2(B_{\upsilon+1} - B_{\upsilon}) + j(3B_{\upsilon+1} - B_{\upsilon}) + 2B_{\upsilon+1}
+    \eta_P(j) &= \eta_0 + j^2(B_{\upsilon+1} - B_{\upsilon}) - j(B_{\upsilon+1} + B_{\upsilon}) \label{eq:etaP}\\
+    \eta_Q(j) &= \eta_0 + j^2(B_{\upsilon+1} - B_{\upsilon}) + j(B_{\upsilon+1} - B_{\upsilon}) \label{eq:etaQ}\\
+    \eta_R(j) &= \eta_0 + j^2(B_{\upsilon+1} - B_{\upsilon}) + j(3B_{\upsilon+1} - B_{\upsilon}) + 2B_{\upsilon+1} \label{eq:etaR}
 \end{align}
 \end{subequations}
 
-wobei $\eta_0$ die Bandmitte bezeichnet. Die detaillierte Herleitung dieser Formeln findet sich in \autoref{sec:herleitung_3_zweige}. 
+wobei $\eta_0$ die Bandmitte bezeichnet. Die detaillierte Herleitung dieser Formeln findet sich in \autoref{sec:herleitung_3_zweige}.
 Bei linearen Molekülen wie CO\textsubscript{2} gibt es oft keinen $Q$-Zweig. Mehr dazu in \autoref{sec:co2_spektrum}.
 
 \subsection{Das CO\texorpdfstring{$_2$}{2}-Absorptionsspektrum}
@@ -194,15 +196,13 @@ Bei linearen Molekülen wie CO\textsubscript{2} gibt es oft keinen $Q$-Zweig. Me
         \label{fig:co2_spektrum}
     \end{figure}
 }{}
-
 \autoref{fig:co2_spektrum} zeigt die charakteristischen Absorptionsbanden von CO\textsubscript{2}. Die beiden Hauptabsorptionsbanden 
 sind die zweifach entartete Biegeschwingung $\upsilon_2$ bei $\approx \SI{667}{\per\centi\meter}$ ($\approx \SI{15.0}{\micro\meter}$) 
 und die asymmetrische Streckschwingung $\upsilon_3$ bei $\approx \SI{2349}{\per\centi\meter}$ ($\approx \SI{4.26}{\micro\meter}$). 
 Die in \autoref{fig:degrees_of_freedom} dargestellte symmetrische Streckschwingung $\upsilon_1$ bei $\approx \SI{1388}{\per\centi\meter}$ 
 ($\approx \SI{7.20}{\micro\meter}$) erscheint nicht im Spektrum, da diese Schwingungsmode keine Änderung des Dipolmoments bewirkt und somit 
-infrarot-inaktiv ist \cite[S.~39]{Shimanouchi1972}. 
-
-Das Absorptionsband bei $\approx \SI{2.7}{\micro\meter}$ resultiert aus Kombinationsschwingungen: Die Überlagerung von $\upsilon_1 + \upsilon_3$ 
+infrarot-inaktiv ist \cite[S.~39]{Shimanouchi1972}. Das Absorptionsband bei $\approx \SI{2.7}{\micro\meter}$ resultiert aus Kombinationsschwingungen: 
+Die Überlagerung von $\upsilon_1 + \upsilon_3$ 
 ergibt $\approx \SI{3737}{\per\centi\meter}$ ($\approx \SI{2.68}{\micro\meter}$), während die Kombination $2\upsilon_2 + \upsilon_3$ zu 
 $\approx \SI{3683}{\per\centi\meter}$ ($\approx \SI{2.72}{\micro\meter}$) führt \cite[S.~274]{herzbergPolyatomic}. Bei kritischer Beobachtung
 fällt auf das die symmetrische Streckschwingung $\upsilon_1$ eigentlich infrarot-inaktiv ist, jedoch wird die Kombination infrarot-aktiv, da 
@@ -223,7 +223,6 @@ Das lässt sich durch den Drehimpuls eines Photons erklären, jedes Photon träg
 Molekül übertragen werden muss. Deswegen muss es einen kombinierten Rotationsübergang ($\Delta\upsilon = +1$, $\Delta j = \pm 1$) geben. Da unsere Auswahlregel
 $\Delta j = 0$ nicht zulässt, ist der Q-Zweig verboten. Die $P$- und $R$-Zweige sind gut sichtbar.
 
-
 \subsubsection{Das \texorpdfstring{$\upsilon_2$}{v2}-Vibrationsband von CO\texorpdfstring{$_2$}{2}}
 \ifthenelse{\boolean{abbildungen}}{
     \begin{figure}[H]
@@ -235,8 +234,33 @@ $\Delta j = 0$ nicht zulässt, ist der Q-Zweig verboten. Die $P$- und $R$-Zweige
     \end{figure}
 }{}
 Im Gegensatz zu \autoref{fig:co2_spektrum_v3} zeigt das $\upsilon_2$-Vibrationsband eine deutlich komplexere Struktur. Neben den deutlich
-sichtbaren $P$- und $R$-Zweigen sieht man einen stark ausgeprägten $Q$-Zweig.
+sichtbaren $P$- und $R$-Zweigen sieht man einen stark ausgeprägten $Q$-Zweig. Dieser kommt zustande, da durch die Biegeschwingung $\upsilon_2$
+das CO\textsubscript{2} Molekül seine lineare Form verlässt, und da diese Schwingung wie bereits erwähnt zweifach entartet ist, kann
+diese Auslenkung in 2 zueinander senkrechten Ebenen stattfinden. Dies ermöglicht das beide Schwingungen z.B. mit 90\textdegree Phasenverschiebung
+schwingen und dadurch einen Drehimpuls um die Molekülachse entsteht (Schwingungsdrehimpuls). Dieses Phänomen ist in \autoref{fig:co2_vibration_illustration} konzeptionell
+veranschaulicht. Der Drehimpuls eines absorbierten Photons kann nun entweder die Rotation des Moleküls ändern ($\Delta j = \pm 1$) was zu den
+$P$- und $R$-Zweigen führt oder kann in den Schwingungsdrehimpuls fließen ($\Delta j = 0$)\cite[S.~238--240, S~275]{demtröder2013molekülphysik}. Die im Vergleich zu den restlichen Zweigen starke
+Intensität des $Q$-Zweigs lässt sich durch die \autoref{eq:etaQ} für den $Q$-Zweig erklären. Im Gegensatz zu den anderen Zweigen (\ref{eq:etaP}, \ref{eq:etaR})
+ist bei dem Q-Zweig der wichtigste Faktor $B_{\upsilon+1} - B_{\upsilon}$, welcher so klein ist, dass die $Q$-Zweig-Linien unabhängig von $j$ 
+nahe bei $\eta_0$ liegen und sich zu einem intensiven Peak überlagern \cite[S.~90]{banwellFundamentals}. Im Gegensatz dazu enthalten die $P$- und $R$-Zweige Terme 
+mit $B_{\upsilon+1} + B_{\upsilon}$ wodurch sich die Linien mit zunehmenden $j$ weiter verteilen.
+\ifthenelse{\boolean{abbildungen}}{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{assets/co2_absorption_v2_schwingung.pdf}
+        \caption{Konzeptuelle Visualisierung des Schwingungsdrehimpulses des $\upsilon_2$-Vibrationsbandes von CO\textsubscript{2}.
+            Grafik wurde mithilfe von \autocite{python} erstellt, der Code ist im Anhang \ref{lst:co2_spektrum_v3} dokumentiert.}
+        \label{fig:co2_vibration_illustration}
+    \end{figure}
+}{}
 
-
+Die quantenmechanische Analyse der CO\textsubscript{2}-Molekülphysik beantwortet die eingangs 
+gestellte Frage nach der wellenlängenselektiven Absorption: CO\textsubscript{2} absorbiert 
+elektromagnetische Strahlung nur bei jenen Wellenlängen, deren Photonenenergie exakt der 
+Energiedifferenz zwischen erlaubten quantenmechanischen Zuständen entspricht. Die spektrale Überlappung der 
+CO\textsubscript{2}-Absorptionsbanden mit der terrestrischen Wärmestrahlung 
+(siehe \autoref{fig:planck_earth_sun}) erklärt die zentrale Rolle von CO\textsubscript{2} im 
+Treibhauseffekt: Es ist weitgehend transparent für die kurzwellige solare Strahlung, absorbiert 
+jedoch effektiv die langwellige terrestrische Strahlung.
 
 
