@@ -18,6 +18,7 @@
 \usepackage{float}                   % Bessere Positionierung
 \usepackage{caption}                 % Bildunterschriften
 \usepackage{chngcntr}
+\usepackage{mhchem}
 
 \usepackage{tikz}
 \usepackage{pgfplots}
@@ -63,8 +64,8 @@
     linkcolor=black,
     citecolor=black,
     urlcolor=blue,
-    pdftitle={Titel deiner Arbeit},
-    pdfauthor={Dein Name}
+    pdftitle={Strahlungsphysik des CO2-Treibhauseffekts},
+    pdfauthor={Christopher Mehnert}
 }
 
 % Literaturverzeichnis
@@ -80,41 +81,37 @@
 \setboolean{formeln}{true}
 
 
-\onehalfspacing                      % 1,5-facher Zeilenabstand
-\setlength{\parindent}{0pt}          % Keine Einrückung
-\pagenumbering{arabic}
+%\onehalfspacing
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
 
-% Kopf- und Fußzeilen
+
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\leftmark}
 \fancyhead[R]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 
-% ===== DOKUMENT =====
+
 \begin{document}
 
 \pagenumbering{Roman}
-% Vorgegebenes Deckblatt einbinden
+
 \includepdf[pages={1,2,3}]{assets/deckblatt.pdf}
 
 
 \pagenumbering{arabic}
-% Inhaltsverzeichnis
+
+
 \setcounter{page}{2}
 \tableofcontents
 \newpage
 
-% Optional: Tabellenverzeichnis
-% \listoftables
-% \newpage
-
-% ===== HAUPTTEIL =====
 \input{chapters/einleitung}
 \input{chapters/grundlagen}
 \input{chapters/molekülphysik.tex}
 \input{chapters/treibhauseffekt.tex}
-
+\input{chapters/fazit.tex}
 
 \input{chapters/anhang}
 

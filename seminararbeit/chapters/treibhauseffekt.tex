@@ -147,9 +147,69 @@ die Absorption für jede Wellenlänge bestimmen und über den gesamten Wellenlä
 }{}
 Die wellenlängenabhängige Absorption von CO\textsubscript{2} $\varepsilon(\lambda)$ wurde mithilfe der HITRAN-Datenbank \cite{DBhitran2020} bestimmt.
 Die numerische Berechnung erfolgte mittels Python \cite{python}, der zugehörige Code ist in Anhang \ref{lst:co2_absorption} dargestellt. 
-Daraus ergibt sich $\varepsilon_{\text{CO}_2} = \SI{22.95}{\percent}$. Nach dieser Berechnung trägt CO\textsubscript{2} mit etwa $\SI{30}{\percent}$ zum
-gesamten Absorptionsgrad bei. Experimentelle Daten zeigen jedoch, dass dieser Wert bei etwa $\SI{20}{\percent}$ liegt \cite{atmosphericCO2}. Dieser relative Fehler von ca. $\SI{33}{\percent}$
+Daraus ergibt sich $\varepsilon_{\text{CO}_2} = \SI{23.01}{\percent}$. Nach dieser Berechnung trägt CO\textsubscript{2} mit etwa $\SI{29.6}{\percent}$ zum
+gesamten Absorptionsgrad bei. Experimentelle Daten zeigen jedoch, dass dieser Wert bei etwa $\SI{20}{\percent}$ liegt \cite{atmosphericCO2}. Dieser relative Fehler von ca. $\SI{48}{\percent}$
 lässt sich durch verschiedene Faktoren erklären, die aus den Vereinfachungen des verwendeten Treibhausmodells resultieren. Hauptsächlich resultiert die Abweichung daraus,
 dass das Modell die Atmosphäre als homogene Schicht behandelt. Tatsächlich variieren Parameter wie Druck, Temperatur und Konzentration
 stark mit der Höhe. Zudem stellt die isolierte Betrachtung von CO\textsubscript{2} eine weitere Fehlerquelle dar, da sich das Absorptionsspektrum von CO\textsubscript{2}
 beispielsweise mit dem von H\textsubscript{2}O überschneidet.
+
+\subsection{Spektrale Absorptionseigenschaften der Atmosphäre}
+Wir haben bereits erkannt das die Annahme das die Atmosphäre einen konstanten Teil $\varepsilon$ der
+IR-Strahlung absorbiert eine starke Vereinfachung ist. In der Realität weist die Atmosphäre eine 
+ausgeprägt spektrale Struktur auf:
+\ifthenelse{\boolean{abbildungen}}{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{assets/atmosphäre_absorption.pdf}
+        \caption{Absorptionsspektrum der Atmosphäre \cite[S.~13]{marshall2007atmosphere}}
+        \label{fig:atmos_absorption}
+    \end{figure}
+}{}
+
+Abbildung~\ref{fig:atmos_absorption} zeigt, dass die Atmosphäre im sichtbaren Bereich (Maximum der 
+Sonneneinstrahlung) nahezu transparent ist, während sie UV-Strahlung fast vollständig absorbiert. 
+Im Infrarotbereich variiert die Absorption stark: Bei manchen Wellenlängen ist die Atmosphäre 
+transparent (atmosphärisches Fenster), bei anderen nahezu undurchlässig. Bemerkenswert ist, dass 
+die Hauptbestandteile N\textsubscript{2} und O\textsubscript{2} praktisch nicht zur Absorption beitragen, O\textsubscript{2} absorbiert 
+nur im fernen UV und minimal im nahen IR, während N\textsubscript{2} über den gesamten relevanten Spektralbereich 
+transparent bleibt. Der Treibhauseffekt wird somit ausschließlich durch Spurengase wie H\textsubscript{2}O, 
+CO\textsubscript{2} und CH\textsubscript{2} verursacht.
+
+\subsection{Strahlungsantrieb durch CO\texorpdfstring{$_2$}{2}-Erhöhung}
+Der Strahlungsantrieb $\Delta F$ wird defindert als die Änderung der Netto-Strahlungsenergieflussdichte
+(in $\si{\watt\per\meter\squared}$) am Oberrand der Atmosphäre. Ein positiver Strahlungsantrieb
+führt zu einer Energiezufuhr zum Klimasystem und damit zu einer Erwärmung, während ein negativer Strahlungsantrieb
+eine Abkühlung bewirkt.
+
+Für Änderungen der atmosphärischen CO\textsubscript{2}-Konzentration ergibt sich der Strahlungsantrieb aus detaillierten
+Strahlungstransfer-Berechnungen zu \cite[S.~2718]{newRadiativeForcingEstimates}:
+\ifthenelse{\boolean{formeln}}{
+  \begin{equation}
+      \Delta F = 5{,}35 \cdot \ln\left(\frac{C}{C_0}\right) \quad [\si{\watt\per\meter\squared}]
+      \label{eq:radiative_forcing_co2}
+  \end{equation}
+}{}
+wobei $C$ die aktuelle CO\textsubscript{2}-Konzentration und $C_0 = 280$ppm die vorindustrielle Referenzkonzentration
+bezeichnet. Die Temperaturantwort des Klimasystems auf einen Strahlungsantrieb wird durch die Klimasensitivität $\partial T_S / \partial Q$
+beschrieben \cite[S.~19]{marshall2007atmosphere}:
+\ifthenelse{\boolean{formeln}}{
+  \begin{equation}
+      \Delta T_s = \frac{\partial T_s}{\partial Q} \cdot \Delta F
+      \label{eq:climate_sensitivity}
+  \end{equation}
+}{}
+
+Für den einfachsten Fall ohne Rückkopplungen (nur Schwarzkörper-Rückstrahlung) ergibt 
+sich aus der Ableitung des Stefan-Boltzmann-Gesetzes \cite[S.~19]{marshall2007atmosphere}:
+\ifthenelse{\boolean{formeln}}{
+  \begin{equation}
+      \frac{\partial T_s}{\partial Q}\bigg|_{\text{BB}} = \left(4\sigma T_e^3\right)^{-1} \approx \SI{0.26}{\kelvin\per\watt\per\meter\squared}
+      \quad \text{\cite[S.~19]{marshall2007atmosphere}}
+  \end{equation}
+}{}
+Mit $T_e = \SI{255}{\kelvin}$ folgt für eine CO\textsubscript{2}-Verdopplung ($\Delta F \approx \SI{3.71}{\watt\per\meter\squared}$) 
+eine direkte Temperaturerhöhung von nur etwa $\SI{0.99}{\kelvin}$.
+
+Das reale Klimasystem weist jedoch starke Rückkopplungen auf, hauptsächlich durch Wasserdampf, weswegen im realen Klimasystem eine Verdopplung
+von CO\textsubscript{2} zu einer Temperaturerhöhung von $\approx \SI{4}{\kelvin}$ führt \cite{atmosphericCO2}.
