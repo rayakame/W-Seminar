@@ -1,13 +1,15 @@
+from __future__ import annotations
 
+import pathlib
+import typing as t
 
 import nox
 from nox import options
 
-
-import typing as t
-
 options.default_venv_backend = "uv"
 options.sessions = ["planck", "wien", "co2", "co2_absorption"]
+PYTHON_PATHS = [pathlib.Path(__file__).parent / "simulationen", "noxfile.py"]
+
 
 # uv_sync taken from: https://github.com/hikari-py/hikari/blob/master/pipelines/nox.py#L48
 #
@@ -41,17 +43,20 @@ def uv_sync(
         "uv", "sync", "--frozen", *args, silent=True, env={"UV_PROJECT_ENVIRONMENT": session.virtualenv.location}
     )
 
+
 @nox.session(reuse_venv=True)
 def planck(session: nox.Session) -> None:
     uv_sync(session, groups=["planck"])
 
     session.run("python", "-m", "simulationen.planck")
 
+
 @nox.session(reuse_venv=True)
 def wien(session: nox.Session) -> None:
     uv_sync(session, groups=["planck"])
 
     session.run("python", "-m", "simulationen.wien")
+
 
 @nox.session(reuse_venv=True)
 def co2(session: nox.Session) -> None:
@@ -62,11 +67,13 @@ def co2(session: nox.Session) -> None:
     session.run("python", "-m", "simulationen.co2_spektrum_v3_band")
     session.run("python", "-m", "simulationen.co2_spektrum_v2_band")
 
+
 @nox.session(reuse_venv=True)
 def co2_all(session: nox.Session) -> None:
     uv_sync(session, groups=["co2"])
 
     session.run("python", "-m", "simulationen.co2_spektrum")
+
 
 @nox.session(reuse_venv=True)
 def co2_small(session: nox.Session) -> None:
@@ -74,11 +81,13 @@ def co2_small(session: nox.Session) -> None:
 
     session.run("python", "-m", "simulationen.co2_spektrum_under_1_5")
 
+
 @nox.session(reuse_venv=True)
 def co2_v3(session: nox.Session) -> None:
     uv_sync(session, groups=["co2"])
 
     session.run("python", "-m", "simulationen.co2_spektrum_v3_band")
+
 
 @nox.session(reuse_venv=True)
 def co2_v2(session: nox.Session) -> None:
@@ -92,3 +101,12 @@ def co2_absorption(session: nox.Session) -> None:
     uv_sync(session, groups=["co2absorption"])
 
     session.run("python", "-m", "simulationen.co2_absorptionsgrad")
+
+
+@nox.session(reuse_venv=True)
+def ruff(session: nox.Session) -> None:
+    uv_sync(session, groups=["ruff"])
+
+    session.run("python", "-m", "ruff", "format", *PYTHON_PATHS)
+    session.run("python", "-m", "ruff", "check", *PYTHON_PATHS, "--select", "I", "--fix")
+    session.run("python", "-m", "ruff", "check", *PYTHON_PATHS)

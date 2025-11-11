@@ -20,3 +20,6 @@ co2absorption = [
     "pandas>=2.3.3",
     "scipy>=1.16.3",
 ]
+ruff = [
+    "ruff>=0.14.4",
+]
