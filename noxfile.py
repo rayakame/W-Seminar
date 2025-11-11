@@ -109,6 +109,7 @@ def co2_schwingung(session: nox.Session) -> None:
 
     session.run("python", "-m", "simulationen.co2_v2_schwingung")
 
+
 @nox.session(reuse_venv=True)
 def ruff(session: nox.Session) -> None:
     uv_sync(session, groups=["ruff"])
