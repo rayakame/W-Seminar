@@ -16,7 +16,8 @@ ignore = [
     "COM812",  # Missing trailing comma (interferes with the formatter)
     "FBT003",
     "EM101",
-    "TRY003"
+    "TRY003",
+    "PLR0915"
 ]
 
 [lint.per-file-ignores]
