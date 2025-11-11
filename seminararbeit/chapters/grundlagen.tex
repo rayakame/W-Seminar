@@ -2,7 +2,7 @@
 Zum Verständnis des Treibhauseffekts ist es essenziell zu untersuchen, wie die Erde den Großteil ihrer Energie erhält und 
 wie sie ihre überschüssige Energie wieder abgibt. Der Energiehaushalt der Erde wird hauptsächlich durch 
 Strahlungsprozesse bestimmt: Die Erde erhält Energie durch Strahlung der Sonne und strahlt selbst wieder Energie in
-den Weltraum \cite[S.~9--11]{marshall2007atmosphere}. Im folgenden Kapitel werden diese Strahlungsprozesse im Detail betrachtet, um die Grundlage
+den Weltraum. \cite[S.~9--11]{marshall2007atmosphere} Im folgenden Kapitel werden diese Strahlungsprozesse im Detail betrachtet, um die Grundlage
 des Treibhauseffekts zu verstehen.
 
 \subsection{Grundbegriffe der elektromagnetischen Strahlung}
@@ -11,15 +11,16 @@ Energie emittiert wird. Elektromagnetische Strahlung ist eine Form der Energieü
 als elektromagnetische Wellen (wie von der elektromagnetischen Wellentheorie beschrieben; \cite{electricityMagnetism})
 oder als masselose Energiequanten, sogenannte \textit{Photonen} (wie von der Quantenmechanik beschrieben; \cite{quantumMechanics}),
 aufgefasst werden kann. Keine der beiden Sichtweisen kann alle beobachteten Strahlungsphänomene vollständig beschreiben, weshalb beide
-Konzepte komplementär verwendet werden. \cite[S.~1--2]{radiativeHeatTransfer}
+Konzepte komplementär verwendet werden. \cite[S.~20--22]{radiativeHeatTransfer}
 
 Elektromagnetische Strahlung bewegt sich mit der \textit{Lichtgeschwindigkeit} $c = c_0/n$, wobei $c_0 = \SI{2.998e8}{\meter\per\second}$ 
 die Lichtgeschwindigkeit im Vakuum ist und $n$ den Brechungsindex des Mediums bezeichnet. 
 Da die in dieser Arbeit betrachteten Strahlungsprozesse hauptsächlich im Vakuum ($n \equiv 1$) oder 
-in Luft ($n \approx 1.0002$) stattfinden, wird im Folgenden die Näherung $n = 1$ und somit $c = c_0$ verwendet \cite[S.~3]{radiativeHeatTransfer}.
+in Luft ($n \approx 1.0002$) stattfinden, wird im Folgenden die Näherung $n = 1 \Rightarrow c = c_0$.
 Das elektromagnetische Spektrum wird nach der Wellenlänge in verschiedene Bereiche unterteilt, wobei für die Wärmeübertragung insbesondere die 
 ultraviolette Strahlung (UV, $\lambda < \SI{380}{\nano\meter}$), das sichtbare Licht ($\SI{380}{\nano\meter} \leq \lambda \leq \SI{780}{\nano\meter}$) 
-und die infrarote Strahlung (IR, $\lambda > \SI{780}{\nano\meter}$) von Bedeutung sind. Elektromagnetische Wellen werden durch folgende Eigenschaften charakterisiert:
+und die infrarote Strahlung (IR, $\lambda > \SI{780}{\nano\meter}$) von Bedeutung sind. \cite[S.~22--24]{radiativeHeatTransfer} 
+Elektromagnetische Wellen werden durch folgende Eigenschaften charakterisiert:
 \begin{table}[H]
     \centering
     \small
@@ -32,14 +33,14 @@ und die infrarote Strahlung (IR, $\lambda > \SI{780}{\nano\meter}$) von Bedeutun
         Wellenzahl, $\eta$ & Anzahl der Wellen pro Längeneinheit, $[\si{\centi\meter}^{-1}]$ \\
         \bottomrule
     \end{tabularx}
-    \caption{Charakteristische Eigenschaften elektromagnetischer Wellen \cite[S.~4]{radiativeHeatTransfer}.}
+    \caption{Charakteristische Eigenschaften elektromagnetischer Wellen. \cite[S.~23]{radiativeHeatTransfer}}
     \label{tab:wave_properties}
 \end{table}
 \vspace{-0.5cm} 
 \ifthenelse{\boolean{formeln}}{
   \begin{equation}
     \nu = \frac{c_0}{\lambda} = c_0\eta
-    \quad \text{\cite[S.~4]{radiativeHeatTransfer}}
+    \quad \text{\cite[S.~23]{radiativeHeatTransfer}}
   \end{equation}
 }{}
 \ifthenelse{\boolean{abbildungen}}{
@@ -89,23 +90,24 @@ und die infrarote Strahlung (IR, $\lambda > \SI{780}{\nano\meter}$) von Bedeutun
 \label{sec:strahlungsgesetzte}
 Jedes Medium emittiert elektromagnetische Strahlung isotrop in alle Richtungen. 
 Die Intensität dieser Emission hängt sowohl von der Temperatur als auch von den Materialeigenschaften des Mediums ab. 
-Der von einer Oberfläche abgegebene Strahlungswärmestrom wird als \textit{spezifische Ausstrahlung} $E$ bezeichnet und quantifiziert die Intensität der Emission.
+Der von einer Oberfläche abgegebene Strahlungswärmestrom wird als \textit{spezifische Ausstrahlung} $E$ bezeichnet 
+und quantifiziert die Intensität der Emission. \cite[S.~25--26]{radiativeHeatTransfer}
 
-Dabei wird zwischen der \textit{gesamten spezifischen Ausstrahlung} $E$ und der \textit{spektralen spezifischen Ausstrahlung} $E_{\nu}$ unterschieden:
+Dabei wird zwischen der \textit{gesamten spezifischen Ausstrahlung} $E$ und der \textit{spektralen spezifischen Ausstrahlung}
+$E_{\nu}$ unterschieden. \cite[S.~26]{radiativeHeatTransfer}
 \ifthenelse{\boolean{formeln}}{
   \begin{align*}
   E_{\nu} &\equiv \text{abgestrahlte Energie pro Zeit, Oberfläche und Frequenz (spektrale Intensität).} \\
   E &\equiv \text{abgestrahlte Energie pro Zeit und Oberfläche (Gesamtintensität).}
   \end{align*}
 }{}
-\cite[S.~6--7]{radiativeHeatTransfer}
 
 
 \subsubsection{Das Plancksche Strahlungsgesetz}
 Die spektrale spezifische Ausstrahlung eines ideal schwarzen Körpers $E_{b\nu}$ wird durch das Plancksche Strahlungsgesetz beschrieben. 
 Es gibt an, wie viel Energie pro Zeit, Fläche und Frequenzintervall von einer ideal schwarzen Oberfläche bei einer bestimmten Temperatur $T$ emittiert wird. 
-Dieses Gesetz wurde 1900 von Max Planck \cite{plancknormalspektrum} hergeleitet und ist heute als \textit{Plancksches Strahlungsgesetz} bekannt. 
-Für eine schwarze Oberfläche ergibt sich die spektrale spezifische Ausstrahlung\cite[S.~7]{radiativeHeatTransfer} zu:
+Dieses Gesetz wurde 1900 von Max Planck hergeleitet und ist heute als \textit{Plancksches Strahlungsgesetz} bekannt. \cite{plancknormalspektrum}
+Für eine schwarze Oberfläche ergibt sich die spektrale spezifische Ausstrahlung \cite[S.~26]{radiativeHeatTransfer} zu:
 \ifthenelse{\boolean{formeln}}{
   \begin{equation}
     \label{eq:plancks_law_frequenzy}
@@ -122,7 +124,7 @@ Das Plancksche Strahlungsgesetz lässt sich auch in Abhängigkeit von der Wellen
 }{}
 Dabei bezeichnet $h = \SI{6.626e-34}{\joule\second}$ das Plancksche Wirkungsquantum, 
 $c_0 = \SI{2.998e8}{\meter\per\second}$ die Lichtgeschwindigkeit im Vakuum 
-und $k = \SI{1.381e-23}{\joule\per\kelvin}$ die Boltzmann-Konstante \cite{codata2018}.
+und $k = \SI{1.381e-23}{\joule\per\kelvin}$ die Boltzmann-Konstante. \cite{codata2018}
 
 \subsubsection{Das Stefan-Boltzmann Gesetz}
 \label{sec:stefan_boltzmann}
@@ -130,10 +132,9 @@ Die Integration der spektralen spezifischen Ausstrahlung über das gesamte
 elektromagnetische Spektrum liefert die \textit{Gesamtausstrahlung} $E$:
 \ifthenelse{\boolean{formeln}}{
   \begin{equation}
-    E = \int_{0}^{\infty}E_{\nu} \, d\nu
+    E = \int_{0}^{\infty}E_{\nu} \, d\nu \quad \text{\cite{stefanBoltzmannLaw}}
   \end{equation}
 }{}
-\cite{stefanBoltzmannLaw}
 
 Für einen idealen schwarzen Körper wird $E_{b\nu}$ aus Gleichung 
 \eqref{eq:plancks_law_frequenzy} in das Integral eingesetzt:
@@ -144,7 +145,7 @@ Für einen idealen schwarzen Körper wird $E_{b\nu}$ aus Gleichung
 }{}
 
 Die Auswertung dieses Integrals erfordert komplexe Integrationstechniken und ist 
-in Integraltabellen dokumentiert \cite[S.~13]{radiativeHeatTransfer}. 
+in Integraltabellen dokumentiert. \cite[S.~13]{radiativeHeatTransfer}
 Das Ergebnis ist das \textit{Stefan-Boltzmann Gesetz}:
 \ifthenelse{\boolean{formeln}}{
   \begin{equation}
@@ -154,7 +155,7 @@ Das Ergebnis ist das \textit{Stefan-Boltzmann Gesetz}:
 }{}
 
 Dabei bezeichnet $\sigma = \SI{5.670e-8}{\watt\per\meter\squared\per\kelvin\tothe{4}}$ 
-die Stefan-Boltzmann Konstante \cite{codata2018}.
+die Stefan-Boltzmann Konstante. \cite{codata2018}
 
 \subsubsection{Wiensches Verschiebungsgesetz}
 \label{sec:wien}
@@ -163,7 +164,7 @@ mit der Temperatur $T$ ein Maximum erreicht, erhält man durch Ableitung der Gle
 $\lambda$ und Nullsetzen dieser Ableitung (die vollständige Herleitung befindet sich in \autoref{sec:herleitung_wien}). 
 Das daraus resultierende \textit{Wiensche Verschiebungsgesetz} besagt, dass sich das Maximum der spektralen Ausstrahlung mit steigender 
 Temperatur zu kürzeren Wellenlängen verschiebt \cite[S.~101]{kraus2007atmosphäre}, wobei die Konstante 
-$b = \SI{2.8978e-3}{\meter\kelvin}$ als \textit{Wiensche Verschiebungskonstante} bezeichnet wird \cite[S.~49]{codata2018}:
+$b = \SI{2.8978e-3}{\meter\kelvin}$ als \textit{Wiensche Verschiebungskonstante} bezeichnet wird. \cite[S.~49]{codata2018}
 \ifthenelse{\boolean{formeln}}{
   \begin{equation}
     \label{eq:wiens_displacement_law}
@@ -180,16 +181,16 @@ $b = \SI{2.8978e-3}{\meter\kelvin}$ als \textit{Wiensche Verschiebungskonstante}
 }{}
 \subsection{Strahlungsbilanz der Erde}
 \label{sec:strahlungsbilanz_erde}
-Die Erde bezieht nahezu ihre gesamte Energie von der Sonne. Um ein thermisches Gleichgewicht aufrechtzuerhalten, muss sie 
-Energie mit derselben Rate wieder abstrahlen, mit der sie diese empfängt \cite[S.~9]{marshall2007atmosphere}:
+Die Erde bezieht nahezu ihre gesamte Energie von der Sonne. Um ein thermisches Gleichgewicht aufrechtzuerhalten, 
+muss die abgestrahlte Leistung der empfangenen Leistung entsprechen \cite[S.~9]{marshall2007atmosphere}:
 \ifthenelse{\boolean{formeln}}{
   \begin{equation}
     P_{\text{in}} = P_{\text{out}}
     \label{eq:power_balance}
   \end{equation}
 }{}
-Die einfallende solare Bestrahlungsstärke am oberen Rand der Atmosphäre, die sogenannte \textit{Solarkonstante}, beträgt $S_0 = \SI{1361}{\watt\per\meter\squared}$\cite[S.~5--6]{solarIrradiance}.
-Da die Querschnittsfläche der Erde, welche die solare Strahlung abfängt, $\pi r^2$ beträgt\cite[S.~11]{marshall2007atmosphere}, wobei $r = \SI{6.371e6}{\meter}$\cite[S.~56]{formelsammlung} der Erdradius ist, ergibt sich für die einfallende Strahlungsleistung:
+Die einfallende solare Bestrahlungsstärke am oberen Rand der Atmosphäre, die sogenannte \textit{Solarkonstante}, beträgt $S_0 = \SI{1361}{\watt\per\meter\squared}$. \cite[S.~5--6]{solarIrradiance}
+Da die Querschnittsfläche der Erde, welche die solare Strahlung abfängt, $\pi r^2$ beträgt, \cite[S.~11]{marshall2007atmosphere} wobei $r = \SI{6.371e6}{\meter}$ \cite[S.~56]{formelsammlung} der Erdradius ist, ergibt sich für die einfallende Strahlungsleistung:
 \ifthenelse{\boolean{formeln}}{
   \begin{align}
     P_{\text{solar}} &= S_0\pi r^2 \nonumber\\
@@ -200,12 +201,12 @@ Da die Querschnittsfläche der Erde, welche die solare Strahlung abfängt, $\pi 
 
 Allerdings wird nicht die gesamte Strahlung von der Erde absorbiert, da ein Teil reflektiert wird. Der Anteil der reflektierten Strahlung wird als \textit{Albedo} $\alpha$ bezeichnet. 
 Abbildung \ref{fig:albedo_map} zeigt, dass $\alpha$ von der reflektierenden Oberfläche abhängt (detaillierte Werte für verschiedene Oberflächen siehe Anhang \autoref{tab:albedos_surfaces}).
-Im globalen Mittel wird ein Anteil von $\alpha_p \simeq 0{,}30$ der eingehenden Strahlung reflektiert. Diese Größe wird als \textit{planetare Albedo} bezeichnet \cite[S.~11]{marshall2007atmosphere}.
+Im globalen Mittel wird ein Anteil von $\alpha_p \simeq \SI{30}{\percent}$ der eingehenden Strahlung reflektiert. Diese Größe wird als \textit{planetare Albedo} bezeichnet. \cite[S.~11]{marshall2007atmosphere}
 \ifthenelse{\boolean{abbildungen}}{
   \begin{figure}[H]
       \centering
       \includegraphics[width=0.8\textwidth]{assets/albedo_map.pdf}
-      \caption{Räumliche Verteilung der Albedo an der Erdoberfläche \cite[S.~12]{marshall2007atmosphere}. Bild wurde mithilfe von \cite{bigjpg} hochskaliert.}
+      \caption{Räumliche Verteilung der Albedo an der Erdoberfläche. \cite[S.~12]{marshall2007atmosphere} Bild wurde mithilfe von \cite{bigjpg} hochskaliert.}
       \label{fig:albedo_map}
   \end{figure}
 }{}
@@ -220,10 +221,12 @@ Daraus folgt für die von der Erde absorbierte Strahlungsleistung:
 }{}
 
 Aufgrund des Energiegleichgewichts muss die von der Erde emittierte Strahlung die absorbierte Strahlung kompensieren. Dazu kann angenommen werden, dass sich die Erde
-wie ein idealer schwarzer Körper mit gleichmäßiger Temperatur $T_e$ verhält (bekannt als \textit{effektive planetare Temperatur}) und dass das \textit{Stefan-Boltzmann-Gesetz} wie in \autoref{sec:stefan_boltzmann} anwendbar ist.
+wie ein idealer schwarzer Körper mit gleichmäßiger Temperatur $T_e$ verhält (bekannt als \textit{effektive planetare Temperatur}) und dass das 
+\textit{Stefan-Boltzmann-Gesetz} wie in \autoref{sec:stefan_boltzmann} anwendbar ist. \cite[S.~11]{marshall2007atmosphere}
 
-\autoref{eq:stefan_boltzmann} gibt die Gesamtausstrahlung $E_b(T)$ an, welche die Strahlungsintensität, also die ausgestrahlte Leistung pro Flächeneinheit, beschreibt: $E_b = P/A$ \cite{stefanBoltzmannLaw}. 
-Die Erde strahlt über ihre gesamte Oberfläche $A = 4\pi r^2$ ab. Umgestellt nach der Strahlungsleistung ergibt sich \cite[S.~11]{marshall2007atmosphere}:\ifthenelse{\boolean{formeln}}{
+\autoref{eq:stefan_boltzmann} gibt die Gesamtausstrahlung $E_b(T)$ an, welche die Strahlungsintensität, also die ausgestrahlte Leistung pro Flächeneinheit, beschreibt: $E_b = P/A$. \cite{stefanBoltzmannLaw} 
+Die Erde strahlt über ihre gesamte Oberfläche $A = 4\pi r^2$ ab. \cite[S.~11]{marshall2007atmosphere} Umgestellt nach der Strahlungsleistung ergibt sich:
+\ifthenelse{\boolean{formeln}}{
   \begin{equation}
       P_{\text{out}} = \sigma \cdot 4\pi r^2 \cdot T_e^4
       \label{eq:earth_emission}
@@ -238,24 +241,23 @@ Durch Einsetzen von \autoref{eq:absorbed_power} und \autoref{eq:earth_emission} 
   \end{equation}
 }{}
 
-Mit den Werten $S_0 = \SI{1361}{\watt\per\meter\squared}$, $\alpha_p = 0{,}30$ und $\sigma = \SI{5.670e-8}{\watt\per\meter\squared\per\kelvin\tothe{4}}$ ergibt sich:
+Mit den Werten $S_0 = \SI{1361}{\watt\per\meter\squared}$, $\alpha_p = \SI{30}{\percent}$ und $\sigma = \SI{5.670e-8}{\watt\per\meter\squared\per\kelvin\tothe{4}}$ ergibt sich:
 \ifthenelse{\boolean{formeln}}{
   \begin{align}
-      T_e &= \left(\frac{\SI{1361}{\watt\per\meter\squared} \cdot (1-0{,}30)}{4 \cdot \SI{5.670e-8}{\watt\per\meter\squared\per\kelvin\tothe{4}}}\right)^{1/4} \nonumber\\
+      T_e &= \left(\frac{\SI{1361}{\watt\per\meter\squared} \cdot (1-\SI{0.3}{})}{4 \cdot \SI{5.670e-8}{\watt\per\meter\squared\per\kelvin\tothe{4}}}\right)^{1/4} \nonumber\\
       &= \SI{254.6}{\kelvin}
       \label{eq:effective_temperature_value}
   \end{align}
 }{}
-
-Diese Temperatur von etwa \SI{-18}{\celsius} liegt deutlich unter der gemessenen globalen Mitteltemperatur der Erdoberfläche von circa \SI{288}{\kelvin}\cite[S.~11]{marshall2007atmosphere}. 
-Die Differenz von etwa \SI{33}{\kelvin} wird durch den natürlichen Treibhauseffekt der Atmosphäre verursacht. Lacis et al. (2010) schlussfolgern: \enquote{In round numbers, water vapor accounts for
-about 50\% of Earth's greenhouse effect, with clouds contributing 25\%, CO2 20\%, and the minor GHGs and aerosols accounting for the remaining 5\%.}\cite{atmosphericCO2}, 
+Diese Temperatur von etwa \SI{-18}{\celsius} liegt deutlich unter der gemessenen globalen Mitteltemperatur der Erdoberfläche von circa \SI{288}{\kelvin}. \cite[S.~11]{marshall2007atmosphere} 
+Die Differenz von etwa \SI{33}{\kelvin} wird durch den natürlichen Treibhauseffekt der Atmosphäre verursacht. Lacis et al. schlussfolgern: \enquote{In round numbers, water vapor accounts for
+about 50\% of Earth's greenhouse effect, with clouds contributing 25\%, CO2 20\%, and the minor GHGs and aerosols accounting for the remaining 5\%.} \cite{atmosphericCO2}, 
 was zunächst vermuten lässt, dass CO\textsubscript{2} nicht die bedeutendste Rolle im Treibhauseffekt spielt. Dennoch bilden die nicht kondensierenden Treibhausgase 
 \ce{CO2}, \ce{O3}, \ce{N20} und \ce{CH4} die Grundlage des Treibhauseffekts, da sie im Gegensatz zu Wasserdampf nicht durch Niederschlag 
 aus der Atmosphäre entfernt werden. Wasserdampf und Wolken (zusammen 75\%) wirken als schnelle Rückkopplungsmechanismen, 
-deren Konzentration von der Temperatur und damit von den nicht kondensierenden Treibhausgasen abhängt\cite{atmosphericCO2}.
+deren Konzentration von der Temperatur und damit von den nicht kondensierenden Treibhausgasen abhängt. \cite{atmosphericCO2}
 
-Die Anwendung des Wienschen Verschiebungsgesetzes (\autoref{eq:wiens_displacement_law}) auf Sonne ($T_{\text{Sonne}} = \SI{5772}{\kelvin}$\cite[S.~6]{solarIrradiance}) 
+Die Anwendung des Wienschen Verschiebungsgesetzes (\autoref{eq:wiens_displacement_law}) auf Sonne ($T_{\text{Sonne}} = \SI{5772}{\kelvin}$ \cite[S.~6]{solarIrradiance}) 
 und Erde ($T_{\text{Erde}} = \SI{288}{\kelvin}$\cite[S.~11]{marshall2007atmosphere}) verdeutlicht die fundamentale spektrale Asymmetrie zwischen solarer und terrestrischer Strahlung.
 Während die solare Strahlung ihr Maximum bei $\lambda_{\text{Sonne,max}} = \SI{0.50}{\micro\meter}$ hat, liegt das Maximum der terrestrischen Strahlung bei $\lambda_{\text{Erde,max}} = \SI{10.06}{\micro\meter}$
 (visualisiert in \autoref{fig:planck_earth_sun}).
@@ -270,7 +272,7 @@ Während die solare Strahlung ihr Maximum bei $\lambda_{\text{Sonne,max}} = \SI{
 }{}
 Die in diesem Kapitel dargestellten Strahlungsgesetze bilden das Fundament für das Verständnis des Treibhauseffekts. 
 Die Analyse der Strahlungsbilanz zeigt, dass die berechnete effektive planetare Temperatur deutlich 
-unter der gemessenen globalen Mitteltemperatur liegt \cite[S.~11]{marshall2007atmosphere}. Diese Differenz 
+unter der gemessenen globalen Mitteltemperatur liegt. \cite[S.~11]{marshall2007atmosphere} Diese Differenz 
 resultiert aus dem natürlichen Treibhauseffekt, dessen zentraler Mechanismus die wellenlängenselektive 
 Absorption durch Treibhausgase wie CO\textsubscript{2} ist, wie bereits in \autoref{fig:planck_earth_sun} ersichtlich ist.
 Die molekularen Grundlagen der CO\textsubscript{2}-Absorption werden im folgenden Kapitel untersucht.
