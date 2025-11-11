@@ -237,8 +237,24 @@ Da $S\uparrow = \sigma T_s^4$ und da $E_\text{in} = \sigma T_e^4$ ergibt sich:
 \newpage
 
 \begin{code}
+\inputminted{python}{../simulationen/co2_spektrum_v2_band/__main__.py}
+\caption[Visualisierung des CO\texorpdfstring{$_2$}{2}-Absorptionsspektrums des \texorpdfstring{$\nu_2$}{v2}-Vibrationsbandes]{Visualisierung des CO\texorpdfstring{$_2$}{2}-Absorptionsspektrums des \texorpdfstring{$\nu_2$}{v2}-Vibrationsbandes mithilfe von HITRAN Daten \autocite{DBhitran2020}, Daten des Bandzentrums kommen aus \cite[S.~39]{Shimanouchi1972}. Benutzt Funktionen aus \autoref{lst:utils}.}
+\label{lst:co2_spektrum_v2}
+\end{code}
+
+\newpage
+
+\begin{code}
 \inputminted{python}{../simulationen/co2_absorptionsgrad/__main__.py}
 \caption[Berechnung des Absorptionsgrads von CO\texorpdfstring{$_2$}{2} der Atmosphäre.]{Berechnung des Absorptionsgrads von CO\texorpdfstring{$_2$}{2} der Atmosphäre mithilfe von HITRAN Daten \autocite{DBhitran2020}. Benutzt Funktionen aus \autoref{lst:utils} und \autoref{lst:formeln}.}
 \label{lst:co2_absorption}
+\end{code}
+
+\newpage
+
+\begin{code}
+\inputminted{python}{../simulationen/co2_v2_schwingung/__main__.py}
+\caption{Visualisierung der \texorpdfstring{$\nu_2$}{v2}-Schwingung}
+\label{lst:co2_v2_schwingung}
 \end{code}
 
