@@ -117,12 +117,11 @@ def main() -> None:
 
     ax3.set_xlabel(r"Wellenlänge [$\mu\text{m}$]", fontsize=BIG_FONT_SIZE)
     ax3.set_ylabel("Normalisierte spektrale Ausstrahlung", fontsize=BIG_FONT_SIZE)
-    ax3.set_title(r"Vergleich: Planck-Strahlung und $\mathrm{CO_2}$-Absorptionsbanden", fontsize=TITLE_FONT_SIZE)
     ax3.grid(True, alpha=0.3, which="both")
     ax3.set_xlim(0.1, 100)
     ax3.set_ylim(0, 1.1)
     ax3.tick_params(axis="both", labelsize=SMALL_FONT_SIZE)
-    ax3.legend(loc="lower left", fontsize=SMALL_FONT_SIZE)
+    ax3.legend(loc="lower left", fontsize=SMALL_FONT_SIZE-2)
 
     ax3.annotate(
         "Maximum\nSonnenstrahlung",
