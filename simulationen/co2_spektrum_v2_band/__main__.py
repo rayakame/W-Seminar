@@ -92,7 +92,7 @@ def main() -> None:
     ax2.legend(loc="upper right", fontsize=SMALL_FONT)
 
     ax2.annotate(
-        "Überlagerung vieler\nRotationslinien\n(ΔJ = 0)",
+        "Überlagerung vieler\nRotationslinien\n"+r"($\Delta$j = 0)",
         xy=(V2_CENTER, max(absorbance_percent[q_mask]) * 0.5),
         xytext=(V2_CENTER + 1.4, max(absorbance_percent[q_mask]) * 0.6),
         arrowprops={"arrowstyle": "->", "color": "black", "lw": 1.5},
