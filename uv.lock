@@ -620,6 +620,7 @@ dependencies = [
 co2 = [
     { name = "matplotlib" },
     { name = "pandas" },
+    { name = "scipy" },
 ]
 co2absorption = [
     { name = "pandas" },
@@ -640,6 +641,7 @@ requires-dist = [{ name = "nox", specifier = ">=2025.10.16" }]
 co2 = [
     { name = "matplotlib", specifier = ">=3.10.7" },
     { name = "pandas", specifier = ">=2.3.3" },
+    { name = "scipy", specifier = ">=1.16.3" },
 ]
 co2absorption = [
     { name = "pandas", specifier = ">=2.3.3" },

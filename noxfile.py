@@ -7,7 +7,7 @@ import nox
 from nox import options
 
 options.default_venv_backend = "uv"
-options.sessions = ["planck", "wien", "co2", "co2_absorption"]
+options.sessions = ["planck", "wien", "co2", "co2_absorption", "co2_schwingung"]
 PYTHON_PATHS = [pathlib.Path(__file__).parent / "simulationen", "noxfile.py"]
 
 
@@ -102,6 +102,12 @@ def co2_absorption(session: nox.Session) -> None:
 
     session.run("python", "-m", "simulationen.co2_absorptionsgrad")
 
+
+@nox.session(reuse_venv=True)
+def co2_schwingung(session: nox.Session) -> None:
+    uv_sync(session, groups=["co2"])
+
+    session.run("python", "-m", "simulationen.co2_v2_schwingung")
 
 @nox.session(reuse_venv=True)
 def ruff(session: nox.Session) -> None:

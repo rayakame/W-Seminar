@@ -15,6 +15,7 @@ planck = [
 co2 = [
     "matplotlib>=3.10.7",
     "pandas>=2.3.3",
+    "scipy>=1.16.3",
 ]
 co2absorption = [
     "pandas>=2.3.3",
